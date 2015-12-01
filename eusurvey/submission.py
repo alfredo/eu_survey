@@ -1,6 +1,6 @@
 import requests
 
-from eusurvey import settings
+from eusurvey import database, settings
 from eusurvey.models import FormTree, PreSubmission
 from lxml import html
 
@@ -25,9 +25,15 @@ def prepare_submission(form_tree):
     return PreSubmission(cookies=form_tree.response.cookies, payload=payload)
 
 
-def get_form_tree(url):
-    response = requests.get(url, headers=HEADERS)
-    tree = html.fromstring(response.content)
+def get_form_tree(url, use_cache=False):
+    if use_cache:
+        stream = database.read_file('cached_form.html')
+        response = None
+    else:
+        response = requests.get(url, headers=HEADERS)
+        database.save_stream(response.content, name='cached_form.html')
+        stream = response.content
+    tree = html.fromstring(stream)
     return FormTree(tree=tree, response=response)
 
 
