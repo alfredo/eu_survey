@@ -18,3 +18,42 @@ SPECIAL_FIELDS = (
     'draftid',
     'newlang',
 )
+
+
+VERBOSE_FORMAT = '%(levelname)s %(asctime)s %(module)s %(process)d %(message)s'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+    },
+    'formatters': {
+        'verbose': {
+            'format': VERBOSE_FORMAT
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'eusurvey.libs.stream_handler.ColorStreamHandler',
+            'formatter': 'verbose',
+        },
+        'null': {
+            'class': 'logging.NullHandler',
+        },
+    },
+    'loggers': {
+        '': {
+            'handlers': ['console'],
+            'level': 'ERROR',
+        },
+        'eusurvey': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+        'py.warnings': {
+            'handlers': ['console'],
+        },
+    }
+}
