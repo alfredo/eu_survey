@@ -13,12 +13,48 @@ IGNORED_CLASS = ['surveytitle']
 _str = etree.tostring
 
 
-def extract_fields(section):
+def _get(element_list, expected=1):
+    """Validates there is a single element in the list."""
+    if not len(element_list) == expected:
+        raise ValueError(
+            'Different number of elements than expected: `%s`' % element_list)
+    return element_list[0]
+
+
+def is_mandatory(question):
+    """Determines if the question is mandatory."""
+    return bool(question.xpath('.//span[@class="mandatory"]/text()'))
+
+
+def get_label(field_element):
+    """Determines the label for the field_element."""
+    label_field = _get(field_element.xpath('.//td/label'))
+    label_text = _get(
+        label_field.xpath('.//span[@class="answertext"]/text()'))
+    label_pk = label_field.attrib['for']
+    return models.Label(text=label_text, pk=label_pk)
+
+
+def get_field_list(section):
+    field_element_list = section.xpath('.//table[@class="answers-table"]/tr')
+    field_list = []
+    for field_element in field_element_list:
+        label = get_label(field_element)
+        input_field = _get(field_element.xpath('.//td/input'))
+        field = models.Field(label=label, widget=input_field)
+        field_list.append(field)
+    return field_list
+
+
+def extract_formset(section):
     if not validators.is_fields_section(section):
         return None
-    # TODO: Extract fields from this section:
-    import ipdb; ipdb.set_trace()
-    return models.Field(name='', label='')
+    question_element = _get(section.xpath('.//div[@class="questiontitle"]'))
+    mandatory = is_mandatory(question_element)
+    question = question_element.xpath('.//td')[1].text
+    field_list = get_field_list(section)
+    return models.FormSet(
+        question=question, is_mandatory=mandatory, field_list=field_list)
 
 
 def get_form_elements(tree):
@@ -47,20 +83,21 @@ def get_form_sections(tree):
 
 
 def process(url):
-    tree = submission.get_form_tree(url)
+    tree = submission.get_form_tree(url, use_cache=True)
     title = get_form_title(tree.tree)
     sections = get_form_sections(tree.tree)
     form_elements = get_form_elements(tree.tree)
+    formset_list = []
     for element in form_elements:
         # Ignore non valid elements:
         if not validators.is_valid_element(element):
             continue
-        print '*' * 30
-        fields = extract_fields(element)
-        if not fields:
+        formset = extract_formset(element)
+        if not formset:
             continue
-    assert False, "ff"
+        formset_list.append(formset)
     return models.Form(**{
         'title': title,
         'sections': sections,
+        'formset_list': formset_list,
     })
