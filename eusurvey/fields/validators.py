@@ -54,7 +54,6 @@ def is_valid_element(element):
         try:
             filter_callable(element)
         except ValueError, e:
-            print 'IGNORING', e
             logger.debug('Ignoring %s', e)
             return False
     return True
