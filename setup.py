@@ -23,7 +23,10 @@ setup(
     package_data={
         'eusurvey': []
     },
-    scripts=['eusurvey/bin/survey.py'],
+    scripts=[
+        'eusurvey/bin/survey.py',
+        'eusurvey/bin/import_survey.py',
+    ],
     classifiers=[
         'Development Status :: 1 - Alpha',
         'Environment :: OS',
