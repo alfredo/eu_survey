@@ -63,5 +63,5 @@ def is_fields_section(element):
     element_str = _str(element)
     if 'label' in element_str:
         return True
-    print "IGNORING non-field section: `%s`" % element_str
+    logger.debug("Ignoring non-field section: `%s`" % element)
     return False
