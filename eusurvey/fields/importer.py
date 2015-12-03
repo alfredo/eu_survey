@@ -2,6 +2,13 @@ import logging
 
 from eusurvey import submission, models
 from eusurvey.fields import validators
+from eusurvey.fields.common import to_str
+from eusurvey.fields.extractors import (
+    radio,
+    select,
+    textarea,
+    checkbox,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -21,40 +28,23 @@ def _get(element_list, expected=1):
     return element_list[0]
 
 
-def is_mandatory(question):
-    """Determines if the question is mandatory."""
-    return bool(question.xpath('.//span[@class="mandatory"]/text()'))
-
-
-def get_label(field_element):
-    """Determines the label for the field_element."""
-    label_field = _get(field_element.xpath('.//td/label'))
-    label_text = _get(
-        label_field.xpath('.//span[@class="answertext"]/text()'))
-    label_pk = label_field.attrib['for']
-    return models.Label(text=label_text, pk=label_pk)
-
-
-def get_field_list(section):
-    field_element_list = section.xpath('.//table[@class="answers-table"]/tr')
-    field_list = []
-    for field_element in field_element_list:
-        label = get_label(field_element)
-        input_field = _get(field_element.xpath('.//td/input'))
-        field = models.Field(label=label, widget=input_field)
-        field_list.append(field)
-    return field_list
+EXTRACTOR_LIST = (
+    radio.RadioFieldExtractor,
+    select.SelectFieldExtractor,
+    textarea.TextareaFieldExtractor,
+    checkbox.CheckboxFieldExtractor,
+)
 
 
 def extract_formset(section):
     if not validators.is_fields_section(section):
         return None
-    question_element = _get(section.xpath('.//div[@class="questiontitle"]'))
-    mandatory = is_mandatory(question_element)
-    question = question_element.xpath('.//td')[1].text
-    field_list = get_field_list(section)
-    return models.FormSet(
-        question=question, is_mandatory=mandatory, field_list=field_list)
+    for Extractor in EXTRACTOR_LIST:
+        extractor = Extractor(section)
+        if extractor.has_pattern():
+            return extractor
+    logger.error('Extractor for section not found:\n %s', to_str(section))
+    assert False, "Missing"
 
 
 def get_form_elements(tree):
