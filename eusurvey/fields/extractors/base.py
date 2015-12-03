@@ -1,13 +1,10 @@
 import logging
 
 from eusurvey.fields.common import (
-    get as g,
-    get_label,
     get_data_triggers,
     get_question_title,
     is_mandatory,
     is_supplementary,
-    to_str,
 )
 
 logger = logging.getLogger(__name__)
