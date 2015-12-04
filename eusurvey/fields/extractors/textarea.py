@@ -15,7 +15,7 @@ def get_textarea(section):
 
 
 class TextareaFieldExtractor(base.Extractor):
-
+    field_type = 'textarea'
     pattern = './/div/textarea'
 
     def extract(self):

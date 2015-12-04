@@ -12,8 +12,8 @@ logger = logging.getLogger(__name__)
 
 class Extractor(object):
     question = None
-    mandatory = False
-    supplementary = False
+    is_mandatory = False
+    is_supplementary = False
     data_triggers = None
 
     def __init__(self, section):
@@ -21,8 +21,8 @@ class Extractor(object):
 
     def extract_components(self, section):
         self.question = get_question_title(section)
-        self.mandatory = is_mandatory(section)
-        self.supplementary = is_supplementary(section)
+        self.is_mandatory = is_mandatory(section)
+        self.is_supplementary = is_supplementary(section)
         self.data_triggers = get_data_triggers(section)
 
     def has_pattern(self):

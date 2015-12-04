@@ -30,11 +30,8 @@ def get_input_list(section):
 
 
 class RadioFieldExtractor(base.Extractor):
-
+    field_type = 'radio'
     pattern = './/input[@type="radio"]'
 
     def extract_field(self):
         self.input_list = get_input_list(self.section)
-        return RadioField(
-            question=self.question, mandatory=self.mandatory,
-            input_list=self.input_list)
