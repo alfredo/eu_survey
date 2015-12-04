@@ -1,5 +1,4 @@
 from eusurvey.fields.extractors import base
-from eusurvey.models import TextareaField
 from eusurvey.fields.common import (
     get as g,
 )
@@ -20,7 +19,3 @@ class TextareaFieldExtractor(base.Extractor):
 
     def extract(self):
         self.textarea = get_textarea(self.section)
-        return TextareaField(
-            question=self.question, mandatory=self.mandatory,
-            textarea=self.textarea, data_triggers=self.data_triggers,
-            supplementary=self.supplementary)

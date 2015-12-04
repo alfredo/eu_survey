@@ -1,5 +1,4 @@
 from eusurvey.fields.extractors import base
-from eusurvey.models import CheckboxField
 from eusurvey.fields.common import (
     get as g,
     get_label,
@@ -31,6 +30,3 @@ class CheckboxFieldExtractor(base.Extractor):
 
     def extract_field(self):
         self.input_list = get_input_list(self.section)
-        return CheckboxField(
-            question=self.question, mandatory=self.mandatory,
-            input_list=self.input_list)

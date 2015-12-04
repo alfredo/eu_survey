@@ -1,5 +1,4 @@
 from eusurvey.fields.extractors import base
-from eusurvey.models import SelectField
 
 
 def get_option_list(section):
@@ -20,6 +19,3 @@ class SelectFieldExtractor(base.Extractor):
 
     def extract_field(self):
         self.option_list = get_option_list(self.section)
-        return SelectField(
-            question=self.question, mandatory=self.mandatory,
-            option_list=self.option_list)
