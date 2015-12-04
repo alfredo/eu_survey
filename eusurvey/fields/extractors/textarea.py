@@ -23,4 +23,4 @@ class TextareaFieldExtractor(base.Extractor):
     pattern = './/div/textarea'
 
     def extract_field(self, section):
-        self.textarea = get_textarea(section)
+        self.field = get_textarea(section)

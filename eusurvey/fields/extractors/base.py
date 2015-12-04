@@ -15,6 +15,9 @@ class Extractor(object):
     is_mandatory = False
     is_supplementary = False
     data_triggers = None
+    field_list = None
+    field = None
+    option_list = None
 
     def __init__(self, section):
         self.section = section
@@ -29,5 +32,6 @@ class Extractor(object):
         fields = self.section.xpath(self.pattern)
         has_pattern = bool(fields)
         if has_pattern:
+            self.extract_components(self.section)
             self.extract_field(self.section)
         return has_pattern

@@ -38,4 +38,4 @@ class RadioFieldExtractor(base.Extractor):
     pattern = './/input[@type="radio"]'
 
     def extract_field(self, section):
-        self.input_list = get_input_list(section)
+        self.field_list = get_input_list(section)
