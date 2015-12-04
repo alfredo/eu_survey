@@ -28,5 +28,5 @@ class CheckboxFieldExtractor(base.Extractor):
     field_type = 'checkbox'
     pattern = './/input[@type="checkbox"]'
 
-    def extract_field(self):
-        self.input_list = get_input_list(self.section)
+    def extract_field(self, section):
+        self.input_list = get_input_list(section)

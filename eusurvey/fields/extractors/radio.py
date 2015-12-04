@@ -14,7 +14,11 @@ def get_input(element):
     _a = lambda x: element.attrib.get(x)
     attrs = ['id', 'name', 'value', 'data-id']
     field = dict([(k, _a(k)) for k in attrs])
-    field['data-dependencies'] = _a('data-dependencies').split(';')
+    if 'data-dependencies' in element.attrib:
+        dependencies = _a('data-dependencies').split(';')
+    else:
+        dependencies = None
+    field['data-dependencies'] = dependencies
     field['type'] = 'radio'
     return field
 

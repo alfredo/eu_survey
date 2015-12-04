@@ -17,5 +17,5 @@ class SelectFieldExtractor(base.Extractor):
     field_type = 'select'
     pattern = './/div/select'
 
-    def extract_field(self):
-        self.option_list = get_option_list(self.section)
+    def extract_field(self, section):
+        self.option_list = get_option_list(section)
