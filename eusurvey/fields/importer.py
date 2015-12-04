@@ -1,7 +1,7 @@
 import logging
 
 from eusurvey import submission, models
-from eusurvey.fields import validators
+from eusurvey.fields import renderer, validators
 from eusurvey.fields.common import to_str
 from eusurvey.fields.extractors import (
     radio,
@@ -86,6 +86,7 @@ def process(url):
         if not formset:
             continue
         formset_list.append(formset)
+    output = renderer.render(formset_list)
     return models.Form(**{
         'title': title,
         'sections': sections,

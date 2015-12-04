@@ -41,4 +41,4 @@ def run(url=URL):
 def import_fields(url=URL):
     """Imports the given form fields"""
     result = importer.process(url)
-    assert False, result
+    return True
