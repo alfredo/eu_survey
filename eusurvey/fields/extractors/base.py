@@ -29,5 +29,5 @@ class Extractor(object):
         fields = self.section.xpath(self.pattern)
         has_pattern = bool(fields)
         if has_pattern:
-            self.extract_components(self.section)
+            self.extract_field(self.section)
         return has_pattern
