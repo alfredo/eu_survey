@@ -57,11 +57,3 @@ def is_valid_element(element):
             logger.debug('Ignoring %s', e)
             return False
     return True
-
-
-def is_fields_section(element):
-    element_str = _str(element)
-    if 'label' in element_str:
-        return True
-    logger.debug("Ignoring non-field section: `%s`" % element)
-    return False
