@@ -1,7 +1,6 @@
 import logging
 
 from eusurvey.fields.extractors import base
-from eusurvey.models import RadioField
 from eusurvey.fields.common import (
     get as g,
     get_label,
@@ -13,8 +12,9 @@ logger = logging.getLogger(__name__)
 def get_input(element):
     element = g(element.xpath('.//td/input'))
     _a = lambda x: element.attrib.get(x)
-    attrs = ['id', 'name', 'data-id', 'data-dependencies', 'value']
+    attrs = ['id', 'name', 'value', 'data-id']
     field = dict([(k, _a(k)) for k in attrs])
+    field['data-dependencies'] = _a('data-dependencies').split(';')
     field['type'] = 'radio'
     return field
 
@@ -33,5 +33,5 @@ class RadioFieldExtractor(base.Extractor):
     field_type = 'radio'
     pattern = './/input[@type="radio"]'
 
-    def extract_field(self):
-        self.input_list = get_input_list(self.section)
+    def extract_field(self, section):
+        self.input_list = get_input_list(section)
