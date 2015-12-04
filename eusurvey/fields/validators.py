@@ -1,11 +1,8 @@
 import logging
 
 from eusurvey import settings
-from lxml import etree
 
 logger = logging.getLogger(__name__)
-
-_str = etree.tostring
 
 
 def validate_special_field(element):
