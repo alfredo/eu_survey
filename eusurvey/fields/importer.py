@@ -2,7 +2,7 @@ import logging
 
 from eusurvey import submission, models
 from eusurvey.fields import renderer, validators
-from eusurvey.fields.common import to_str
+from eusurvey.fields.common import to_str, get
 from eusurvey.fields.extractors import (
     radio,
     select,
@@ -36,59 +36,51 @@ EXTRACTOR_LIST = (
 )
 
 
-def extract_formset(section):
-    if not validators.is_fields_section(section):
-        return None
+def extract_element(section):
     for Extractor in EXTRACTOR_LIST:
         extractor = Extractor(section)
         if extractor.has_pattern():
             return extractor
     logger.error('Extractor for section not found:\n %s', to_str(section))
-    assert False, "Missing"
-
-
-def get_form_elements(tree):
-    """Extracts the fields containers."""
-    return tree.xpath('//form/div/div/div')
+    assert False, to_str(section)
 
 
 def get_form_title(tree):
     """Gets the title of the form."""
-    # <div class="surveytitle">
     return tree.xpath('//div[@class="surveytitle"]/text()')[0]
 
 
-def get_form_sections(tree):
+def get_form_pages(tree):
     """Extracts the forms sections from the given tree."""
     section_list = []
     for section in tree.xpath('//div[contains(@class, "pagebutton")]'):
         data_id = section.attrib['data-id']
         title = section.xpath('a/div/text()')[0].strip()
         html_id = section.xpath('a/@id')[0].strip()
-        section_list.append((data_id, {
+        section_list.append({
             'title': title,
-            'html_id': html_id,
-        }))
+            'id': html_id,
+            'data_id': data_id
+        })
     return section_list
 
 
+def get_page_fields(tree, page):
+    page_id = 'page%s' % page['id'].replace('tab', '')
+    page_element = get(tree.xpath('.//div[@id="%s"]' % page_id))
+    for element in page_element.xpath('.//div[@class="elem_basic"]'):
+        item = extract_element(element)
+        assert False, item
+
+
 def process(url):
-    tree = submission.get_form_tree(url, use_cache=True)
-    title = get_form_title(tree.tree)
-    sections = get_form_sections(tree.tree)
-    form_elements = get_form_elements(tree.tree)
-    formset_list = []
-    for element in form_elements:
-        # Ignore non valid elements:
-        if not validators.is_valid_element(element):
-            continue
-        formset = extract_formset(element)
-        if not formset:
-            continue
-        formset_list.append(formset)
-    output = renderer.render(formset_list)
-    return models.Form(**{
-        'title': title,
-        'sections': sections,
-        'formset_list': formset_list,
-    })
+    form_tree = submission.get_form_tree(url, use_cache=True)
+    title = get_form_title(form_tree.tree)
+    page_list = get_form_pages(form_tree.tree)
+    survey_list = []
+    for page in page_list:
+        fields = get_page_fields(form_tree.tree, page)
+        survey_list.append((page, fields))
+    assert survey_list
+    output = renderer.render(survey_list)
+    assert False, output
