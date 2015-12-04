@@ -1,7 +1,7 @@
 import logging
 
-from eusurvey import submission, models
-from eusurvey.fields import renderer, validators
+from eusurvey import content, submission
+from eusurvey.fields import renderer
 from eusurvey.fields.common import to_str, get
 from eusurvey.fields.extractors import (
     radio,
@@ -41,6 +41,10 @@ def extract_element(section):
         extractor = Extractor(section)
         if extractor.has_pattern():
             return extractor
+    # Extract content:
+    content_element = content.extractor(section)
+    if content_element:
+        return content_element
     logger.error('Extractor for section not found:\n %s', to_str(section))
     assert False, to_str(section)
 
@@ -68,9 +72,11 @@ def get_form_pages(tree):
 def get_page_fields(tree, page):
     page_id = 'page%s' % page['id'].replace('tab', '')
     page_element = get(tree.xpath('.//div[@id="%s"]' % page_id))
+    field_list = []
     for element in page_element.xpath('.//div[@class="elem_basic"]'):
         item = extract_element(element)
-        assert False, item
+        field_list.append(item)
+    return field_list
 
 
 def process(url):
