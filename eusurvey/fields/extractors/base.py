@@ -3,6 +3,8 @@ import logging
 from eusurvey.fields.common import (
     get_data_triggers,
     get_question_title,
+    get_help_text,
+    get_limits,
     is_mandatory,
     is_supplementary,
 )
@@ -18,6 +20,8 @@ class Extractor(object):
     field_list = None
     field = None
     option_list = None
+    help_text = None
+    limits = None
 
     def __init__(self, section):
         self.section = section
@@ -27,6 +31,8 @@ class Extractor(object):
         self.is_mandatory = is_mandatory(section)
         self.is_supplementary = is_supplementary(section)
         self.data_triggers = get_data_triggers(section)
+        self.help_text = get_help_text(section)
+        self.limits = get_limits(section)
 
     def has_pattern(self):
         fields = self.section.xpath(self.pattern)

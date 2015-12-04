@@ -43,3 +43,19 @@ def get_data_triggers(section):
 def is_supplementary(section):
     pattern = './/div[contains(@class, "survey-element untriggered")]'
     return bool(section.xpath(pattern))
+
+
+def get_help_text(section):
+    pattern = './/div[@class="questionhelp"]'
+    if section.xpath(pattern):
+        help_text = get(section.xpath(pattern))
+        return help_text.text_content()
+    return None
+
+
+def get_limits(section):
+    pattern = './/div[@class="limits"]'
+    if section.xpath(pattern):
+        limits = get(section.xpath(pattern))
+        return limits.text_content()
+    return None
