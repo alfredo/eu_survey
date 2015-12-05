@@ -12,3 +12,7 @@ def get_name(name):
 def get_value(value):
     # Removes the first 4 chars that can be pick from the answer name:
     return value[4:]
+
+
+def get_mandatory(formset):
+    return 'Y' if formset.is_mandatory else ''

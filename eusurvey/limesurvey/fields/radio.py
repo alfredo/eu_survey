@@ -12,7 +12,7 @@ def prepare_radio_row(formset, total):
         '',
         'en',
         '',
-        'Y' if formset.is_mandatory else '',
+        common.get_mandatory(formset),
         '' # Other: link to please specfy?
     ]
     question_row = partial_question + common.get_missing(partial_question, total)
