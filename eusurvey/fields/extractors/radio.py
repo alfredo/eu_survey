@@ -36,7 +36,7 @@ def get_input_list(section):
 
 class RadioFieldExtractor(base.Extractor):
     field_type = 'radio'
-    pattern = './/table[@class="answers-table"]'
+    pattern = './/table[@class="answers-table"]//input[@type="radio"]'
 
     def extract_field(self, section):
         self.field_list = get_input_list(section)
