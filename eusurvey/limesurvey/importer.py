@@ -6,6 +6,7 @@ from eusurvey.limesurvey import constants, common, writer
 from eusurvey.limesurvey.fields import (
     content,
     radio,
+    textarea,
 )
 
 
@@ -40,27 +41,10 @@ def get_page_row(page, total):
     return page_row + common.get_missing(page_row, total)
 
 
-
-"""
-The first 12 columns are:
-1.  class
-2.  type/scale
-3.  name
-4.  relevance
-5.  text
-6.  help
-7.  language
-8.  validation
-9.  mandatory
-10. other
-11. default
-12. same_default
-"""
-
-
 ROW_FILTERS = {
     'content': content.prepare_content_row,
     'radio': radio.prepare_radio_row,
+    'textarea': textarea.prepare_textarea_row,
 }
 
 
