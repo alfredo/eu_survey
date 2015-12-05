@@ -4,6 +4,7 @@ from eusurvey.fields.extractors import base
 from eusurvey.fields.common import (
     get as g,
     get_label,
+    to_str,
 )
 
 logger = logging.getLogger(__name__)
@@ -35,7 +36,7 @@ def get_input_list(section):
 
 class RadioFieldExtractor(base.Extractor):
     field_type = 'radio'
-    pattern = './/input[@type="radio"]'
+    pattern = './/table[@class="answers-table"]'
 
     def extract_field(self, section):
         self.field_list = get_input_list(section)
