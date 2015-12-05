@@ -30,9 +30,14 @@ def render_matrixtable(formset):
     return output
 
 
+def render_content(formset):
+    return [formset.text, '\n']
+
+
 RENDER_MAP = {
     'tabletable': render_tabletable,
     'matrixtable': render_tabletable,
+    'content': render_content,
 }
 
 
@@ -48,14 +53,14 @@ def render_field_list(formset_list, start=1):
     output = []
     counter = 1
     for formset in formset_list:
-        # Is it only text:
-        if isinstance(formset, basestring):
-            output += [formset, '\n']
-            continue
-        # Is it mapped:
+        # mapped content:
         if formset.field_type in RENDER_MAP:
             render_callable = RENDER_MAP[formset.field_type]
             output += render_callable(formset)
+            # link dependencies
+            deps = get_dependency(formset)
+            if deps:
+                output.append(deps)
             continue
         output.append('## [%s] %s. `%s`' % (
             formset.field_type.upper(), counter, formset.question))
