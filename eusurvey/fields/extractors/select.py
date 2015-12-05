@@ -14,7 +14,10 @@ def get_option_list(section):
             dependencies = None
         field['data-dependencies'] = dependencies
         field['type'] = 'option'
-        option_list.append(field)
+        option_list.append({
+            'label': field['text'],
+            'input': field,
+        })
     return option_list
 
 
