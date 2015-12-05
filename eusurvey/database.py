@@ -12,7 +12,7 @@ def save_stream(stream, name='output.html'):
     logger.debug('Saving stream: `%s`', file_path)
     with codecs.open(file_path, 'w', 'utf-8') as f:
         f.write(stream.decode('utf-8'))
-    return f
+    return file_path
 
 
 def read_file(name="output.html"):
