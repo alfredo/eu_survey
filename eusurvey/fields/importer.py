@@ -1,6 +1,6 @@
 import logging
 
-from eusurvey import content, submission
+from eusurvey import content, database, submission
 from eusurvey.fields import renderer
 from eusurvey.fields.common import to_str, get
 from eusurvey.fields.extractors import (
@@ -8,6 +8,8 @@ from eusurvey.fields.extractors import (
     select,
     textarea,
     checkbox,
+    tabletable,
+    matrixtable,
 )
 
 logger = logging.getLogger(__name__)
@@ -33,6 +35,8 @@ EXTRACTOR_LIST = (
     select.SelectFieldExtractor,
     textarea.TextareaFieldExtractor,
     checkbox.CheckboxFieldExtractor,
+    tabletable.TableTableFieldExtractor,
+    matrixtable.MatrixRadioFieldExtractor,
 )
 
 
@@ -87,6 +91,7 @@ def process(url):
     for page in page_list:
         fields = get_page_fields(form_tree.tree, page)
         survey_list.append((page, fields))
-    assert survey_list
     output = renderer.render(survey_list)
-    assert False, output
+    output_file = database.save_stream(output, 'rendered.md')
+    logger.info('Output saved: `%s`', output_file)
+    return output_file
