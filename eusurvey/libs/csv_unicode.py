@@ -3,6 +3,10 @@ import codecs
 import cStringIO
 
 
+class TabExcelDialect(csv.excel):
+    delimiter = '\t'
+
+
 class UTF8Recoder:
     """Iterator that reads an encoded stream and reencodes the input to UTF-8"""
     def __init__(self, f, encoding):
@@ -19,7 +23,7 @@ class UnicodeReader:
     """A CSV reader which will iterate over lines in the CSV file "f",
     which is encoded in the given encoding."""
 
-    def __init__(self, f, dialect=csv.excel, encoding="utf-8", **kwds):
+    def __init__(self, f, dialect=TabExcelDialect, encoding="utf-8", **kwds):
         f = UTF8Recoder(f, encoding)
         self.reader = csv.reader(f, dialect=dialect, **kwds)
 
@@ -35,7 +39,7 @@ class UnicodeWriter:
     """A CSV writer which will write rows to CSV file "f",
     which is encoded in the given encoding."""
 
-    def __init__(self, f, dialect=csv.excel, encoding="utf-8", **kwds):
+    def __init__(self, f, dialect=TabExcelDialect, encoding="utf-8", **kwds):
         # Redirect output to a queue
         self.queue = cStringIO.StringIO()
         self.writer = csv.writer(self.queue, dialect=dialect, **kwds)
