@@ -7,9 +7,27 @@ PATTERN_LIST = [
 ]
 
 
+class Content:
+    text = ''
+    field_type = 'content'
+
+    def __init__(self, section):
+        self.section = section
+
+    def is_content(self):
+        for pattern in PATTERN_LIST:
+            result = self.section.xpath(pattern)
+            if result:
+                self.text = self.extract_content(result)
+                return True
+        return False
+
+    def extract_content(self, result):
+        return unicode(get(result).text_content())
+
+
 def extractor(section):
-    for pattern in PATTERN_LIST:
-        result = section.xpath(pattern)
-        if result:
-            return unicode(get(section.xpath(pattern)).text_content())
+    content = Content(section)
+    if content.is_content():
+        return content
     return None
