@@ -11,6 +11,7 @@ from eusurvey.fields.extractors import (
     tabletable,
     matrixtable,
 )
+from eusurvey.limesurvey import importer as lime_importer
 
 logger = logging.getLogger(__name__)
 
@@ -60,11 +61,15 @@ def get_form_title(tree):
 
 def get_form_pages(tree):
     """Extracts the forms sections from the given tree."""
+    IGNORED_PAGES = ['Submission']
     section_list = []
     for section in tree.xpath('//div[contains(@class, "pagebutton")]'):
         data_id = section.attrib['data-id']
         title = section.xpath('a/div/text()')[0].strip()
         html_id = section.xpath('a/@id')[0].strip()
+        if title in IGNORED_PAGES:
+            logger.debug('Ignoring page: `%s`', title)
+            continue
         section_list.append({
             'title': title,
             'id': html_id,
@@ -91,7 +96,10 @@ def process(url):
     for page in page_list:
         fields = get_page_fields(form_tree.tree, page)
         survey_list.append((page, fields))
+
+    lime_response = lime_importer.get_row_list(survey_list)
+    assert False, lime_response
     output = renderer.render(survey_list)
     output_file = database.save_stream(output, 'rendered.md')
-    logger.info('Output saved: `%s`', output_file)
+    # logger.info('Output saved: `%s`', output_file)
     return output_file
