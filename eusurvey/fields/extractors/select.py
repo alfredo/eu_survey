@@ -1,3 +1,4 @@
+from eusurvey.fields.common import get as g, to_str
 from eusurvey.fields.extractors import base
 
 
@@ -21,9 +22,18 @@ def get_option_list(section):
     return option_list
 
 
+def get_field(section):
+    select = g(section.xpath('.//select'))
+    _a = lambda x: select.attrib.get(x)
+    attrs = ['id', 'data-id', 'name']
+    field = dict([(k, _a(k)) for k in attrs])
+    return field
+
+
 class SelectFieldExtractor(base.Extractor):
     field_type = 'select'
     pattern = './/div/select'
 
     def extract_field(self, section):
+        self.field = get_field(section)
         self.option_list = get_option_list(section)
