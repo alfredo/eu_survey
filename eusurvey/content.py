@@ -10,6 +10,8 @@ PATTERN_LIST = [
 class Content:
     text = ''
     field_type = 'content'
+    is_supplementary = False
+
 
     def __init__(self, section):
         self.section = section
