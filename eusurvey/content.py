@@ -11,5 +11,5 @@ def extractor(section):
     for pattern in PATTERN_LIST:
         result = section.xpath(pattern)
         if result:
-            return get(section.xpath(pattern)).text_content()
+            return unicode(get(section.xpath(pattern)).text_content())
     return None
