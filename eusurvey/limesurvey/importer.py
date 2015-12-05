@@ -7,6 +7,7 @@ from eusurvey.limesurvey.fields import (
     content,
     radio,
     textarea,
+    select,
 )
 
 
@@ -45,6 +46,7 @@ ROW_FILTERS = {
     'content': content.prepare_content_row,
     'radio': radio.prepare_radio_row,
     'textarea': textarea.prepare_textarea_row,
+    'select': select.prepare_select_row,
 }
 
 
