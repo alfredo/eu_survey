@@ -1,10 +1,11 @@
 import os
 import requests
 
-from eusurvey import settings
+from eusurvey import settings, reader
 from eusurvey.libs import csv_unicode as csv
-from eusurvey.models import PreSubmission
-from eusurvey.poster import translator
+from eusurvey.models import PreSubmission, SuccessResponse
+from eusurvey.poster import translator, validator
+from lxml import html
 
 
 def get_special_fields(tree):
@@ -34,10 +35,30 @@ def read_csv(name):
             yield row
 
 
-def process(name):
+def get_success_response(tree):
+    uid = tree.xpath('//div[@id="divThanksInner"]/@name')[0]
+    url = tree.xpath('//a[@id="printButtonThanksInner"]/@href')[0]
+    return SuccessResponse(uid=uid, url=url)
+
+
+def send_submission(url, payload, pre_submission):
+    response = post(url, data=payload, cookies=pre_submission.cookies)
+    tree = html.fromstring(response.content)
+    success_response = get_success_response(tree)
+    return success_response
+
+
+
+def process(name, url):
     submission_list = list(read_csv(name))
     row_map = translator.update_key_map(submission_list[0])
-    assert False, row_map
     for i, row in enumerate(submission_list[1:]):
         payload = translator.prepare_payload(row, row_map)
-        assert False, row
+        if validator.is_valid_payload(payload):
+            # Each submission requires a cookie and a token.
+            # this step is done by preparing the submision:
+            tree = reader.get_form_tree(url)
+            pre_submission = prepare_submission(tree)
+            payload.update(pre_submission.payload)
+            assert False, "VALID"
+        assert False, "NOT VALID"
