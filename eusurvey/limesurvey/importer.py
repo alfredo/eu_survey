@@ -8,6 +8,7 @@ from eusurvey.limesurvey.fields import (
     radio,
     textarea,
     select,
+    checkbox,
 )
 
 
@@ -47,6 +48,7 @@ ROW_FILTERS = {
     'radio': radio.prepare_radio_row,
     'textarea': textarea.prepare_textarea_row,
     'select': select.prepare_select_row,
+    'checkbox': checkbox.prepare_checkbox_row,
 }
 
 
