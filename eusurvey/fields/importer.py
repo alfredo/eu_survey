@@ -1,6 +1,6 @@
 import logging
 
-from eusurvey import content, database, submission
+from eusurvey import content, reader
 from eusurvey.fields import renderer
 from eusurvey.fields.common import to_str, get
 from eusurvey.fields.extractors import (
@@ -89,7 +89,7 @@ def get_page_fields(tree, page):
 
 
 def process(url):
-    form_tree = submission.get_form_tree(url, use_cache=True)
+    form_tree = reader.get_form_tree(url, use_cache=True)
     title = get_form_title(form_tree.tree)
     page_list = get_form_pages(form_tree.tree)
     survey_list = []

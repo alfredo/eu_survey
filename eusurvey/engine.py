@@ -1,6 +1,7 @@
-from eusurvey import database, submission
+from eusurvey import database, reader
 from eusurvey.fields import importer
 from eusurvey.models import SuccessResponse
+from eusurvey.poster import submission
 from eusurvey.variables import PAYLOAD
 from lxml import html
 from urlparse import parse_qs
@@ -23,7 +24,7 @@ def send_submission(url, payload, pre_submission):
 
 
 def run(url=URL):
-    tree = submission.get_form_tree(url)
+    tree = reader.get_form_tree(url)
     pre_submission = submission.prepare_submission(tree)
     # TODO: Capture user input (replace dummy_payload):
     dummy_payload = parse_qs(PAYLOAD)
@@ -40,5 +41,10 @@ def run(url=URL):
 
 def import_fields(url=URL):
     """Imports the given form fields"""
-    result = importer.process(url)
+    importer.process(url)
+    return True
+
+
+def submit_surveys(name='results-survey.csv'):
+    submission.process(name)
     return True
