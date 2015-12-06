@@ -9,6 +9,7 @@ from eusurvey.limesurvey.fields import (
     textarea,
     select,
     checkbox,
+    tabletable,
 )
 
 
@@ -49,6 +50,7 @@ ROW_FILTERS = {
     'textarea': textarea.prepare_textarea_row,
     'select': select.prepare_select_row,
     'checkbox': checkbox.prepare_checkbox_row,
+    'tabletable': tabletable.prepare_tabletable_row,
 }
 
 
