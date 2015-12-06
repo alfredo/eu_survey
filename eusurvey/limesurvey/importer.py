@@ -10,6 +10,7 @@ from eusurvey.limesurvey.fields import (
     select,
     checkbox,
     tabletable,
+    matrixtable,
 )
 
 
@@ -51,6 +52,7 @@ ROW_FILTERS = {
     'select': select.prepare_select_row,
     'checkbox': checkbox.prepare_checkbox_row,
     'tabletable': tabletable.prepare_tabletable_row,
+    'matrixtable': matrixtable.prepare_matrixtable_row,
 }
 
 
@@ -62,8 +64,7 @@ def prepare_formset_list(formset_list, total):
             partial_formset_list = prepare_callable(formset, total)
             prepared_formset_list += partial_formset_list
         else:
-            continue
-            assert False, formset.field_type
+            assert False, "Missing row handler for: `%s`" % formset.field_type
     return prepared_formset_list
 
 
