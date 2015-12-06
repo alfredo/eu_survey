@@ -4,6 +4,7 @@ import requests
 from eusurvey import settings
 from eusurvey.libs import csv_unicode as csv
 from eusurvey.models import PreSubmission
+from eusurvey.poster import translator
 
 
 def get_special_fields(tree):
@@ -33,17 +34,10 @@ def read_csv(name):
             yield row
 
 
-IGNORED_COLUMNS = [
-    'submitdate',
-    'lastpage',
-    'startlanguage',
-    'startdate',
-    'datestamp',
-]
-
-
 def process(name):
     submission_list = list(read_csv(name))
-    key_list = submission_list[0]
+    row_map = translator.update_key_map(submission_list[0])
+    assert False, row_map
     for i, row in enumerate(submission_list[1:]):
+        payload = translator.prepare_payload(row, row_map)
         assert False, row
