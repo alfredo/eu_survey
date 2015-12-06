@@ -1,3 +1,6 @@
+from eusurvey.limesurvey import constants
+
+
 def get_missing(row, total):
     row_count = len(row)
     missing = total - row_count
@@ -21,6 +24,24 @@ def get_value(value, prefix='v'):
     return '%s%s' % (prefix, value[3:])
 
 
+def get_matrix_value(value):
+    return get_value(value, prefix='m')
+
+
 def get_mandatory(formset):
     """Generates the mandatory field representation for LimeSurvey."""
     return 'Y' if formset.is_mandatory else ''
+
+
+def get_column_position(name):
+    for i, col_name in enumerate(constants.COLUMNS):
+        if col_name == name:
+            return i
+    raise ValueError('Unknown column: `%s`', name)
+
+
+def update_row(row, column_definition):
+    for name, value in column_definition:
+        position = get_column_position(name)
+        row[position] = value
+    return row
