@@ -1,3 +1,18 @@
+# Unique fields per form:
+SPECIAL_FIELDS = (
+    'survey.id',
+    'language.code',
+    'uniqueCode',
+    'IdAnswerSet',
+    'invitation',
+    'participationGroup',
+    'hfsubmit',
+    'mode',
+    'draftid',
+    'newlang',
+)
+
+
 EXPECTED_KEYS = [
     'answer6252052',
     'answer6251720',

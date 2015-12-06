@@ -4,13 +4,13 @@ import requests
 from eusurvey import settings, reader
 from eusurvey.libs import csv_unicode as csv
 from eusurvey.models import PreSubmission, SuccessResponse
-from eusurvey.poster import translator, validator
+from eusurvey.poster import constants, translator, validator
 from lxml import html
 
 
 def get_special_fields(tree):
     fields = []
-    for field in settings.SPECIAL_FIELDS:
+    for field in constants.SPECIAL_FIELDS:
         path = '//input[@name="%s"]/@value' % field
         value = tree.xpath(path)
         fields.append((field, value))
@@ -48,7 +48,6 @@ def send_submission(url, payload, pre_submission):
     return success_response
 
 
-
 def process(name, url):
     submission_list = list(read_csv(name))
     row_map = translator.update_key_map(submission_list[0])
@@ -60,5 +59,5 @@ def process(name, url):
             tree = reader.get_form_tree(url)
             pre_submission = prepare_submission(tree)
             payload.update(pre_submission.payload)
-            assert False, "VALID"
+            assert False, payload
         assert False, "NOT VALID"
