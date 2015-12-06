@@ -100,6 +100,6 @@ def process(url):
     lime_response = lime_importer.get_row_list(survey_list)
     assert False, lime_response
     output = renderer.render(survey_list)
-    output_file = database.save_stream(output, 'rendered.md')
+    output_file = database.save_stream(output, 'form-preview.md')
     # logger.info('Output saved: `%s`', output_file)
     return output_file
