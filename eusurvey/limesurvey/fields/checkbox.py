@@ -1,4 +1,9 @@
+import logging
+
 from eusurvey.limesurvey import common
+
+logger = logging.getLogger(__name__)
+
 
 """
 'Q', 'M', 'Q01', '1', 'Which of the following electronics have you purchased in the last 6 months?', '', 'en', '', '', 'Y', '', '1', '', '', '', '', '', '', '', '2', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'NA', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Other electronic', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''
@@ -7,13 +12,15 @@ from eusurvey.limesurvey import common
 """
 
 def get_question_row(formset, total):
-    field_name = common.get_name(formset.field_list[0]['input']['name'])
+    question_name = formset.field_list[0]['input']['name']
+    field_name = common.get_name(question_name)
+    question = ' '.join(formset.question.splitlines())
     partial_question = [
         'Q',
         'M',
         field_name,
         1,
-        formset.question,
+        question,
         '',
         'en',
         '',
