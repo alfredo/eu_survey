@@ -1,4 +1,4 @@
-from eusurvey.fields.common import get as g, to_str
+from eusurvey.fields.common import get as g, get_matrix_id, to_str
 from eusurvey.fields.extractors import base
 
 
@@ -48,4 +48,5 @@ class MatrixRadioFieldExtractor(base.Extractor):
     pattern = './/table[contains(@class, "matrixtable")]'
 
     def extract_field(self, section):
+        self.matrix_id = get_matrix_id(section)
         self.field_list = get_input_list(section)

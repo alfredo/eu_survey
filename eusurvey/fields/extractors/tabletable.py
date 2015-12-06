@@ -1,6 +1,6 @@
 import logging
 
-from eusurvey.fields.common import to_str, get as g
+from eusurvey.fields.common import to_str, get as g, get_matrix_id
 from eusurvey.fields.extractors import base
 
 logger = logging.getLogger(__name__)
@@ -44,12 +44,6 @@ def get_input_list(section):
         # Record name of the row and fields:
         input_list.append((name, field_row))
     return input_list
-
-
-def get_matrix_id(section):
-    pattern = './/div[contains(@class, "survey-element")]'
-    matrix = g(section.xpath(pattern))
-    return matrix.attrib['id']
 
 
 class TableTableFieldExtractor(base.Extractor):
