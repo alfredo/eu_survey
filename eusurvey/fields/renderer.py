@@ -1,5 +1,7 @@
 import logging
 
+from eusurvey import database
+
 logger = logging.getLogger(__name__)
 
 
@@ -87,8 +89,10 @@ def render(survey_list):
         output.append('# %s' % page['title'])
         output += render_field_list(formset_list)
     result = u'\n\n'.join(output)
-    logger.info(result)
-    return result.encode('utf8')
+    result = result.encode('utf8')
+    output_file = database.save_stream(result, 'form-preview.md')
+    logger.info('Output saved: `%s`', output_file)
+    return result
 
 
 # def foo():

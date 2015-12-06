@@ -96,10 +96,6 @@ def process(url):
     for page in page_list:
         fields = get_page_fields(form_tree.tree, page)
         survey_list.append((page, fields))
-
-    lime_response = lime_importer.get_row_list(survey_list)
-    assert False, lime_response
-    output = renderer.render(survey_list)
-    output_file = database.save_stream(output, 'form-preview.md')
-    # logger.info('Output saved: `%s`', output_file)
-    return output_file
+    lime_importer.make_limesurvey_file(survey_list)
+    renderer.render(survey_list)
+    return True
