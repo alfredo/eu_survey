@@ -69,8 +69,11 @@ def prepare_formset_list(formset_list, total):
 
 def prepare_survey_list(survey_list, total):
     prepared_survey_list = []
-    for page, formset_list in survey_list:
+    for i, (page, formset_list) in enumerate(survey_list):
         prepared_survey_list.append(get_page_row(page, total))
+        # Add any hard rows:
+        if i == 0:
+            prepared_survey_list += constants.HARD_ROWS
         partial_list = prepare_formset_list(formset_list, total)
         if partial_list:
             prepared_survey_list += partial_list
