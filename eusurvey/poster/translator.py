@@ -23,6 +23,11 @@ def get_checkbox_key(original_key, answer_prefix):
     return (key, value)
 
 
+def get_matrixtable_key(original_key, answer_prefix):
+    matrix, key = original_key.split('[')
+    return key.replace(']', '').replace('a', 'answer')
+
+
 def update_key(key, answer_prefix):
     if is_short_answer(key):
         return key.replace('a', 'answer')
@@ -30,6 +35,8 @@ def update_key(key, answer_prefix):
         return get_tabletable_key(key, answer_prefix)
     if '[v' in key:
         return get_checkbox_key(key, answer_prefix)
+    if key.startswith('m') and '[a' in key:
+        return get_matrixtable_key(key, answer_prefix)
     return key
 
 
