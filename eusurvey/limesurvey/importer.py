@@ -81,12 +81,11 @@ def prepare_survey_list(survey_list, total):
     return prepared_survey_list
 
 
-def get_row_list(survey_list):
+def make_limesurvey_file(survey_list):
     total = len(constants.COLUMNS)
     row_list = [constants.COLUMNS]
     row_list += get_settings_rows(total)
     row_list += get_local_settings_rows(total)
     row_list += prepare_survey_list(survey_list, total)
     path = writer.save(row_list)
-    logger.info('CSV saved: `%s`', path)
     return path
