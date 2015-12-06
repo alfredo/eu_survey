@@ -64,11 +64,31 @@ IGNORED_KEYS = [
 ]
 
 
+def is_short_value(value):
+    return re.match(r'^v([\d]+)$', value)
+
+
+def update_value(value, value_prefix):
+    if is_short_value(value):
+        return value.replace('v', value_prefix)
+    return value
+
+
+def get_value_prefix(row_map):
+    for row in row_map:
+        if row.startswith('answer'):
+            return row[6:9]
+    raise ValueError('Could not find the value prefix.')
+
+
 def prepare_payload(row, row_map):
     payload = {}
+    value_prefix = get_value_prefix(row_map)
     for key, value in zip(row_map, row):
         if key in IGNORED_KEYS:
             continue
-        key = update_key(key)
-        payload[key] = value
+        if isinstance(key, tuple):
+            key, translated_value = key
+            value = translated_value if value.lower() == 'y' else ''
+        payload[key] = update_value(value, value_prefix)
     return payload
