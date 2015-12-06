@@ -1,5 +1,7 @@
 import re
 
+from collections import defaultdict
+
 
 def is_short_answer(key):
     return re.match(r'^a([\d]+)$', key)
@@ -15,7 +17,7 @@ def get_tabletable_key(original_key, answer_prefix):
 
 def get_checkbox_key(original_key, answer_prefix):
     key, value = original_key.split('[v')
-    key = key.replace('a', answer_prefix)
+    key = key.replace('a', 'answer')
     value = answer_prefix.replace('answer', '') + value.replace(']', '')
     # This field contains the value and the key in the column.
     # in limesurvey the value is a `Y` or `N`. So when a Y is present
@@ -82,7 +84,7 @@ def get_value_prefix(row_map):
 
 
 def prepare_payload(row, row_map):
-    payload = {}
+    payload = defaultdict(list)
     value_prefix = get_value_prefix(row_map)
     for key, value in zip(row_map, row):
         if key in IGNORED_KEYS:
@@ -90,5 +92,5 @@ def prepare_payload(row, row_map):
         if isinstance(key, tuple):
             key, translated_value = key
             value = translated_value if value.lower() == 'y' else ''
-        payload[key] = update_value(value, value_prefix)
+        payload[key].append(update_value(value, value_prefix))
     return payload
