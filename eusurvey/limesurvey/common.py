@@ -9,7 +9,7 @@ def get_name(name):
     return name.replace('answer', 'a')
 
 
-def get_value(value):
+def get_value(value, prefix='v'):
     """Returns a unique number for the value.
 
     All values have consecutive numbers e.g.
@@ -18,7 +18,7 @@ def get_value(value):
 
     By using this notation it allows up to `9999` fields to be used
     in the form."""
-    return value[3:]
+    return '%s%s' % (prefix, value[3:])
 
 
 def get_mandatory(formset):
