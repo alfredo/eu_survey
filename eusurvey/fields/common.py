@@ -59,3 +59,9 @@ def get_limits(section):
         limits = get(section.xpath(pattern))
         return limits.text_content()
     return None
+
+
+def get_matrix_id(section):
+    pattern = './/div[contains(@class, "survey-element")]'
+    matrix = get(section.xpath(pattern))
+    return matrix.attrib['id']
