@@ -30,7 +30,7 @@ def get_matrix_value(value):
 
 def get_mandatory(formset):
     """Generates the mandatory field representation for LimeSurvey."""
-    return 'Y' if formset.is_mandatory else ''
+    return 'Y' if formset.is_mandatory else 'N'
 
 
 def get_column_position(name):
