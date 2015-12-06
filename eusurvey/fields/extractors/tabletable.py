@@ -46,9 +46,16 @@ def get_input_list(section):
     return input_list
 
 
+def get_matrix_id(section):
+    pattern = './/div[contains(@class, "survey-element")]'
+    matrix = g(section.xpath(pattern))
+    return matrix.attrib['id']
+
+
 class TableTableFieldExtractor(base.Extractor):
     field_type = 'tabletable'
     pattern = './/table[@class="tabletable"]'
 
     def extract_field(self, section):
+        self.matrix_id = get_matrix_id(section)
         self.field_list = get_input_list(section)
