@@ -27,11 +27,11 @@ def prepare_submission(form_tree):
 
 def get_form_tree(url, use_cache=False):
     if use_cache:
-        stream = database.read_file('cached_form.html')
+        stream = database.read_file(settings.MASTER_FORM_NAME)
         response = None
     else:
         response = requests.get(url, headers=HEADERS)
-        database.save_stream(response.content, name='cached_form.html')
+        database.save_stream(response.content, settings.MASTER_FORM_NAME)
         stream = response.content
     tree = html.fromstring(stream)
     return FormTree(tree=tree, response=response)
