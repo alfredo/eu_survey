@@ -26,7 +26,6 @@ def get_question_row(formset, total):
     full_question = partial_question + common.get_missing(partial_question, total)
     custom_fields = (
         ('same_default', 1),
-        ('input_boxes', 1)
     )
     full_question = common.update_row(full_question, custom_fields)
     return full_question
