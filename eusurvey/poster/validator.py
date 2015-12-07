@@ -1,8 +1,7 @@
 import logging
 
-from eusurvey.variables import PAYLOAD
 from eusurvey.poster import constants
-from urlparse import parse_qs
+
 
 logger = logging.getLogger(__name__)
 
