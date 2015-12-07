@@ -1,11 +1,14 @@
+import logging
 import os
 import requests
 
-from eusurvey import settings, reader
+from eusurvey import database, settings, reader
 from eusurvey.libs import csv_unicode as csv
 from eusurvey.models import PreSubmission, SuccessResponse
 from eusurvey.poster import constants, translator, validator
 from lxml import html
+
+logger = logging.getLogger(__name__)
 
 
 def get_special_fields(tree):
@@ -44,6 +47,8 @@ def get_success_response(tree):
 def send_submission(url, payload, pre_submission):
     response = post(url, data=payload, cookies=pre_submission.cookies)
     tree = html.fromstring(response.content)
+    filename = 'submissions/id-%s.html' % payload[0]['id']
+    database.save_stream(response.content, name=filename)
     success_response = get_success_response(tree)
     return success_response
 
@@ -59,5 +64,9 @@ def process(name, url):
             tree = reader.get_form_tree(url)
             pre_submission = prepare_submission(tree)
             payload.update(pre_submission.payload)
-            assert False, payload
+            # Stop here to avoid sending the submission:
+            success_response = send_submission(url, payload, pre_submission)
+            logger.info(success_response)
+            # Short circuit
+            return True
         assert False, "NOT VALID"
