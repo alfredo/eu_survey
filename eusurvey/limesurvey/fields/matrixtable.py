@@ -105,7 +105,7 @@ def get_subquestion_rows(formset, total):
             field_name,
             '',
             name,
-            '',
+            formset.help_text,
             'en',
         ]
         full_row = partial_row + common.get_missing(partial_row, total)

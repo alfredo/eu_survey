@@ -57,8 +57,15 @@ def get_help_text(section):
     pattern = './/div[@class="questionhelp"]'
     help_text = section.xpath(pattern)
     if help_text:
+        remove_elements = (
+            '<div class="questionhelp">',
+            '</div>',
+        )
         help_text = get(section.xpath(pattern))
-        return help_text.text_content()
+        element_str = to_str(help_text)
+        for item in remove_elements:
+            element_str = element_str.replace(item, '')
+        return ''.join(element_str.splitlines())
     return None
 
 

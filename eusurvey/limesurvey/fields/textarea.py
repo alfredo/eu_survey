@@ -13,7 +13,7 @@ def prepare_textarea_row(formset, total):
         field_name,
         1,
         formset.question,
-        '', # help text
+        formset.help_text,
         'en',
         '',
         common.get_mandatory(formset),

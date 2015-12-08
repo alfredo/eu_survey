@@ -9,7 +9,7 @@ def get_question_row(formset, total):
         field_name,
         1,
         formset.question,
-        '',
+        formset.help_text,
         'en',
         '',
         common.get_mandatory(formset),
