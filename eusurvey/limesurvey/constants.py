@@ -144,7 +144,7 @@ GLOBAL_SETTINGS = [
     ('S', '', 'tokenlength', '', '15'),
     ('S', '', 'showxquestions', '', 'Y'),
     ('S', '', 'showgroupinfo', '', 'B'),
-    ('S', '', 'shownoanswer', '', 'Y'),
+    ('S', '', 'shownoanswer', '', 'N'),
     ('S', '', 'showqnumcode', '', 'X'),
     ('S', '', 'bouncetime', '', '0'),
     ('S', '', 'bounceprocessing', '', 'N'),
