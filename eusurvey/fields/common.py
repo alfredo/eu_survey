@@ -16,8 +16,9 @@ def get(element_list):
 
 def is_mandatory(question):
     """Determines if the question is mandatory."""
-    pattern = u'.//span[@class="mandatory"]/text()'
-    return bool(question.xpath(pattern))
+    pattern = u'.//span[@class="mandatory"]'
+    pattern_list = list(question.xpath(pattern))
+    return bool(pattern_list)
 
 
 def get_label(field_element):
