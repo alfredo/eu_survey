@@ -61,7 +61,7 @@ SL		email_admin_responses_subj		Response submission for survey {SURVEYNAME} with
 SL		email_admin_responses		"Hello,<br /> <br /> A new response was submitted for your survey ""{SURVEYNAME}"".<br /> <br /> Click the following link to reload the survey:<br /> {RELOADURL}<br /> <br /> Click the following link to see the individual response:<br /> {VIEWRESPONSEURL}<br /> <br /> Click the following link to edit the individual response:<br /> {EDITRESPONSEURL}<br /> <br /> View statistics by clicking here:<br /> {STATISTICSURL}<br /> <br /> <br /> The following answers were given by the participant:<br /> {ANSWERTABLE}"		en																																																																																																						
 SL		surveyls_numberformat		0		en																																																																																																						
 G		General Information	1			en																																																																																																						
-Q	L	a6251561	1	Please indicate your role for the purpose of this consultation		en		Y																																																																																																				
+Q	L	a6251561	1	Please&#160;indicate your role for the purpose of this consultation		en		Y																																																																																																				
 A	0	v1562		An individual citizen		en																																																																																																						
 A	0	v1563		An association or trade organization representing consumers		en																																																																																																						
 A	0	v1564		An association or trade organization representing businesses		en																																																																																																						
@@ -73,7 +73,7 @@ A	0	v1569		A research institution or Think tank		en
 A	0	v1570		Other		en																																																																																																						
 Q	T	a6251571	1	Please describe the type of online platforms that you represent, a brief description of the online platform and indicate its name and web address		en	Y																																																																																																					
 Q	T	a6251572	1	Please briefly explain the nature of your activities, the main services you provide and your relation to the online platform(s) which you use to provide services		en	Y																																																																																																					
-Q	L	a6251573	1	Are you a SME or micro enterprise?		en		Y																																																																																																				
+Q	L	a6251573	1	Are you a&#160;SME or micro enterprise?		en		Y																																																																																																				
 A	0	v1574		Yes		en																																																																																																						
 A	0	v1575		No		en																																																																																																						
 Q	T	a6251576	1	Please specify		en	Y																																																																																																					
@@ -110,23 +110,23 @@ A	0	v1605		United Kingdom		en
 A	0	v1606		Non-EU country		en																																																																																																						
 Q	T	a6251607	1	Please specify the Non-EU country		en	Y																																																																																																					
 Q	T	a6251608	1	Please provide your contact information (name, address and e-mail address)		en	Y																																																																																																					
-Q	L	a6251609	1	Is your organisation registered in the Transparency Register of the European Commission and the European Parliament?Note: If you are not answering this questionnaire as an individual, please register in the Transparency Register. If your organisation/institution responds without being registered, the Commission will consider its input as that of an individual and will publish it as such.		en		Y																																																																																																				
+Q	L	a6251609	1	Is your organisation registered in the Transparency Register of the European Commission and the European Parliament?<br /><em>Note: If you are not answering this questionnaire as an individual, please register in the Transparency Register. If your organisation/institution responds without being registered, the Commission will consider its input as that of an individual and will publish it as such.</em>		en		Y																																																																																																				
 A	0	v1610		Yes		en																																																																																																						
 A	0	v1611		No		en																																																																																																						
 A	0	v1612		Non-applicable		en																																																																																																						
 Q	T	a6251613	1	Please indicate your organisation's registration number in the Transparency Register		en	Y																																																																																																					
-Q	T	a6251614	1	If you are an economic operator, please enter the NACE code, which best describes the economic activity you conduct. You can find here the NACE classification.		en	N																																																																																																					
+Q	T	a6251614	1	"  <p>If you are an economic operator, please enter the NACE code, which best describes the economic activity you conduct.&#160;<a href=""http://ec.europa.eu/eurostat/ramon/nomenclatures/index.cfm?TargetUrl=LST_NOM_DTL&amp;StrNom=NACE_REV2&amp;StrLanguageCode=EN"" target=""_blank"">You can find here the NACE classification.</a></p>"		en	N																																																																																																					
 Q	L	a6251615	1	I object the publication of my personal data		en		Y																																																																																																				
 A	0	v1616		Yes		en																																																																																																						
 A	0	v1617		No		en																																																																																																						
 Q	T	a6251618	1	Please provide a brief justification.		en	N																																																																																																					
 G		Online Platforms	1			en																																																																																																						
-Q	!	a6251621	1	"Do you agree with the definition of ""Online platform"" as provided below?"		en	N																																																																																																					
+Q	!	a6251621	1	"Do you agree with the definition of ""<strong>Online platform</strong>"" as provided below?"		en	N																																																																																																					
 A	0	v				en																																																																																																						
 A	0	v1622		Yes		en																																																																																																						
 A	0	v1623		No		en																																																																																																						
 Q	T	a6251624	1	Please explain how you would change the definition		en	Y																																																																																																					
-Q	M	a6251625	1	What do you consider to be the key advantages of using online platforms? Online platforms…		en		N																																																																																																				
+Q	M	a6251625	1	What do you consider to be the key advantages of using online platforms?<br />&#13;<p>Online platforms&#8230;</p>		en		N																																																																																																				
 SQ	0	v1626		make information more accessible		en																																																																																																						
 SQ	0	v1627		make communication and interaction easier		en																																																																																																						
 SQ	0	v1628		increase choice of products and services		en																																																																																																						
@@ -140,7 +140,7 @@ SQ	0	v1635		help in complying with obligations in cross-border sales		en
 SQ	0	v1636		help to share resources and improve resource-allocation		en																																																																																																						
 SQ	0	v1637		others:		en																																																																																																						
 Q	T	a6251638	1	Please specify:		en	Y																																																																																																					
-Q	L	a6251639	1	Have you encountered, or are you aware of problems faced by consumers or suppliers when dealing with online platforms?		en		N																																																																																																				
+Q	L	a6251639	1	Have you encountered, or are you aware of problems faced by <strong>consumers</strong> or <strong>suppliers</strong> when dealing with online platforms?		en		N																																																																																																				
 A	0	v1640		Yes		en																																																																																																						
 A	0	v1641		No		en																																																																																																						
 A	0	v1642		I don't know		en																																																																																																						
@@ -150,7 +150,7 @@ A	0	v1645		market dynamics		en
 A	0	v1646		regulatory measures		en																																																																																																						
 A	0	v1647		self-regulatory measures		en																																																																																																						
 A	0	v1648		a combination of the above		en																																																																																																						
-Q	L	a6251650	1	Do you think that online platforms should ensure, as regards their own activities and those of the traders that use them, more transparency in relation to:a) information required by consumer law (e.g. the contact details of the supplier, the main characteristics of products, the total price including delivery charges, and consumers' rights, such as the right of withdrawal)?		en		N																																																																																																				
+Q	L	a6251650	1	Do you think that online platforms should ensure, as regards their own activities and those of the <strong>traders</strong> that use them, more transparency in relation to:<br /><br />a) information required by consumer law (e.g. the contact details of the supplier, the main characteristics of products, the total price including delivery charges, and consumers' rights, such as the right of withdrawal)?		en		N																																																																																																				
 A	0	v1651		Yes		en																																																																																																						
 A	0	v1652		No		en																																																																																																						
 A	0	v1653		I don't know		en																																																																																																						
@@ -181,7 +181,7 @@ A	0	v1677		No		en
 A	0	v1678		I don't know		en																																																																																																						
 Q	T	a6251679	1	Please explain how the transparency of reputation systems and other trust mechanisms could be improved?		en	Y																																																																																																					
 Q	T	a6251680	1	What are the main benefits and drawbacks of reputation systems and other trust mechanisms operated by online platforms? Please describe their main benefits and drawbacks.		en	N																																																																																																					
-Q	L	a6251682	1	In your view, do online platforms provide sufficient and accessible information with regard to:a) the personal and non-personal data they collect?		en		N																																																																																																				
+Q	L	a6251682	1	In your view, do online platforms provide sufficient and accessible information with regard to:<br /><br />a) the personal and non-personal data they collect?		en		N																																																																																																				
 A	0	v1683		Yes		en																																																																																																						
 A	0	v1684		No		en																																																																																																						
 A	0	v1685		I don't know		en																																																																																																						
@@ -204,7 +204,7 @@ SQ	0	sq5		5		en
 SQ	1	3	3	Examples from your business experience		en																																																																																																						
 SQ	1	1	1	Name of online platform		en																																																																																																						
 SQ	1	2	2	Dependency (0:not dependent, 1: dependent, 2: highly dependent)		en																																																																																																						
-Q	F 	m1707	1	How often do you experience the following business practices in your business relations with platforms?The online platform …		en		N																																																																																																				
+Q	F 	m1707	1	How often do you experience the following business practices in your business relations with platforms?<br /><br />The online platform &#8230;		en		N																																																																																																				
 SQ	0	a6251713		requests me to use exclusively its services		en																																																																																																						
 SQ	0	a6251714		"applies “parity clauses"" *"		en																																																																																																						
 SQ	0	a6251715		applies non-transparent fees		en																																																																																																						
@@ -220,7 +220,7 @@ A	0	v1712	v1712	Always		en
 A	0	v1711	v1711	Often		en																																																																																																						
 A	0	v1709	v1709	Never		en																																																																																																						
 A	0	v1710	v1710	Sometimes		en																																																																																																						
-Q	F 	m1724	1	If you do experience them, what is their impact on your business activity (on a scale from 0 to 3).Impact on my business:The online platform …		en		N																																																																																																				
+Q	F 	m1724	1	If you do experience them, what is their impact on your business activity (on a scale from 0 to 3).<br /><br />Impact on my business:<br />The online platform &#8230;		en		N																																																																																																				
 SQ	0	a6251730		requests me to use exclusively its services		en																																																																																																						
 SQ	0	a6251731		"applies “parity clauses"" *"		en																																																																																																						
 SQ	0	a6251732		applies non-transparent fees		en																																																																																																						
@@ -241,7 +241,7 @@ Q	T	a6251742	1	Please briefly describe the situation		en	Y
 Q	L	a6251743	1	Are you a holder of rights in digital content protected by copyright, which is used on an online platform?		en		N																																																																																																				
 A	0	v1744		Yes		en																																																																																																						
 A	0	v1745		No		en																																																																																																						
-Q	L	a6251746	1	As a holder of rights in digital content protected by copyright have you faced any of the following circumstances:An online platform such as a video sharing website or an online content aggregator uses my protected works online without having asked for my authorisation.		en		N																																																																																																				
+Q	L	a6251746	1	As a holder of rights in digital content protected by copyright have you faced any of the following circumstances:<br /><br />An online platform such as a video sharing website or an online content aggregator uses my protected works online without having asked for my authorisation.		en		N																																																																																																				
 A	0	v1747		Yes		en																																																																																																						
 A	0	v1748		No		en																																																																																																						
 Q	L	a6251749	1	An online platform such as a video sharing website or a content aggregator refuses to enter into or negotiate licensing agreements with me.		en		N																																																																																																				
@@ -253,7 +253,7 @@ A	0	v1754		No		en
 Q	L	a6251755	1	An online platform uses my protected works but claims it is a hosting provider under Article 14 of the E-Commerce Directive in order to refuse to negotiate a licence or to do so under their own terms.		en		N																																																																																																				
 A	0	v1756		Yes		en																																																																																																						
 A	0	v1757		No		en																																																																																																						
-Q	T	a6251758	1	As you answered YES to some of the above questions, please explain your situation in more detail.		en	N																																																																																																					
+Q	T	a6251758	1	As&#160;you answered YES to some&#160;of the above questions, please explain your situation in more detail.		en	N																																																																																																					
 Q	T	a6251759	1	If you own/develop an online platform, what are the main constrains that negatively affect the development of your online platform and prevent you from extending your activities to new markets in the EU?		en	N																																																																																																					
 Q	T	a6251760	1	How do you ensure that suppliers of your platform are treated fairly?		en	N																																																																																																					
 Q	L	a6251761	1	Can a supplier personalize its offer of products / services on the platform you represent?		en		N																																																																																																				
@@ -284,9 +284,9 @@ SQ	1	1	1	Name of the online platform		en
 Q	L	a6251788	1	Should there be a mandatory requirement allowing non-personal data to be easily extracted and moved between comparable online services?		en		N																																																																																																				
 A	0	v1789		Yes		en																																																																																																						
 A	0	v1790		No		en																																																																																																						
-Q	T	a6251791	1	Please explain your choice and share any best practices that you are aware of.		en	N																																																																																																					
+Q	T	a6251791	1	  <p>Please explain your choice and share any best practices that you are aware of.</p>		en	N																																																																																																					
 Q	T	a6251792	1	Please share your general comments or ideas regarding the ability of consumers and traders to move from one platform to another		en	N																																																																																																					
-Q	L	a6251794	1	As a trader or a consumer using the services of online platforms did you experience any of the following problems related to the access of data? a) unexpectedly changing conditions of accessing the services of the platforms		en		N																																																																																																				
+Q	L	a6251794	1	As a trader or a consumer using the services of online platforms did you experience any of the following problems related to the access of data? <br /><br />a) unexpectedly changing conditions of accessing the services of the platforms		en		N																																																																																																				
 A	0	v1795		Yes		en																																																																																																						
 A	0	v1796		No		en																																																																																																						
 Q	L	a6251797	1	b) unexpectedly changing conditions of accessing the Application Programming Interface of the platform		en		N																																																																																																				
@@ -304,7 +304,7 @@ A	0	v1808		No		en
 Q	T	a6251809	1	Please explain your answer		en	Y																																																																																																					
 Q	T	a6251810	1	Please share your general comments or ideas regarding access to data on online platforms		en	N																																																																																																					
 G		Tackling illegal content online and the liability of online intermediaries	1			en																																																																																																						
-Q	L	a6251812	1	Please indicate your role in the context of this set of questions		en		N																																																																																																				
+Q	L	a6251812	1	  <p>Please indicate your role in the context of this set of questions</p>		en		N																																																																																																				
 A	0	v1813		individual user		en																																																																																																						
 A	0	v1814		content provider		en																																																																																																						
 A	0	v1815		notice provider		en																																																																																																						
@@ -367,7 +367,7 @@ Q	T	a6251874	1	Please specify what types of actions could be covered by such an 
 Q	L	a6251875	1	Do you see a need for more transparency on the intermediaries' content restriction policies and practices (including the number of notices received as well as their main content and the results of the actions taken following the notices)?		en		N																																																																																																				
 A	0	v1876		Yes		en																																																																																																						
 A	0	v1877		No		en																																																																																																						
-Q	L	a6251878	1	Should this obligation be limited to those hosting service providers, which receive a sizeable amount of notices per year (e.g. more than 1000)?		en		N																																																																																																				
+Q	L	a6251878	1	Should this obligation be limited to those hosting service providers, which receive a sizeable amount of notices per year&#160;(e.g. more than 1000)?		en		N																																																																																																				
 A	0	v1879		Yes		en																																																																																																						
 A	0	v1880		No		en																																																																																																						
 Q	L	a6251881	1	Do you think that online intermediaries should have a specific service to facilitate contact with national authorities for the fastest possible notice and removal of illegal contents that constitute a threat for e.g. public security or fight against terrorism?		en		N																																																																																																				
@@ -412,7 +412,7 @@ SQ	0	v1922		Other aspects:		en
 Q	T	a6251923	1	Please specify		en	Y																																																																																																					
 Q	T	a6251924	1	Please share your general comments or ideas regarding data access, ownership and use		en	N																																																																																																					
 Q	T	a6251926	1	What regulatory constraints hold back the development of data markets in Europe and how could the EU encourage the development of such markets?		en	N																																																																																																					
-Q	M	a6251928	1	Do you think more could be done to open up public sector data for re-use in addition to the recently revised EU legislation (Directive 2013/37/EU)?		en		N																																																																																																				
+Q	M	a6251928	1	Do you think more could be done to open up public sector data for re-use in addition to the recently revised EU legislation (Directive 2013/37/EU)?<em><br /></em>		en		N																																																																																																				
 SQ	0	v1929		Introducing the principle of 'open by default'[1]		en																																																																																																						
 SQ	0	v1930		Licensing of 'Open Data': help persons/ organisations wishing to re-use public sector information (e.g., Standard European License)		en																																																																																																						
 SQ	0	v1931		Further expanding the scope of the Directive (e.g. to include public service broadcasters, public undertakings);		en																																																																																																						
@@ -437,7 +437,7 @@ Q	L	a6251950	1	Do you agree with a default policy which would make data generate
 A	0	v1951		Yes		en																																																																																																						
 A	0	v1952		No		en																																																																																																						
 Q	T	a6251953	1	Why not?		en	Y																																																																																																					
-Q	L	a6251955	1	As a provider/user of Internet of Things (IoT) and/or data driven services and connected tangible devices, have you ever encountered or do you anticipate problems stemming from either an unclear liability regime/non –existence of a clear-cut liability regime?		en		N																																																																																																				
+Q	L	a6251955	1	As a provider/user of Internet of Things (IoT) and/or data driven services and connected tangible devices, have you ever encountered or do you anticipate problems stemming from either an unclear liability regime/non &#8211;existence of a clear-cut liability regime?		en		N																																																																																																				
 A	0	v1956		Yes		en																																																																																																						
 A	0	v1957		No		en																																																																																																						
 A	0	v1958		I don't know		en																																																																																																						
@@ -484,7 +484,7 @@ A	0	v2001		Not applicable		en
 Q	L	a6252002	1	As a (potential) user of cloud computing services, do you agree that existing contractual practices ensure a fair and balanced allocation of legal and technical risks between cloud users and cloud service providers?		en		N																																																																																																				
 A	0	v2003		Yes		en																																																																																																						
 A	0	v2004		No		en																																																																																																						
-Q	T	a6252005	1	Please explain		en	Y																																																																																																					
+Q	T	a6252005	1	  <p>Please explain</p>		en	Y																																																																																																					
 Q	M	a6252006	1	What would be the benefit of cloud computing services interacting with each other (ensuring interoperability)		en		N																																																																																																				
 SQ	0	v2007		Economic benefits		en																																																																																																						
 SQ	0	v2008		Improved trust		en																																																																																																						
@@ -529,7 +529,7 @@ SQ	0	v2048		Traditional provider or association representing traditional provide
 SQ	0	v2049		Platform or association representing platforms		en																																																																																																						
 SQ	0	v2050		Public authority		en																																																																																																						
 SQ	0	v2051		User or consumer association		en																																																																																																						
-Q	L	a6252052	1	Which are the main risks and challenges associated with the growth of the collaborative economy and what are the obstacles which could hamper its growth and accessibility? Please rate from 1 to 5 according to their importance (1 – not important; 5 – very important).- Not sufficiently adapted regulatory framework		en		N																																																																																																				
+Q	L	a6252052	1	Which are the main risks and challenges associated with the growth of the collaborative economy and what are the obstacles which could hamper its growth and accessibility? Please rate from 1 to 5 according to their importance (1 &#8211; not important; 5 &#8211; very important).<br /><br />- Not sufficiently adapted regulatory framework		en		N																																																																																																				
 A	0	v2053		1		en																																																																																																						
 A	0	v2054		2		en																																																																																																						
 A	0	v2055		3		en																																																																																																						
@@ -638,7 +638,7 @@ A	0	v2157		Accommodation		en
 A	0	v2158		Professional services		en																																																																																																						
 A	0	v2159		Other		en																																																																																																						
 Q	T	a6252160	1	Please specify		en	N																																																																																																					
-Q	L	a6252161	1	As a provider active in the collaborative economy, are you aware if the following requirements have to be fulfilled in order to offer/share your assets, resources, time, skills, and/or capital on a platform? - Specific authorisation or licence		en		N																																																																																																				
+Q	L	a6252161	1	As a provider active in the collaborative economy, are you aware if the following requirements have to be fulfilled in order to offer/share your assets, resources, time, skills, and/or capital on a platform? <br /><br />- Specific authorisation or licence		en		N																																																																																																				
 A	0	v2162		Yes		en																																																																																																						
 A	0	v2163		No		en																																																																																																						
 A	0	v2164		I don't know		en																																																																																																						
@@ -683,7 +683,7 @@ A	0	v2202		N/A (no requirements apply to my activities)		en
 Q	L	a6252203	1	Do you think that lighter rules should be applied to smaller providers?		en		N																																																																																																				
 A	0	v2204		Yes		en																																																																																																						
 A	0	v2205		No		en																																																																																																						
-Q	T	a6252206	1	What should be the threshold of a provider’s activity in the collaborative economy for it to become subject to rules, such as authorisations, registrations, consumer protection (e.g. level of absolute revenue from collaborative economy, relative share of revenue from collaborative economy, in overall revenues, number of rented units/rental days etc)?		en	N																																																																																																					
+Q	T	a6252206	1	What should be the threshold of a provider&#8217;s activity in the collaborative economy for it to become subject to rules, such as authorisations, registrations, consumer protection (e.g. level of absolute revenue from collaborative economy, relative share of revenue from collaborative economy, in overall revenues, number of rented units/rental days etc)?		en	N																																																																																																					
 Q	L	a6252207	1	Is the online platform imposing specific requirements on providers?		en		N																																																																																																				
 A	0	v2208		Yes		en																																																																																																						
 A	0	v2209		No		en																																																																																																						
@@ -702,7 +702,7 @@ Q	T	a6252221	1	Please specify		en	N
 Q	L	a6252222	1	Have your revenues/turnover been reduced as a result of competition from collaborative platforms?		en		N																																																																																																				
 A	0	v2223		Yes		en																																																																																																						
 A	0	v2224		No		en																																																																																																						
-Q	L	a6252225	1	By what percentage?		en		N																																																																																																				
+Q	L	a6252225	1	  <p>By what percentage?</p>		en		N																																																																																																				
 A	0	v2226		0-5%		en																																																																																																						
 A	0	v2227		6-15%		en																																																																																																						
 A	0	v2228		16-35%		en																																																																																																						
@@ -712,7 +712,7 @@ A	0	v2231		I do not wish to reveal this information		en
 Q	L	a6252232	1	Do you use or intend to use collaborative platforms to offer your existing services and assets?		en		N																																																																																																				
 A	0	v2233		Yes		en																																																																																																						
 A	0	v2234		No		en																																																																																																						
-Q	T	a6252235	1	Please explain – If yes, what is/expected to be the impact on your revenues/profits?		en	N																																																																																																					
+Q	T	a6252235	1	Please explain &#8211; If yes, what is/expected to be the impact on your revenues/profits?		en	N																																																																																																					
 Q	L	a6252236	1	If applicable, how can we ensure a level playing field between providers in the collaborative economy and traditional providers?		en		N																																																																																																				
 A	0	v2237		Better enforcement of existing legislation for platforms and providers in the collaborative economy		en																																																																																																						
 A	0	v2238		Developing specific legislation for providers in the collaborative economy		en																																																																																																						
@@ -761,7 +761,7 @@ Q	L	a6252298	1	Are there any specific prior authorisation requirements in place 
 A	0	v2300		Yes		en																																																																																																						
 A	0	v2302		No		en																																																																																																						
 A	0	v2304		I don't know		en																																																																																																						
-Q	L	a6252305	1	Please indicate whether these are:- Specific authorisation or licence		en		N																																																																																																				
+Q	L	a6252305	1	Please indicate whether these are:<br /><br />- Specific authorisation or licence		en		N																																																																																																				
 A	0	v2307		Yes		en																																																																																																						
 A	0	v2309		No		en																																																																																																						
 A	0	v2312		I don't know		en																																																																																																						
