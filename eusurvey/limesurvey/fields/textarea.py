@@ -19,4 +19,11 @@ def prepare_textarea_row(formset, total):
         common.get_mandatory(formset),
     ]
     full_row = partial_row + common.get_missing(partial_row, total)
+    if formset.limits:
+        column_definition = (
+            ('maximum_chars', formset.limits[-1]),
+        )
+    else:
+        column_definition = ()
+    full_row = common.update_row(full_row, column_definition)
     return [full_row]
