@@ -25,7 +25,7 @@ def get_question_row(formset, total):
         'en',
         '',
         common.get_mandatory(formset),
-        '' # Other: link to please specfy?
+        '',
     ]
     return partial_question + common.get_missing(partial_question, total)
 
@@ -59,7 +59,7 @@ def get_answer_row(field, total):
         'en',
         '',
         '',
-        '' # Other: link to please specfy?
+        '',
     ]
     return partial_row + common.get_missing(partial_row, total)
 

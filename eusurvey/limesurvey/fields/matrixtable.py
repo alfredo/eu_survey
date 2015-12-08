@@ -30,7 +30,7 @@ def get_question_row(formset, total):
         'en',
         '',
         common.get_mandatory(formset),
-        '' # Other: link to please specfy?
+        '',
     ]
     full_question = partial_question + common.get_missing(partial_question, total)
     return full_question
@@ -73,7 +73,7 @@ def get_answer_rows(formset, total):
             'en',
             '',
             '',
-            '' # Other: link to please specfy?
+            '',
         ]
         full_row = partial_row + common.get_missing(partial_row, total)
         answer_rows.append(full_row)
