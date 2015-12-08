@@ -16,7 +16,7 @@ def get_question_row(formset, total):
         1,
         formset.question,
         '',
-        'en'
+        'en',
         '',
         common.get_mandatory(formset),
         '',

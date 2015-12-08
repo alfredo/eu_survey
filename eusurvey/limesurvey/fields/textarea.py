@@ -15,8 +15,8 @@ def prepare_textarea_row(formset, total):
         formset.question,
         '', # help text
         'en',
-        common.get_mandatory(formset),
         '',
+        common.get_mandatory(formset),
     ]
     full_row = partial_row + common.get_missing(partial_row, total)
     return [full_row]
