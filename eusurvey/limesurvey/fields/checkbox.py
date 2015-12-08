@@ -27,7 +27,15 @@ def get_question_row(formset, total):
         common.get_mandatory(formset),
         '',
     ]
-    return partial_question + common.get_missing(partial_question, total)
+    full_row = partial_question + common.get_missing(partial_question, total)
+    if formset.limits and len(formset.limits) == 2:
+        min_a, max_a = formset.limits
+        column_definition = (
+            ('min_answers', min_a),
+            ('max_answers', max_a),
+        )
+        full_row = common.update_row(full_row, column_definition)
+    return full_row
 
 
 """
