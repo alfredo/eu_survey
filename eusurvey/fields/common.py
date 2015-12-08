@@ -28,8 +28,15 @@ def get_label(field_element):
 
 def get_question_title(section):
     pattern = './/div[@class="questiontitle"]/table/tr/td'
-    container =  section.xpath(pattern)[1]
-    return container.text_content()
+    element = section.xpath(pattern)[1]
+    element_str =  to_str(element)
+    remove_elements = (
+        '<td style="width: 100%">',
+        '</td>'
+    )
+    for item in remove_elements:
+        element_str = element_str.replace(item, '')
+    return ''.join(element_str.splitlines())
 
 
 def get_data_triggers(section):
@@ -47,7 +54,8 @@ def is_supplementary(section):
 
 def get_help_text(section):
     pattern = './/div[@class="questionhelp"]'
-    if section.xpath(pattern):
+    help_text = section.xpath(pattern)
+    if help_text:
         help_text = get(section.xpath(pattern))
         return help_text.text_content()
     return None
