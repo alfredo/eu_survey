@@ -61,7 +61,7 @@ SL		email_admin_responses_subj		Response submission for survey {SURVEYNAME} with
 SL		email_admin_responses		"Hello,<br /> <br /> A new response was submitted for your survey ""{SURVEYNAME}"".<br /> <br /> Click the following link to reload the survey:<br /> {RELOADURL}<br /> <br /> Click the following link to see the individual response:<br /> {VIEWRESPONSEURL}<br /> <br /> Click the following link to edit the individual response:<br /> {EDITRESPONSEURL}<br /> <br /> View statistics by clicking here:<br /> {STATISTICSURL}<br /> <br /> <br /> The following answers were given by the participant:<br /> {ANSWERTABLE}"		en																																																																																																						
 SL		surveyls_numberformat		0		en																																																																																																						
 G		General Information	1			en																																																																																																						
-Q	L	a6251561	1	Please&#160;indicate your role for the purpose of this consultation		en		N																																																																																																				
+Q	L	a6251561	1	Please&#160;indicate your role for the purpose of this consultation		en		Y																																																																																																				
 A	0	v1562		An individual citizen		en																																																																																																						
 A	0	v1563		An association or trade organization representing consumers		en																																																																																																						
 A	0	v1564		An association or trade organization representing businesses		en																																																																																																						
@@ -71,13 +71,13 @@ A	0	v1567		A business, including suppliers using an online platform to provide s
 A	0	v1568		A public authority		en																																																																																																						
 A	0	v1569		A research institution or Think tank		en																																																																																																						
 A	0	v1570		Other		en																																																																																																						
-Q	T	a6251571	1	Please describe the type of online platforms that you represent, a brief description of the online platform and indicate its name and web address		en		N																																															1500																																																					
-Q	T	a6251572	1	Please briefly explain the nature of your activities, the main services you provide and your relation to the online platform(s) which you use to provide services		en		N																																															3000																																																					
-Q	L	a6251573	1	Are you a&#160;SME or micro enterprise?		en		N																																																																																																				
+Q	T	a6251571	1	Please describe the type of online platforms that you represent, a brief description of the online platform and indicate its name and web address		en		Y																																															1500																																																					
+Q	T	a6251572	1	Please briefly explain the nature of your activities, the main services you provide and your relation to the online platform(s) which you use to provide services		en		Y																																															3000																																																					
+Q	L	a6251573	1	Are you a&#160;SME or micro enterprise?		en		Y																																																																																																				
 A	0	v1574		Yes		en																																																																																																						
 A	0	v1575		No		en																																																																																																						
-Q	T	a6251576	1	Please specify		en		N																																															100																																																					
-Q	!	a6251577	1	Please indicate your country of residence		en		N																																																																																																				
+Q	T	a6251576	1	Please specify		en		Y																																															100																																																					
+Q	!	a6251577	1	Please indicate your country of residence		en		Y																																																																																																				
 A	0	v1578		Austria		en																																																																																																						
 A	0	v1579		Belgium		en																																																																																																						
 A	0	v1580		Bulgaria		en																																																																																																						
@@ -107,15 +107,15 @@ A	0	v1603		Slovenia		en
 A	0	v1604		Sweden		en																																																																																																						
 A	0	v1605		United Kingdom		en																																																																																																						
 A	0	v1606		Non-EU country		en																																																																																																						
-Q	T	a6251607	1	Please specify the Non-EU country		en		N																																																																																																				
-Q	T	a6251608	1	Please provide your contact information (name, address and e-mail address)		en		N																																																																																																				
-Q	L	a6251609	1	Is your organisation registered in the Transparency Register of the European Commission and the European Parliament?<br /><em>Note: If you are not answering this questionnaire as an individual, please register in the Transparency Register. If your organisation/institution responds without being registered, the Commission will consider its input as that of an individual and will publish it as such.</em>		en		N																																																																																																				
+Q	T	a6251607	1	Please specify the Non-EU country		en		Y																																																																																																				
+Q	T	a6251608	1	Please provide your contact information (name, address and e-mail address)		en		Y																																																																																																				
+Q	L	a6251609	1	Is your organisation registered in the Transparency Register of the European Commission and the European Parliament?<br /><em>Note: If you are not answering this questionnaire as an individual, please register in the Transparency Register. If your organisation/institution responds without being registered, the Commission will consider its input as that of an individual and will publish it as such.</em>		en		Y																																																																																																				
 A	0	v1610		Yes		en																																																																																																						
 A	0	v1611		No		en																																																																																																						
 A	0	v1612		Non-applicable		en																																																																																																						
-Q	T	a6251613	1	Please indicate your organisation's registration number in the Transparency Register		en		N																																																																																																				
+Q	T	a6251613	1	Please indicate your organisation's registration number in the Transparency Register		en		Y																																																																																																				
 Q	T	a6251614	1	"  <p>If you are an economic operator, please enter the NACE code, which best describes the economic activity you conduct.&#160;<a href=""http://ec.europa.eu/eurostat/ramon/nomenclatures/index.cfm?TargetUrl=LST_NOM_DTL&amp;StrNom=NACE_REV2&amp;StrLanguageCode=EN"" target=""_blank"">You can find here the NACE classification.</a></p>"	The Statistical classification of economic activities in the European Community, abbreviated as NACE, is the classification of economic activities in the European Union (EU).         	en		N																																															5																																																					
-Q	L	a6251615	1	I object the publication of my personal data		en		N																																																																																																				
+Q	L	a6251615	1	I object the publication of my personal data		en		Y																																																																																																				
 A	0	v1616		Yes		en																																																																																																						
 A	0	v1617		No		en																																																																																																						
 Q	T	a6251618	1	Please provide a brief justification.		en		N																																															1000																																																					
@@ -123,7 +123,7 @@ G		Online Platforms	1			en
 Q	!	a6251621	1	"Do you agree with the definition of ""<strong>Online platform</strong>"" as provided below?"	"<p>""Online platform"" refers to an undertaking operating in two (or multi)-sided markets, which uses the Internet to enable interactions between two or more distinct but interdependent groups of users so as to generate value for at least one of the groups. Certain platforms also qualify as Intermediary service providers.</p>&#13;<p>Typical examples include general internet search engines (e.g. Google, Bing), specialised search tools (e.g. Google Shopping, Kelkoo, Twenga, Google Local, TripAdvisor, Yelp,), location-based business directories or some maps (e.g. Google or Bing Maps), news aggregators (e.g. Google News), online market places (e.g. Amazon, eBay, Allegro, Booking.com), audio-visual and music platforms (e.g. Deezer, Spotify, Netflix, Canal play, Apple TV), video sharing platforms (e.g. YouTube, Dailymotion), payment systems (e.g. PayPal, Apple Pay), social networks (e.g. Facebook, Linkedin, Twitter, Tuenti), app stores (e.g. Apple App Store, Google Play) or collaborative economy platforms (e.g. AirBnB, Uber, Taskrabbit, Bla-bla car). Internet access providers fall outside the scope of this definition.</p>         "	en		N																																																																																																				
 A	0	v1622		Yes		en																																																																																																						
 A	0	v1623		No		en																																																																																																						
-Q	T	a6251624	1	Please explain how you would change the definition		en		N																																															1000																																																					
+Q	T	a6251624	1	Please explain how you would change the definition		en		Y																																															1000																																																					
 Q	M	a6251625	1	What do you consider to be the key advantages of using online platforms?<br />&#13;<p>Online platforms&#8230;</p>		en		N																																																																																																				
 SQ	0	v1626		make information more accessible		en																																																																																																						
 SQ	0	v1627		make communication and interaction easier		en																																																																																																						
@@ -137,7 +137,7 @@ SQ	0	v1634		create new markets or business opportunities		en
 SQ	0	v1635		help in complying with obligations in cross-border sales		en																																																																																																						
 SQ	0	v1636		help to share resources and improve resource-allocation		en																																																																																																						
 SQ	0	v1637		others:		en																																																																																																						
-Q	T	a6251638	1	Please specify:		en		N																																															100																																																					
+Q	T	a6251638	1	Please specify:		en		Y																																															100																																																					
 Q	L	a6251639	1	Have you encountered, or are you aware of problems faced by <strong>consumers</strong> or <strong>suppliers</strong> when dealing with online platforms?	"<p>""Consumer"" is any natural person using an online platform for purposes outside the person's trade, business, craft or profession.</p>&#13;<p>""Supplier"" is any trader or non-professional individual that uses online platforms to provide services to third parties both under their own brand (name) and under the platform's brand.</p>         "	en		N																																																																																																				
 A	0	v1640		Yes		en																																																																																																						
 A	0	v1641		No		en																																																																																																						
@@ -172,12 +172,12 @@ A	0	v1670		I don't know		en
 Q	L	a6251671	1	Do you find the information provided by online platforms on their terms of use sufficient and easy-to-understand?		en		N																																																																																																				
 A	0	v1672		Yes		en																																																																																																						
 A	0	v1673		No		en																																																																																																						
-Q	T	a6251674	1	What type of additional information and in what format would you find useful? Please briefly explain your response and share any best practice you are aware of.		en		N																																															1500																																																					
+Q	T	a6251674	1	What type of additional information and in what format would you find useful? Please briefly explain your response and share any best practice you are aware of.		en		Y																																															1500																																																					
 Q	L	a6251675	1	Do you find reputation systems (e.g. ratings, reviews, certifications, trustmarks) and other trust mechanisms operated by online platforms are generally reliable?		en		N																																																																																																				
 A	0	v1676		Yes		en																																																																																																						
 A	0	v1677		No		en																																																																																																						
 A	0	v1678		I don't know		en																																																																																																						
-Q	T	a6251679	1	Please explain how the transparency of reputation systems and other trust mechanisms could be improved?		en		N																																															1500																																																					
+Q	T	a6251679	1	Please explain how the transparency of reputation systems and other trust mechanisms could be improved?		en		Y																																															1500																																																					
 Q	T	a6251680	1	What are the main benefits and drawbacks of reputation systems and other trust mechanisms operated by online platforms? Please describe their main benefits and drawbacks.		en		N																																															1500																																																					
 Q	L	a6251682	1	In your view, do online platforms provide sufficient and accessible information with regard to:<br /><br />a) the personal and non-personal data they collect?		en		N																																																																																																				
 A	0	v1683		Yes		en																																																																																																						
@@ -235,7 +235,7 @@ A	0	v1726	v1726	0 – no impact		en
 A	0	v1727	v1727	1 – minor impact		en																																																																																																						
 A	0	v1728	v1728	2 – considerable impact		en																																																																																																						
 Q	T	a6251741	1	If you are aware of other contractual clauses or experience other potentially problematic practices, please mention them here		en		N																																															1000																																																					
-Q	T	a6251742	1	Please briefly describe the situation		en		N																																															3000																																																					
+Q	T	a6251742	1	Please briefly describe the situation		en		Y																																															3000																																																					
 Q	L	a6251743	1	Are you a holder of rights in digital content protected by copyright, which is used on an online platform?		en		N																																																																																																				
 A	0	v1744		Yes		en																																																																																																						
 A	0	v1745		No		en																																																																																																						
@@ -257,7 +257,7 @@ Q	T	a6251760	1	How do you ensure that suppliers of your platform are treated fai
 Q	L	a6251761	1	Can a supplier personalize its offer of products / services on the platform you represent?		en		N																																																																																																				
 A	0	v1762		Yes		en																																																																																																						
 A	0	v1763		No		en																																																																																																						
-Q	T	a6251764	1	How?		en		N																																															1500																																																					
+Q	T	a6251764	1	How?		en		Y																																															1500																																																					
 Q	L	a6251765	1	Is there a room for improvement in the relation between platforms and suppliers using the services of platforms?		en		N																																																																																																				
 A	0	v1766		No, the present situation is satisfactory.		en																																																																																																						
 A	0	v1767		Yes, through market dynamics.		en																																																																																																						
@@ -299,7 +299,7 @@ A	0	v1805		No		en
 Q	L	a6251806	1	Would a rating scheme, issued by an independent agency on certain aspects of the platforms' activities, improve the situation?		en		N																																																																																																				
 A	0	v1807		Yes		en																																																																																																						
 A	0	v1808		No		en																																																																																																						
-Q	T	a6251809	1	Please explain your answer		en		N																																															1500																																																					
+Q	T	a6251809	1	Please explain your answer		en		Y																																															1500																																																					
 Q	T	a6251810	1	Please share your general comments or ideas regarding access to data on online platforms		en		N																																															3000																																																					
 G		Tackling illegal content online and the liability of online intermediaries	1			en																																																																																																						
 Q	L	a6251812	1	  <p>Please indicate your role in the context of this set of questions</p>	"<p>Terms used for the purposes of this consultation:</p>&#13;<p>""Illegal content""</p>&#13;<p>Corresponds to the term ""illegal activity or information"" used in Article 14 of the E-commerce Directive. The directive does not further specify this term. It may be understood in a wide sense so as to include any infringement of applicable EU or national laws and regulations. This could for instance include defamation, terrorism related content, IPR infringements, child abuse content, consumer rights infringements, or incitement to hatred or violence on the basis of race, origin, religion, gender, sexual orientation, malware, illegal online gambling, selling illegal medicines, selling unsafe products.</p>&#13;<p>""Hosting""</p>&#13;<p>According to Article 14 of the E-commerce Directive, hosting is the &#8220;storage of (content) that has been provided by the user of an online service&#8221;. It may for instance be storage of websites on servers. It may also include the services offered by online market places, referencing services and social networks.</p>&#13;<p>""Notice""</p>&#13;<p>Any communication to a hosting service provider that gives the latter knowledge of a particular item of illegal content that it transmits or stores and therefore creates an obligation for it to act expeditiously by removing the illegal content or disabling/blocking access to it.. Such an obligation only arises if the notice provides the internet hosting service provider with actual awareness or knowledge of illegal content.</p>&#13;<p>""Notice provider""</p>&#13;<p>Anyone (a natural or legal person) that informs a hosting service provider about illegal content on the internet. It may for instance be an individual citizen, a hotline or a holder of intellectual property rights. In certain cases it may also include public authorities.</p>&#13;<p>""Provider of content""</p>&#13;<p>In the context of a hosting service the content is initially provided by the user of that service. A provider of content is for instance someone who posts a comment on a social network site or uploads a video on a video sharing site.</p>         "	en		N																																																																																																				
@@ -308,11 +308,11 @@ A	0	v1814		content provider		en
 A	0	v1815		notice provider		en																																																																																																						
 A	0	v1816		intermediary		en																																																																																																						
 A	0	v1817		none of the above		en																																																																																																						
-Q	T	a6251818	1	Please explain		en		N																																																																																																				
+Q	T	a6251818	1	Please explain		en		Y																																																																																																				
 Q	L	a6251819	1	Have you encountered situations suggesting that the liability regime introduced in Section IV of the E-commerce Directive (art. 12-15) has proven not fit for purpose or has negatively affected market level playing field?		en		N																																																																																																				
 A	0	v1820		Yes		en																																																																																																						
 A	0	v1821		No		en																																																																																																						
-Q	T	a6251822	1	Please describe the situation.		en		N																																															3000																																																					
+Q	T	a6251822	1	Please describe the situation.		en		Y																																															3000																																																					
 Q	L	a6251823	1	"Do you think that the concept of a ""mere technical, automatic and passive nature"" of information transmission by information society service providers provided under recital 42 of the ECD is sufficiently clear to be interpreted and applied in a homogeneous way, having in mind the growing involvement in content distribution by some online intermediaries, e.g.: video sharing websites?"		en		N																																																																																																				
 A	0	v1824		Yes		en																																																																																																						
 A	0	v1825		No		en																																																																																																						
@@ -338,12 +338,12 @@ SQ	0	v1845		Child abuse content		en
 SQ	0	v1846		Terrorism-related content (e.g. content inciting the commitment of terrorist offences and training material)		en																																																																																																						
 SQ	0	v1847		Defamation		en																																																																																																						
 SQ	0	v1848		Other:		en																																																																																																						
-Q	T	a6251849	1	Please specify.		en		N																																															500																																																					
+Q	T	a6251849	1	Please specify.		en		Y																																															500																																																					
 Q	T	a6251850	1	Please explain what approach you would see fit for the relevant category.		en		N																																															1000																																																					
 Q	L	a6251852	1	Should the content providers be given the opportunity to give their views to the hosting service provider on the alleged illegality of the content?		en		N																																																																																																				
 A	0	v1853		Yes		en																																																																																																						
 A	0	v1854		No		en																																																																																																						
-Q	T	a6251855	1	Please explain your answer		en		N																																															1500																																																					
+Q	T	a6251855	1	Please explain your answer		en		Y																																															1500																																																					
 Q	T	a6251856	1	If you consider that this should only apply for some kinds of illegal content, please indicate which one(s)		en		N																																															1500																																																					
 Q	L	a6251857	1	"Should action taken by hosting service providers remain effective over time (""take down and stay down"" principle)?"		en		N																																																																																																				
 A	0	v1858		Yes		en																																																																																																						
@@ -352,8 +352,8 @@ Q	T	a6251860	1	Please explain		en		N
 Q	L	a6251862	1	(For online intermediaries): Have you put in place voluntary or proactive measures to remove certain categories of illegal content from your system?		en		N																																																																																																				
 A	0	v1863		Yes		en																																																																																																						
 A	0	v1864		No		en																																																																																																						
-Q	T	a6251865	1	Please describe them.		en		N																																															1500																																																					
-Q	T	a6251866	1	Could you estimate the financial costs to your undertaking of putting in place and running this system?		en		N																																															1500																																																					
+Q	T	a6251865	1	Please describe them.		en		Y																																															1500																																																					
+Q	T	a6251866	1	Could you estimate the financial costs to your undertaking of putting in place and running this system?		en		Y																																															1500																																																					
 Q	T	a6251867	1	Could you outline the considerations that have prevented you from putting in place voluntary measures?		en		N																																															1500																																																					
 Q	L	a6251868	1	Do you see a need to impose specific duties of care for certain categories of illegal content?		en		N																																																																																																				
 A	0	v1869		Yes		en																																																																																																						
@@ -380,34 +380,34 @@ Q	L	a6251891	1	In the context of the free flow of data in the Union, do you in p
 A	0	v1892		Yes		en																																																																																																						
 A	0	v1893		No		en																																																																																																						
 A	0	v1894		Not applicable		en																																																																																																						
-Q	T	a6251895	1	Please explain why not		en		N																																																																																																				
+Q	T	a6251895	1	Please explain why not		en		Y																																																																																																				
 Q	L	a6251896	1	Have restrictions on the location of data affected your strategy in doing business (e.g. limiting your choice regarding the use of certain digital technologies and services?)		en		N																																																																																																				
 A	0	v1897		Yes		en																																																																																																						
 A	0	v1898		No		en																																																																																																						
 Q	L	a6251899	1	Do you think that there are particular reasons in relation to which data location restrictions are or should be justifiable?		en		N																																																																																																				
 A	0	v1900		Yes		en																																																																																																						
 A	0	v1901		No		en																																																																																																						
-Q	M	a6251902	1	What kind(s) of ground(s) do you think are justifiable?		en		N																																																																																																				
+Q	M	a6251902	1	What kind(s) of ground(s) do you think are justifiable?		en		Y																																																																																																				
 SQ	0	v1903		National security		en																																																																																																						
 SQ	0	v1904		Public security		en																																																																																																						
 SQ	0	v1905		Other reasons:		en																																																																																																						
-Q	T	a6251906	1	Please explain		en		N																																																																																																				
+Q	T	a6251906	1	Please explain		en		Y																																																																																																				
 Q	L	a6251908	1	Do you think that the existing contract law framework and current contractual practices are fit for purpose to facilitate a free flow of data including sufficient and fair access to and use of data in the EU, while safeguarding fundamental interests of parties involved?		en		N																																																																																																				
 A	0	v1909		Yes		en																																																																																																						
 A	0	v1910		No		en																																																																																																						
-Q	T	a6251911	1	Please explain your position		en		N																																															3000																																																					
+Q	T	a6251911	1	Please explain your position		en		Y																																															3000																																																					
 Q	L	a6251912	1	In order to ensure the free flow of data within the European Union, in your opinion, regulating access to, transfer and the use of non-personal data at European level is:		en		N																																																																																																				
 A	0	v1913		Necessary		en																																																																																																						
 A	0	v1914		Not necessary		en																																																																																																						
 Q	L	a6251915	1	When non-personal data is generated by a device in an automated manner, do you think that it should be subject to specific measures (binding or non-binding) at EU level?		en		N																																																																																																				
 A	0	v1916		Yes		en																																																																																																						
 A	0	v1917		No		en																																																																																																						
-Q	M	a6251918	1	Which of the following aspects would merit measures?		en		N																																										4						1																																																				
+Q	M	a6251918	1	Which of the following aspects would merit measures?		en		Y																																										4						1																																																				
 SQ	0	v1919		Obligation to inform the user or operator of the device that generates the data		en																																																																																																						
 SQ	0	v1920		Attribution of the exploitation rights of the generated data to an entity (for example the person / organisation that is owner of that device)		en																																																																																																						
 SQ	0	v1921		In case the device is embedded in a larger system or product, the obligation to share the generated data with providers of other parts of that system or with the owner / user / holder of the entire system		en																																																																																																						
 SQ	0	v1922		Other aspects:		en																																																																																																						
-Q	T	a6251923	1	Please specify		en		N																																																																																																				
+Q	T	a6251923	1	Please specify		en		Y																																																																																																				
 Q	T	a6251924	1	Please share your general comments or ideas regarding data access, ownership and use		en		N																																															5000																																																					
 Q	T	a6251926	1	What regulatory constraints hold back the development of data markets in Europe and how could the EU encourage the development of such markets?		en		N																																															3000																																																					
 Q	M	a6251928	1	Do you think more could be done to open up public sector data for re-use in addition to the recently revised EU legislation (Directive 2013/37/EU)?<em><br /></em>	Open by default means: Establish an expectation that all government data be published and made openly re-usable by default, while recognising that there are legitimate reasons why some data cannot be released.         	en		N																																																																																																				
@@ -418,23 +418,23 @@ SQ	0	v1932		Improving interoperability (e.g., common data formats);		en
 SQ	0	v1933		Further limiting the possibility to charge for re-use of public sector information		en																																																																																																						
 SQ	0	v1934		Remedies available to potential re-users against unfavourable decisions		en																																																																																																						
 SQ	0	v1935		Other aspects?		en																																																																																																						
-Q	T	a6251936	1	Please specify		en		N																																																																																																				
+Q	T	a6251936	1	Please specify		en		Y																																																																																																				
 Q	L	a6251937	1	Do you think that there is a case for the opening up of data held by private entities to promote its re-use by public and/or private sector, while respecting the existing provisions on data protection?		en		N																																																																																																				
 A	0	v1938		Yes		en																																																																																																						
 A	0	v1939		No		en																																																																																																						
-Q	M	a6251940	1	Under what conditions?		en		N																																																																																																				
+Q	M	a6251940	1	Under what conditions?		en		Y																																																																																																				
 SQ	0	v1941		in case it is in the public interest		en																																																																																																						
 SQ	0	v1942		for non-commercial purposes (e.g. research)		en																																																																																																						
 SQ	0	v1943		other conditions		en																																																																																																						
-Q	T	a6251944	1	Please explain		en		N																																															3000																																																					
+Q	T	a6251944	1	Please explain		en		Y																																															3000																																																					
 Q	L	a6251946	1	Do you think that data generated by research is sufficiently, findable, accessible identifiable, and re-usable enough?		en		N																																																																																																				
 A	0	v1947		Yes		en																																																																																																						
 A	0	v1948		No		en																																																																																																						
-Q	T	a6251949	1	Why not? What do you think could be done to make data generated by research more effectively re-usable?		en		N																																															3000																																																					
+Q	T	a6251949	1	Why not? What do you think could be done to make data generated by research more effectively re-usable?		en		Y																																															3000																																																					
 Q	L	a6251950	1	Do you agree with a default policy which would make data generated by publicly funded research available through open access?		en		N																																																																																																				
 A	0	v1951		Yes		en																																																																																																						
 A	0	v1952		No		en																																																																																																						
-Q	T	a6251953	1	Why not?		en		N																																															3000																																																					
+Q	T	a6251953	1	Why not?		en		Y																																															3000																																																					
 Q	L	a6251955	1	As a provider/user of Internet of Things (IoT) and/or data driven services and connected tangible devices, have you ever encountered or do you anticipate problems stemming from either an unclear liability regime/non &#8211;existence of a clear-cut liability regime?	"  <p>The ""Internet of Things"" is an ecosystem of physical objects that contain embedded technology to sense their internal statuses and communicate or interact with the external environment. Basically, Internet of things is the rapidly growing network of everyday objects&#8212;eyeglasses, cars, thermostats&#8212;made smart with sensors and internet addresses that create a network of everyday objects that communicate with one another, with the eventual capability to take actions on behalf of users.</p>         "	en		N																																																																																																				
 A	0	v1956		Yes		en																																																																																																						
 A	0	v1957		No		en																																																																																																						
@@ -474,7 +474,7 @@ Q	L	a6251993	1	As a (potential) user of cloud computing services, do you think c
 A	0	v1994		Yes		en																																																																																																						
 A	0	v1995		No		en																																																																																																						
 A	0	v1996		Not applicable		en																																																																																																						
-Q	T	a6251997	1	What information relevant to the security and protection of users' data do you think cloud service providers should provide?		en		N																																																																																																				
+Q	T	a6251997	1	What information relevant to the security and protection of users' data do you think cloud service providers should provide?		en		Y																																																																																																				
 Q	L	a6251998	1	As a (potential) user of cloud computing services, do you think cloud service providers are sufficiently transparent on the security and protection of users' data regarding the services they provide?		en		N																																																																																																				
 A	0	v1999		Yes		en																																																																																																						
 A	0	v2000		No		en																																																																																																						
@@ -482,17 +482,17 @@ A	0	v2001		Not applicable		en
 Q	L	a6252002	1	As a (potential) user of cloud computing services, do you agree that existing contractual practices ensure a fair and balanced allocation of legal and technical risks between cloud users and cloud service providers?		en		N																																																																																																				
 A	0	v2003		Yes		en																																																																																																						
 A	0	v2004		No		en																																																																																																						
-Q	T	a6252005	1	  <p>Please explain</p>		en		N																																																																																																				
+Q	T	a6252005	1	  <p>Please explain</p>		en		Y																																																																																																				
 Q	M	a6252006	1	What would be the benefit of cloud computing services interacting with each other (ensuring interoperability)		en		N																																																																																																				
 SQ	0	v2007		Economic benefits		en																																																																																																						
 SQ	0	v2008		Improved trust		en																																																																																																						
 SQ	0	v2009		Others:		en																																																																																																						
-Q	T	a6252010	1	Please specify		en		N																																															3000																																																					
+Q	T	a6252010	1	Please specify		en		Y																																															3000																																																					
 Q	M	a6252011	1	What would be the benefit of guaranteeing the portability of data, including at European level, between different providers of cloud services		en		N																																																																																																				
 SQ	0	v2012		Economic benefits		en																																																																																																						
 SQ	0	v2013		Improved trust		en																																																																																																						
 SQ	0	v2014		Others:		en																																																																																																						
-Q	T	a6252015	1	Please specify		en		N																																															3000																																																					
+Q	T	a6252015	1	Please specify		en		Y																																															3000																																																					
 Q	;	m2016	1	Have you encountered any of the following contractual practices in relation to cloud based services? In your view, to what extent could those practices hamper the uptake of cloud based services? Please explain your reasoning.	                    	en		N			1																																																																																																	
 SQ	0	sq1		Difficulties with negotiating contractual terms and conditions for cloud services stemming from uneven bargaining power of the parties and/or undefined standards		en																																																																																																						
 SQ	0	sq2		Limitations as regards the possibility to switch between different cloud service providers		en																																																																																																						
@@ -518,7 +518,7 @@ A	0	v2038		No		en
 Q	L	a6252039	1	Would your answer differ for consumer and commercial (i.e. business to business) cloud contracts?		en		N																																																																																																				
 A	0	v2040		Yes		en																																																																																																						
 A	0	v2041		No		en																																																																																																						
-Q	T	a6252042	1	What approach would you prefer?		en		N																																																																																																				
+Q	T	a6252042	1	What approach would you prefer?		en		Y																																																																																																				
 Q	T	a6252043	1	Please share your general comments or ideas regarding data, cloud computing and the topics addressed in this section of the questionnaire		en		N																																															5000																																																					
 G		The collaborative economy	1			en																																																																																																						
 Q	M	a6252046	1	Please indicate your role in the collaborative economy		en		N																																																																																																				
