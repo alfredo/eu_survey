@@ -1,4 +1,8 @@
+import logging
+
 from eusurvey.limesurvey import common
+
+logger = logging.getLogger(__name__)
 
 """Example
 'Q', '!', 'weight_units', '1', 'Which units are you using for weight?', '', 'en', '', 'Y', 'N', '', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''
@@ -25,7 +29,10 @@ def get_question_row(formset, total):
 
 
 def get_answer_row(field, total):
-    row_value = common.get_value(field['input']['value'])
+    value = field['input']['value']
+    if not value:
+        return None
+    row_value = common.get_value(value)
     partial_row = [
         'A',
         0,
@@ -44,5 +51,8 @@ def get_answer_row(field, total):
 def prepare_select_row(formset, total):
     select_row = [get_question_row(formset, total)]
     for field in formset.option_list:
-        select_row.append(get_answer_row(field, total))
+        answer_row = get_answer_row(field, total)
+        if not answer_row:
+            continue
+        select_row.append(answer_row)
     return select_row

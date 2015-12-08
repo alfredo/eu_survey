@@ -78,7 +78,6 @@ A	0	v1574		Yes		en
 A	0	v1575		No		en																																																																																																						
 Q	T	a6251576	1	Please specify		en		Y																																																																																																				
 Q	!	a6251577	1	Please indicate your country of residence		en		Y																																																																																																				
-A	0	v				en																																																																																																						
 A	0	v1578		Austria		en																																																																																																						
 A	0	v1579		Belgium		en																																																																																																						
 A	0	v1580		Bulgaria		en																																																																																																						
@@ -122,7 +121,6 @@ A	0	v1617		No		en
 Q	T	a6251618	1	Please provide a brief justification.		en		N																																																																																																				
 G		Online Platforms	1			en																																																																																																						
 Q	!	a6251621	1	"Do you agree with the definition of ""<strong>Online platform</strong>"" as provided below?"		en		N																																																																																																				
-A	0	v				en																																																																																																						
 A	0	v1622		Yes		en																																																																																																						
 A	0	v1623		No		en																																																																																																						
 Q	T	a6251624	1	Please explain how you would change the definition		en		Y																																																																																																				
