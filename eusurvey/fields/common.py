@@ -70,7 +70,8 @@ def get_help_text(section):
             '<div class="questionhelp">',
             '</div>',
         )
-        return get_inner_html(element, remove_elements)
+        result = get_inner_html(element, remove_elements)
+        return result if result else None
     return None
 
 
