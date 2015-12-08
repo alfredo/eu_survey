@@ -1,4 +1,8 @@
+import logging
+
 from lxml import etree
+
+logger = logging.getLogger(__name__)
 
 
 def to_str(element):
@@ -27,17 +31,21 @@ def get_label(field_element):
     return get(label_field.xpath('.//span[@class="answertext"]/text()'))
 
 
+def get_inner_html(element, remove_elements):
+    element_str =  to_str(element)
+    for item in remove_elements:
+        element_str = element_str.replace(item, '')
+    return ''.join(element_str.splitlines())
+
+
 def get_question_title(section):
     pattern = './/div[@class="questiontitle"]/table/tr/td'
     element = section.xpath(pattern)[1]
-    element_str =  to_str(element)
     remove_elements = (
         '<td style="width: 100%">',
         '</td>'
     )
-    for item in remove_elements:
-        element_str = element_str.replace(item, '')
-    return ''.join(element_str.splitlines())
+    return get_inner_html(element, remove_elements)
 
 
 def get_data_triggers(section):
@@ -57,23 +65,44 @@ def get_help_text(section):
     pattern = './/div[@class="questionhelp"]'
     help_text = section.xpath(pattern)
     if help_text:
+        element = get(help_text)
         remove_elements = (
             '<div class="questionhelp">',
             '</div>',
         )
-        help_text = get(section.xpath(pattern))
-        element_str = to_str(help_text)
-        for item in remove_elements:
-            element_str = element_str.replace(item, '')
-        return ''.join(element_str.splitlines())
+        return get_inner_html(element, remove_elements)
     return None
 
 
 def get_limits(section):
     pattern = './/div[@class="limits"]'
-    if section.xpath(pattern):
-        limits = get(section.xpath(pattern))
-        return limits.text_content()
+    limits = section.xpath(pattern)
+    if limits:
+        element = get(limits)
+        # This is removing the extra markup based in the current copy.
+        # this will need further tweaking to make sure only the numbers are
+        # passed on:
+        remove_elements = (
+            '<div class="limits">',
+            '</div>',
+            '<span class="charactercounter"></span>',
+            ' character(s) maximum&#160;',
+            ' characters will be accepted&#160;',
+            'to',
+            'Text of',
+            'between',
+            'and',
+            'choices',
+        )
+        limits = get_inner_html(element, remove_elements)
+        try:
+            limit_list = [int(l) for l in limits.split()]
+        except ValueError:
+            logger.error('Invalid limit: `%s`', limits)
+            return None
+        if limit_list and len(limit_list) <= 2:
+            return limit_list
+        logger.error('Invalid limit: `%s`', limits)
     return None
 
 
