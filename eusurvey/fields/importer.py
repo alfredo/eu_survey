@@ -15,21 +15,6 @@ from eusurvey.limesurvey import importer as lime_importer
 
 logger = logging.getLogger(__name__)
 
-from lxml import etree
-
-
-IGNORED_CLASS = ['surveytitle']
-
-_str = etree.tostring
-
-
-def _get(element_list, expected=1):
-    """Validates there is a single element in the list."""
-    if not len(element_list) == expected:
-        raise ValueError(
-            'Different number of elements than expected: `%s`' % element_list)
-    return element_list[0]
-
 
 EXTRACTOR_LIST = (
     radio.RadioFieldExtractor,
