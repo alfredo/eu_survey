@@ -28,6 +28,7 @@ def get_question_row(formset, total):
         '',
     ]
     full_row = partial_question + common.get_missing(partial_question, total)
+    # TODO: find out a way to express the limit as words too:
     if formset.limits and len(formset.limits) == 2:
         min_a, max_a = formset.limits
         column_definition = (
@@ -35,6 +36,7 @@ def get_question_row(formset, total):
             ('max_answers', max_a),
         )
         full_row = common.update_row(full_row, column_definition)
+    full_row.append(formset.get_dependencies())
     return full_row
 
 
@@ -69,7 +71,12 @@ def get_answer_row(field, total):
         '',
         '',
     ]
-    return partial_row + common.get_missing(partial_row, total)
+    full_row = partial_row + common.get_missing(partial_row, total)
+    metadata = {
+        'field_id': field['input'].get('id'),
+    }
+    full_row.append(metadata)
+    return full_row
 
 
 def prepare_checkbox_row(formset, total):
