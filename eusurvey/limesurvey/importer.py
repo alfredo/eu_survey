@@ -2,7 +2,12 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-from eusurvey.limesurvey import constants, common, writer
+from eusurvey.limesurvey import (
+    constants,
+    common,
+    postprocessor,
+    writer,
+)
 from eusurvey.limesurvey.fields import (
     content,
     radio,
@@ -87,5 +92,6 @@ def make_limesurvey_file(survey_list):
     row_list += get_settings_rows(total)
     row_list += get_local_settings_rows(total)
     row_list += prepare_survey_list(survey_list, total)
-    path = writer.save(row_list)
+    updated_row_list = postprocessor.update_row_list(row_list)
+    path = writer.save(updated_row_list)
     return path
