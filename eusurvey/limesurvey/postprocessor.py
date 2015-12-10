@@ -37,7 +37,7 @@ def get_field_condition(field_id, row_list=None):
                 question_name = common.get_row_value(question, 'name')
                 row_value = common.get_row_value(row, 'name')
                 return "%s == '%s'" % (question_name, row_value)
-    logger.error('Missing triggers for:\n`%s`', field_id)
+    logger.error('Missing triggers for: `%s`', field_id)
     return None
 
 
