@@ -53,7 +53,7 @@ def get_form_pages(tree):
         title = section.xpath('a/div/text()')[0].strip()
         html_id = section.xpath('a/@id')[0].strip()
         if title in IGNORED_PAGES:
-            logger.debug('Ignoring page: `%s`', title)
+            logger.info('Ignoring page: `%s`', title)
             continue
         section_list.append({
             'title': title,
