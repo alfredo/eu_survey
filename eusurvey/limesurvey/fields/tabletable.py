@@ -36,14 +36,15 @@ def get_question_row(formset, total):
 
 
 def get_subquestion_id(question_list):
-    question_ids = set()
+    question_ids = []
     for question in question_list:
         # question name: answer6251697|1|1
         q_id = 'sq%s' % question['input']['name'].split('|')[1]
-        question_ids.add(q_id)
+        if q_id not in question_ids:
+            question_ids.append(q_id)
     # Subquestion id should be consistent
     if len(question_ids) == 1:
-        return list(question_ids)[0]
+        return question_ids[0]
     raise ValueError('Inconsistent subquestion naming: `%s`' % question_list)
 
 
@@ -65,22 +66,26 @@ def get_subquestion_rows(formset, total):
     return subquestion_rows
 
 
-def get_answers(question_list):
-    question_set = set()
-    for question in question_list:
+def get_answers(raw_question_list):
+    question_list = []
+    for question in raw_question_list:
         # question name: answer6251697|1|1
         name = question['input']['name'].split('|')[2]
-        question_set.add((name, question['label']))
-    return question_set
+        value = (name, question['label'])
+        if value not in question_list:
+            question_list.append(value)
+    return question_list
 
 
 def get_answers_set(formset):
-    answer_set = set()
+    answer_set = []
     total_answers = 0
     for name, question_list in formset.field_list:
         answers = get_answers(question_list)
         total_answers = len(answers)
-        answer_set.update(answers)
+        # The order of the fields is significant this is why a list is
+        # being used instead of a set.
+        [answer_set.append(a) for a in answers if a not in answer_set]
     assert len(answer_set) == total_answers, "Invalid answer count. `%s`" % formset
     return answer_set
 
@@ -92,12 +97,12 @@ def get_answers_set(formset):
 def get_answer_rows(formset, total):
     answer_set = get_answers_set(formset)
     answer_rows = []
-    for name, label in answer_set:
+    for i, (name, label) in enumerate(answer_set, start=1):
         partial_row = [
             'SQ',
             1,
             name,
-            name,
+            i,
             label,
             '',
             'en',
