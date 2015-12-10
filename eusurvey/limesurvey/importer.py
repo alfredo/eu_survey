@@ -37,13 +37,23 @@ def get_local_settings_rows(total):
     return settings_rows
 
 
-def get_page_row(page, total):
+def get_page_text(formset_list):
+    text_list = []
+    for element in formset_list:
+        if not element.field_type == 'content':
+            break
+        text_partial = ''.join(element.text.splitlines())
+        text_list.append(text_partial)
+    return ''.join(text_list)
+
+
+def get_page_row(page, total, formset_list):
     page_row = [
         'G',
         '',
         page['title'],
         1,
-        '',
+        get_page_text(formset_list),
         '',
         'en',
     ]
@@ -76,7 +86,7 @@ def prepare_formset_list(formset_list, total):
 def prepare_survey_list(survey_list, total):
     prepared_survey_list = []
     for i, (page, formset_list) in enumerate(survey_list):
-        prepared_survey_list.append(get_page_row(page, total))
+        prepared_survey_list.append(get_page_row(page, total, formset_list))
         # Add any hard rows:
         if i == 0:
             prepared_survey_list += constants.HARD_ROWS

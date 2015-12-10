@@ -1,4 +1,4 @@
-from eusurvey.fields.common import to_str, get
+from eusurvey.fields.common import to_str, get, get_inner_html
 
 
 PATTERN_LIST = [
@@ -12,7 +12,6 @@ class Content:
     field_type = 'content'
     is_supplementary = False
 
-
     def __init__(self, section):
         self.section = section
 
@@ -25,7 +24,8 @@ class Content:
         return False
 
     def extract_content(self, result):
-        return unicode(get(result).text_content())
+        content = get(result)
+        return to_str(content)
 
 
 def extractor(section):
