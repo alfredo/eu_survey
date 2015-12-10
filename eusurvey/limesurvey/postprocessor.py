@@ -44,8 +44,6 @@ def get_field_condition(field_id, row_list=None):
                 question_name = common.get_row_value(question, 'name')
                 subquestion_name = common.get_row_value(subquestion, 'name')
                 row_value = common.get_row_value(row, 'name')
-                print "%s_%s == '%s'" % (
-                    question_name, subquestion_name,  row_value)
                 return "%s_%s == '%s'" % (
                     question_name, subquestion_name,  row_value)
             if field_id == metadata['field_id']:
