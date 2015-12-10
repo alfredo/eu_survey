@@ -1,44 +1,62 @@
 # General Information
 
- Objectives and General Information
-
-
-
-
-The views expressed in this public consultation document may not be interpreted as stating an official position of the European Commission.  All definitions provided in this document are strictly for the purposes of this public consultation and are without prejudice to differing definitions the Commission may use under current or future EU law, including any revision of the definitions by the Commission concerning the same subject matters.
-
-
-
-
-
-You are invited to read the privacy statement attached to this consultation for information on how your personal data and contribution will be dealt with.
+<div data-level="1" class="sectiontitle section1"> Objectives and General Information</div>
+         
 
 
 
 
 
-This public consultation will close on 30 December 2015 (12 weeks from the day when all language versions have been made available).
+<div class="text">
+  <p>
+    <strong>The views expressed in this public consultation document may not be interpreted as stating an official position of the European Commission.&#160; All definitions provided in this document are strictly for the purposes of this public consultation and are without prejudice to differing definitions the Commission may use under current or future EU law, including any revision of the definitions by the Commission concerning the same subject matters.</strong>
+  </p>
+</div>
+         
 
 
 
 
 
-Please complete this section of the public consultation before moving to other sections. 
+<div class="text">&#13;
+<p>You are invited to read the privacy statement attached to this consultation for information on how your personal data and contribution will be dealt with.<br /><br /></p></div>
+         
 
 
 
 
 
-Respondents living with disabilities can request the questionnaire in .docx format and send their replies in email to the following address: CNECT-PLATFORMS-CONSULTATION@ec.europa.eu.
-If you are an association representing several other organisations and intend to gather the views of your members by circulating the questionnaire to them, please send us a request in email and we will send you the questionnaire in .docx format. However, we ask you to introduce the aggregated answers into EU Survey. In such cases we will not consider answers submitted in other channels than EU Survey.
-If you want to submit position papers or other information in addition to the information you share with the Commission in EU Survey, please send them to CNECT-PLATFORMS-CONSULTATION@ec.europa.eu and make reference to the "Case Id" displayed after you have concluded the online questionnaire. This helps the Commission to properly identify your contribution.
-Given the volume of this consultation, you may wish to download a PDF version before responding to the survey online. The PDF version includes all possible questions. When you fill the survey in online, you will not see all of the questions; only those applicable to your chosen respondent category and to other choices made when you answer previous questions.
+<div class="text">&#13;
+<p>This public consultation will close on 30 December 2015 (12 weeks from the day when all language versions have been made available).</p></div>
+         
 
 
 
 
 
-## [RADIO] 1. `Please indicate your role for the purpose of this consultation`
+<div class="text">&#13;
+<p><br /><span style="text-decoration: underline;"><strong>Please complete this section of the public consultation before moving to other sections.</strong></span>&#160;</p></div>
+         
+
+
+
+
+
+<div class="text">
+  <ul>&#13;
+<li>Respondents living with disabilities can request the questionnaire in .docx format and send their replies in email to the following address: CNECT-PLATFORMS-CONSULTATION@ec.europa.eu.</li>&#13;
+<li>If you are an association representing several other organisations and intend to gather the views of your members by circulating the questionnaire to them, please send us a request in email and we will send you the questionnaire in .docx format. However, we ask you to introduce the aggregated answers into EU Survey. In such cases we will not consider answers submitted in other channels than EU Survey.</li>&#13;
+<li>If you want to submit position papers or other information in addition to the information you share with the Commission in EU Survey, please send them to CNECT-PLATFORMS-CONSULTATION@ec.europa.eu and make reference to the "Case Id" displayed after you have concluded the online questionnaire. This helps the Commission to properly identify your contribution.</li>&#13;
+<li>Given the volume of this consultation, you may wish to download a PDF version before responding to the survey online. The PDF version includes all possible questions. When you fill the survey in online, you will not see all of the questions; only those applicable to your chosen respondent category and to other choices made when you answer previous questions.</li>&#13;
+</ul>
+</div>
+         
+
+
+
+
+
+## [RADIO] 1. `Please&#160;indicate your role for the purpose of this consultation`
 
  - <a id="6251562"></a> [6251562]  An individual citizen
 
@@ -66,7 +84,7 @@ Given the volume of this consultation, you may wish to download a PDF version be
 
 [View 6251567.](#user-content-6251567)
 
-## [RADIO] 4. `Are you a SME or micro enterprise?`
+## [RADIO] 4. `Are you a&#160;SME or micro enterprise?`
 
  - <a id="6251574"></a> [6251574]  Yes
 
@@ -146,7 +164,7 @@ Given the volume of this consultation, you may wish to download a PDF version be
 
 ## [TEXTAREA] 8. `Please provide your contact information (name, address and e-mail address)`
 
-## [RADIO] 9. `Is your organisation registered in the Transparency Register of the European Commission and the European Parliament?Note: If you are not answering this questionnaire as an individual, please register in the Transparency Register. If your organisation/institution responds without being registered, the Commission will consider its input as that of an individual and will publish it as such.`
+## [RADIO] 9. `Is your organisation registered in the Transparency Register of the European Commission and the European Parliament?<br /><em>Note: If you are not answering this questionnaire as an individual, please register in the Transparency Register. If your organisation/institution responds without being registered, the Commission will consider its input as that of an individual and will publish it as such.</em>`
 
  - <a id="6251610"></a> [6251610]  Yes
 
@@ -158,9 +176,9 @@ Given the volume of this consultation, you may wish to download a PDF version be
 
 [View 6251610.](#user-content-6251610)
 
-## [TEXTAREA] 11. `If you are an economic operator, please enter the NACE code, which best describes the economic activity you conduct. You can find here the NACE classification.`
+## [TEXTAREA] 11. `  <p>If you are an economic operator, please enter the NACE code, which best describes the economic activity you conduct.&#160;<a href="http://ec.europa.eu/eurostat/ramon/nomenclatures/index.cfm?TargetUrl=LST_NOM_DTL&amp;StrNom=NACE_REV2&amp;StrLanguageCode=EN" target="_blank">You can find here the NACE classification.</a></p>`
 
-The Statistical classification of economic activities in the European Community, abbreviated as NACE, is the classification of economic activities in the European Union (EU).
+The Statistical classification of economic activities in the European Community, abbreviated as NACE, is the classification of economic activities in the European Union (EU).         
 
 ## [RADIO] 12. `I object the publication of my personal data`
 
@@ -174,20 +192,25 @@ The Statistical classification of economic activities in the European Community,
 
 # Online Platforms
 
- Online platforms
+<div data-level="1" class="sectiontitle section1"> Online platforms</div>
+         
 
 
 
 
-SOCIAL AND ECONOMIC ROLE OF ONLINE PLATFORMS
+
+<div class="text">
+  <p>SOCIAL AND ECONOMIC ROLE OF ONLINE PLATFORMS</p>
+</div>
+         
 
 
 
 
-## [SELECT] 1. `Do you agree with the definition of "Online platform" as provided below?`
 
-"Online platform" refers to an undertaking operating in two (or multi)-sided markets, which uses the Internet to enable interactions between two or more distinct but interdependent groups of users so as to generate value for at least one of the groups. Certain platforms also qualify as Intermediary service providers.
-Typical examples include general internet search engines (e.g. Google, Bing), specialised search tools (e.g. Google Shopping, Kelkoo, Twenga, Google Local, TripAdvisor, Yelp,), location-based business directories or some maps (e.g. Google or Bing Maps), news aggregators (e.g. Google News), online market places (e.g. Amazon, eBay, Allegro, Booking.com), audio-visual and music platforms (e.g. Deezer, Spotify, Netflix, Canal play, Apple TV), video sharing platforms (e.g. YouTube, Dailymotion), payment systems (e.g. PayPal, Apple Pay), social networks (e.g. Facebook, Linkedin, Twitter, Tuenti), app stores (e.g. Apple App Store, Google Play) or collaborative economy platforms (e.g. AirBnB, Uber, Taskrabbit, Bla-bla car). Internet access providers fall outside the scope of this definition.
+## [SELECT] 1. `Do you agree with the definition of "<strong>Online platform</strong>" as provided below?`
+
+<p>"Online platform" refers to an undertaking operating in two (or multi)-sided markets, which uses the Internet to enable interactions between two or more distinct but interdependent groups of users so as to generate value for at least one of the groups. Certain platforms also qualify as Intermediary service providers.</p>&#13;<p>Typical examples include general internet search engines (e.g. Google, Bing), specialised search tools (e.g. Google Shopping, Kelkoo, Twenga, Google Local, TripAdvisor, Yelp,), location-based business directories or some maps (e.g. Google or Bing Maps), news aggregators (e.g. Google News), online market places (e.g. Amazon, eBay, Allegro, Booking.com), audio-visual and music platforms (e.g. Deezer, Spotify, Netflix, Canal play, Apple TV), video sharing platforms (e.g. YouTube, Dailymotion), payment systems (e.g. PayPal, Apple Pay), social networks (e.g. Facebook, Linkedin, Twitter, Tuenti), app stores (e.g. Apple App Store, Google Play) or collaborative economy platforms (e.g. AirBnB, Uber, Taskrabbit, Bla-bla car). Internet access providers fall outside the scope of this definition.</p>         
 
  -  None
 
@@ -199,8 +222,7 @@ Typical examples include general internet search engines (e.g. Google, Bing), sp
 
 [View 6251623.](#user-content-6251623)
 
-## [CHECKBOX] 3. `What do you consider to be the key advantages of using online platforms?
-Online platforms…`
+## [CHECKBOX] 3. `What do you consider to be the key advantages of using online platforms?<br />&#13;<p>Online platforms&#8230;</p>`
 
  - <a id="6251626"></a> [6251626]  make information more accessible
 
@@ -230,10 +252,9 @@ Online platforms…`
 
 [View 6251637.](#user-content-6251637)
 
-## [RADIO] 5. `Have you encountered, or are you aware of problems faced by consumers or suppliers when dealing with online platforms?`
+## [RADIO] 5. `Have you encountered, or are you aware of problems faced by <strong>consumers</strong> or <strong>suppliers</strong> when dealing with online platforms?`
 
-"Consumer" is any natural person using an online platform for purposes outside the person's trade, business, craft or profession.
-"Supplier" is any trader or non-professional individual that uses online platforms to provide services to third parties both under their own brand (name) and under the platform's brand.
+<p>"Consumer" is any natural person using an online platform for purposes outside the person's trade, business, craft or profession.</p>&#13;<p>"Supplier" is any trader or non-professional individual that uses online platforms to provide services to third parties both under their own brand (name) and under the platform's brand.</p>         
 
  - <a id="6251640"></a> [6251640]  Yes
 
@@ -257,14 +278,16 @@ Online platforms…`
 
 [View 6251640.](#user-content-6251640)
 
-TRANSPARENCY OF ONLINE PLATFORMS
+<div class="text">TRANSPARENCY OF ONLINE PLATFORMS</div>
+         
 
 
 
 
-## [RADIO] 8. `Do you think that online platforms should ensure, as regards their own activities and those of the traders that use them, more transparency in relation to:a) information required by consumer law (e.g. the contact details of the supplier, the main characteristics of products, the total price including delivery charges, and consumers' rights, such as the right of withdrawal)?`
 
-"Trader" is any natural or legal person using an online platform for business or professional purposes. Traders are in particular subject to EU consumer law in their relations with consumers.
+## [RADIO] 8. `Do you think that online platforms should ensure, as regards their own activities and those of the <strong>traders</strong> that use them, more transparency in relation to:<br /><br />a) information required by consumer law (e.g. the contact details of the supplier, the main characteristics of products, the total price including delivery charges, and consumers' rights, such as the right of withdrawal)?`
+
+  <p>"Trader" is any natural or legal person using an online platform for business or professional purposes. Traders are in particular subject to EU consumer law in their relations with consumers.</p>         
 
  - <a id="6251651"></a> [6251651]  Yes
 
@@ -344,12 +367,14 @@ TRANSPARENCY OF ONLINE PLATFORMS
 
 ## [TEXTAREA] 18. `What are the main benefits and drawbacks of reputation systems and other trust mechanisms operated by online platforms? Please describe their main benefits and drawbacks.`
 
-USE OF INFORMATION BY ONLINE PLATFORMS
+<div class="text">USE OF INFORMATION BY ONLINE PLATFORMS</div>
+         
 
 
 
 
-## [RADIO] 19. `In your view, do online platforms provide sufficient and accessible information with regard to:a) the personal and non-personal data they collect?`
+
+## [RADIO] 19. `In your view, do online platforms provide sufficient and accessible information with regard to:<br /><br />a) the personal and non-personal data they collect?`
 
  - <a id="6251683"></a> [6251683]  Yes
 
@@ -379,7 +404,9 @@ USE OF INFORMATION BY ONLINE PLATFORMS
 
 ## [TEXTAREA] 23. `Please share your general comments or ideas regarding the use of information by online platforms`
 
-RELATIONS BETWEEN PLATFORMS AND SUPPLIERS/TRADERS/APPLICATION DEVELOPERS OR HOLDERS OF RIGHTS IN DIGITAL CONTENT
+<div class="text">RELATIONS BETWEEN PLATFORMS AND SUPPLIERS/TRADERS/APPLICATION DEVELOPERS OR HOLDERS OF RIGHTS IN DIGITAL CONTENT</div>
+         
+
 
 
 
@@ -428,7 +455,7 @@ RELATIONS BETWEEN PLATFORMS AND SUPPLIERS/TRADERS/APPLICATION DEVELOPERS OR HOLD
 
 [View 6251562.](#user-content-6251562) [View 6251564.](#user-content-6251564) [View 6251567.](#user-content-6251567) [View 6251568.](#user-content-6251568) [View 6251570.](#user-content-6251570)
 
-## [MATRIXTABLE] How often do you experience the following business practices in your business relations with platforms?The online platform …
+## [MATRIXTABLE] How often do you experience the following business practices in your business relations with platforms?<br /><br />The online platform &#8230;
 
     ### requests me to use exclusively its services
 
@@ -542,7 +569,7 @@ RELATIONS BETWEEN PLATFORMS AND SUPPLIERS/TRADERS/APPLICATION DEVELOPERS OR HOLD
 
 [View 6251562.](#user-content-6251562) [View 6251564.](#user-content-6251564) [View 6251567.](#user-content-6251567) [View 6251568.](#user-content-6251568) [View 6251570.](#user-content-6251570)
 
-## [MATRIXTABLE] If you do experience them, what is their impact on your business activity (on a scale from 0 to 3).Impact on my business:The online platform …
+## [MATRIXTABLE] If you do experience them, what is their impact on your business activity (on a scale from 0 to 3).<br /><br />Impact on my business:<br />The online platform &#8230;
 
     ### requests me to use exclusively its services
 
@@ -670,7 +697,7 @@ RELATIONS BETWEEN PLATFORMS AND SUPPLIERS/TRADERS/APPLICATION DEVELOPERS OR HOLD
 
  - <a id="6251745"></a> [6251745]  No
 
-## [RADIO] 27. `As a holder of rights in digital content protected by copyright have you faced any of the following circumstances:An online platform such as a video sharing website or an online content aggregator uses my protected works online without having asked for my authorisation.`
+## [RADIO] 27. `As a holder of rights in digital content protected by copyright have you faced any of the following circumstances:<br /><br />An online platform such as a video sharing website or an online content aggregator uses my protected works online without having asked for my authorisation.`
 
  - <a id="6251747"></a> [6251747]  Yes
 
@@ -702,7 +729,7 @@ RELATIONS BETWEEN PLATFORMS AND SUPPLIERS/TRADERS/APPLICATION DEVELOPERS OR HOLD
 
 [View 6251744.](#user-content-6251744)
 
-## [TEXTAREA] 31. `As you answered YES to some of the above questions, please explain your situation in more detail.`
+## [TEXTAREA] 31. `As&#160;you answered YES to some&#160;of the above questions, please explain your situation in more detail.`
 
 [View 6251747.](#user-content-6251747) [View 6251750.](#user-content-6251750) [View 6251753.](#user-content-6251753) [View 6251756.](#user-content-6251756)
 
@@ -748,7 +775,9 @@ RELATIONS BETWEEN PLATFORMS AND SUPPLIERS/TRADERS/APPLICATION DEVELOPERS OR HOLD
 
 [View 6251772.](#user-content-6251772)
 
-CONSTRAINTS ON THE ABILITY OF CONSUMERS AND TRADERS TO MOVE FROM ONE PLATFORM TO ANOTHER
+<div class="text">CONSTRAINTS ON THE ABILITY OF CONSUMERS AND TRADERS TO MOVE FROM ONE PLATFORM TO ANOTHER</div>
+         
+
 
 
 
@@ -799,18 +828,20 @@ CONSTRAINTS ON THE ABILITY OF CONSUMERS AND TRADERS TO MOVE FROM ONE PLATFORM TO
 
  - <a id="6251790"></a> [6251790]  No
 
-## [TEXTAREA] 41. `Please explain your choice and share any best practices that you are aware of.`
+## [TEXTAREA] 41. `  <p>Please explain your choice and share any best practices that you are aware of.</p>`
 
 [View 6251789.](#user-content-6251789)
 
 ## [TEXTAREA] 42. `Please share your general comments or ideas regarding the ability of consumers and traders to move from one platform to another`
 
-ACCESS TO DATA
+<div class="text">ACCESS TO DATA</div>
+         
 
 
 
 
-## [RADIO] 43. `As a trader or a consumer using the services of online platforms did you experience any of the following problems related to the access of data? a) unexpectedly changing conditions of accessing the services of the platforms`
+
+## [RADIO] 43. `As a trader or a consumer using the services of online platforms did you experience any of the following problems related to the access of data? <br /><br />a) unexpectedly changing conditions of accessing the services of the platforms`
 
  - <a id="6251795"></a> [6251795]  Yes
 
@@ -858,24 +889,16 @@ ACCESS TO DATA
 
 # Tackling illegal content online and the liability of online intermediaries
 
- Tackling illegal content online and the liability of online intermediaries
+<div data-level="1" class="sectiontitle section1"> Tackling illegal content online and the liability of online intermediaries</div>
+         
 
 
 
 
-## [RADIO] 1. `Please indicate your role in the context of this set of questions`
 
-Terms used for the purposes of this consultation:
-"Illegal content"
-Corresponds to the term "illegal activity or information" used in Article 14 of the E-commerce Directive. The directive does not further specify this term. It may be understood in a wide sense so as to include any infringement of applicable EU or national laws and regulations. This could for instance include defamation, terrorism related content, IPR infringements, child abuse content, consumer rights infringements, or incitement to hatred or violence on the basis of race, origin, religion, gender, sexual orientation, malware, illegal online gambling, selling illegal medicines, selling unsafe products.
-"Hosting"
-According to Article 14 of the E-commerce Directive, hosting is the “storage of (content) that has been provided by the user of an online service”. It may for instance be storage of websites on servers. It may also include the services offered by online market places, referencing services and social networks.
-"Notice"
-Any communication to a hosting service provider that gives the latter knowledge of a particular item of illegal content that it transmits or stores and therefore creates an obligation for it to act expeditiously by removing the illegal content or disabling/blocking access to it.. Such an obligation only arises if the notice provides the internet hosting service provider with actual awareness or knowledge of illegal content.
-"Notice provider"
-Anyone (a natural or legal person) that informs a hosting service provider about illegal content on the internet. It may for instance be an individual citizen, a hotline or a holder of intellectual property rights. In certain cases it may also include public authorities.
-"Provider of content"
-In the context of a hosting service the content is initially provided by the user of that service. A provider of content is for instance someone who posts a comment on a social network site or uploads a video on a video sharing site.
+## [RADIO] 1. `  <p>Please indicate your role in the context of this set of questions</p>`
+
+<p>Terms used for the purposes of this consultation:</p>&#13;<p>"Illegal content"</p>&#13;<p>Corresponds to the term "illegal activity or information" used in Article 14 of the E-commerce Directive. The directive does not further specify this term. It may be understood in a wide sense so as to include any infringement of applicable EU or national laws and regulations. This could for instance include defamation, terrorism related content, IPR infringements, child abuse content, consumer rights infringements, or incitement to hatred or violence on the basis of race, origin, religion, gender, sexual orientation, malware, illegal online gambling, selling illegal medicines, selling unsafe products.</p>&#13;<p>"Hosting"</p>&#13;<p>According to Article 14 of the E-commerce Directive, hosting is the &#8220;storage of (content) that has been provided by the user of an online service&#8221;. It may for instance be storage of websites on servers. It may also include the services offered by online market places, referencing services and social networks.</p>&#13;<p>"Notice"</p>&#13;<p>Any communication to a hosting service provider that gives the latter knowledge of a particular item of illegal content that it transmits or stores and therefore creates an obligation for it to act expeditiously by removing the illegal content or disabling/blocking access to it.. Such an obligation only arises if the notice provides the internet hosting service provider with actual awareness or knowledge of illegal content.</p>&#13;<p>"Notice provider"</p>&#13;<p>Anyone (a natural or legal person) that informs a hosting service provider about illegal content on the internet. It may for instance be an individual citizen, a hotline or a holder of intellectual property rights. In certain cases it may also include public authorities.</p>&#13;<p>"Provider of content"</p>&#13;<p>In the context of a hosting service the content is initially provided by the user of that service. A provider of content is for instance someone who posts a comment on a social network site or uploads a video on a video sharing site.</p>         
 
  - <a id="6251813"></a> [6251813]  individual user
 
@@ -921,7 +944,13 @@ In the context of a hosting service the content is initially provided by the use
 
 [View 6251829.](#user-content-6251829)
 
-On the "notice"
+<div class="text">
+  <p>
+    <strong>On the "notice"<br /></strong>
+  </p>
+</div>
+         
+
 
 
 
@@ -934,8 +963,7 @@ On the "notice"
 
 ## [CHECKBOX] 10. `Do you think that any of the following categories of illegal content requires a specific approach:`
 
- 
- 
+<p><strong>&#160;</strong></p>&#13;<p>&#160;</p>         
 
  - <a id="6251837"></a> [6251837]  Illegal offer of goods and services (e.g. illegal arms, fake medicines, dangerous products, unauthorised gambling services etc.)
 
@@ -971,7 +999,13 @@ On the "notice"
 
 [View 6251837.](#user-content-6251837) [View 6251838.](#user-content-6251838) [View 6251839.](#user-content-6251839) [View 6251840.](#user-content-6251840) [View 6251841.](#user-content-6251841) [View 6251842.](#user-content-6251842) [View 6251843.](#user-content-6251843) [View 6251844.](#user-content-6251844) [View 6251845.](#user-content-6251845) [View 6251846.](#user-content-6251846) [View 6251847.](#user-content-6251847)
 
-On the "action"
+<div class="text">
+  <p>
+    <strong>On the "action"</strong>
+  </p>
+</div>
+         
+
 
 
 
@@ -998,13 +1032,21 @@ On the "action"
 
 [View 6251858.](#user-content-6251858) [View 6251859.](#user-content-6251859)
 
-On duties of care for online intermediaries:
+<div class="text">
+  <p>
+    <strong>On duties of care for online intermediaries:</strong>
+  </p>
+</div>
+         
 
 
 
 
 
-Recital 48 of the Ecommerce Directive establishes that "[t]his Directive does not affect the possibility for Member States of requiring service providers, who host information provided by recipients of their service, to apply duties of care, which can reasonably be expected from them and which are specified by national law, in order to detect and prevent certain types of illegal activities". Moreover, Article 16 of the same Directive calls on Member States and the Commission to encourage the "drawing up of codes of conduct at Community level by trade, professional and consumer associations or organisations designed to contribute to the proper implementation of Articles 5 to 15". At the same time, however, Article 15 sets out a prohibition to impose "a general obligation to monitor".
+<div class="text">&#13;
+<p>Recital 48 of the Ecommerce Directive establishes that "[t]his Directive does not affect the possibility for Member States of requiring service providers, who host information provided by recipients of their service, to apply duties of care, which can reasonably be expected from them and which are specified by national law, in order to detect and prevent certain types of illegal activities". Moreover, Article 16 of the same Directive calls on Member States and the Commission to encourage the "drawing up of codes of conduct at Community level by trade, professional and consumer associations or organisations designed to contribute to the proper implementation of Articles 5 to 15". At the same time, however, Article 15 sets out a prohibition to impose "a general obligation to monitor".</p></div>
+         
+
 
 
 
@@ -1053,7 +1095,7 @@ Recital 48 of the Ecommerce Directive establishes that "[t]his Directive does no
 
  - <a id="6251877"></a> [6251877]  No
 
-## [RADIO] 27. `Should this obligation be limited to those hosting service providers, which receive a sizeable amount of notices per year (e.g. more than 1000)?`
+## [RADIO] 27. `Should this obligation be limited to those hosting service providers, which receive a sizeable amount of notices per year&#160;(e.g. more than 1000)?`
 
  - <a id="6251879"></a> [6251879]  Yes
 
@@ -1079,17 +1121,29 @@ Recital 48 of the Ecommerce Directive establishes that "[t]his Directive does no
 
 # Data and cloud in digital ecosystems
 
- Data and cloud in digital ecosystems
+<div data-level="1" class="sectiontitle section1"> Data and cloud in digital ecosystems</div>
+         
 
 
 
 
-FREE FLOW OF DATA
+
+<div class="text">
+  <p>
+    <strong>FREE FLOW OF DATA</strong>
+  </p>
+</div>
+         
 
 
 
 
-ON DATA LOCATION RESTRICTIONS
+
+<div class="text">
+  <p>ON DATA LOCATION RESTRICTIONS</p>
+</div>
+         
+
 
 
 
@@ -1132,7 +1186,11 @@ ON DATA LOCATION RESTRICTIONS
 
 [View 6251905.](#user-content-6251905)
 
-ON DATA ACCESS AND TRANSFER
+<div class="text">
+  <p>ON DATA ACCESS AND TRANSFER</p>
+</div>
+         
+
 
 
 
@@ -1177,21 +1235,27 @@ ON DATA ACCESS AND TRANSFER
 
 ## [TEXTAREA] 13. `Please share your general comments or ideas regarding data access, ownership and use`
 
-ON DATA MARKETS
+<div class="text">
+  <p>ON DATA MARKETS</p>
+</div>
+         
+
 
 
 
 
 ## [TEXTAREA] 14. `What regulatory constraints hold back the development of data markets in Europe and how could the EU encourage the development of such markets?`
 
-ON ACCESS TO OPEN DATA
+<div class="text">ON ACCESS TO OPEN DATA</div>
+         
 
 
 
 
-## [CHECKBOX] 15. `Do you think more could be done to open up public sector data for re-use in addition to the recently revised EU legislation (Directive 2013/37/EU)?`
 
-Open by default means: Establish an expectation that all government data be published and made openly re-usable by default, while recognising that there are legitimate reasons why some data cannot be released.
+## [CHECKBOX] 15. `Do you think more could be done to open up public sector data for re-use in addition to the recently revised EU legislation (Directive 2013/37/EU)?<em><br /></em>`
+
+Open by default means: Establish an expectation that all government data be published and made openly re-usable by default, while recognising that there are legitimate reasons why some data cannot be released.         
 
  - <a id="6251929"></a> [6251929]  Introducing the principle of 'open by default'[1]
 
@@ -1231,7 +1295,11 @@ Open by default means: Establish an expectation that all government data be publ
 
 [View 6251943.](#user-content-6251943)
 
-ON ACCESS AND REUSE OF (NON-PERSONAL) SCIENTIFIC DATA
+<div class="text">
+  <p>ON ACCESS AND REUSE OF (NON-PERSONAL) SCIENTIFIC DATA</p>
+</div>
+         
+
 
 
 
@@ -1256,14 +1324,18 @@ ON ACCESS AND REUSE OF (NON-PERSONAL) SCIENTIFIC DATA
 
 [View 6251952.](#user-content-6251952)
 
-ON LIABILITY IN RELATION TO THE FREE FLOW OF DATA AND THE INTERNET OF THINGS
+<div class="text">
+  <p>ON LIABILITY IN RELATION TO THE FREE FLOW OF DATA AND THE INTERNET OF THINGS</p>
+</div>
+         
 
 
 
 
-## [RADIO] 24. `As a provider/user of Internet of Things (IoT) and/or data driven services and connected tangible devices, have you ever encountered or do you anticipate problems stemming from either an unclear liability regime/non –existence of a clear-cut liability regime?`
 
-The "Internet of Things" is an ecosystem of physical objects that contain embedded technology to sense their internal statuses and communicate or interact with the external environment. Basically, Internet of things is the rapidly growing network of everyday objects—eyeglasses, cars, thermostats—made smart with sensors and internet addresses that create a network of everyday objects that communicate with one another, with the eventual capability to take actions on behalf of users.
+## [RADIO] 24. `As a provider/user of Internet of Things (IoT) and/or data driven services and connected tangible devices, have you ever encountered or do you anticipate problems stemming from either an unclear liability regime/non &#8211;existence of a clear-cut liability regime?`
+
+  <p>The "Internet of Things" is an ecosystem of physical objects that contain embedded technology to sense their internal statuses and communicate or interact with the external environment. Basically, Internet of things is the rapidly growing network of everyday objects&#8212;eyeglasses, cars, thermostats&#8212;made smart with sensors and internet addresses that create a network of everyday objects that communicate with one another, with the eventual capability to take actions on behalf of users.</p>         
 
  - <a id="6251956"></a> [6251956]  Yes
 
@@ -1311,20 +1383,30 @@ The "Internet of Things" is an ecosystem of physical objects that contain embedd
 
  - <a id="6251976"></a> [6251976]  I don't know
 
-ON OPEN SERVICE PLATFORMS
+<div class="text">
+  <p>ON OPEN SERVICE PLATFORMS</p>
+</div>
+         
+
 
 
 
 
 ## [TEXTAREA] 31. `What are in your opinion the socio-economic and innovation advantages of open versus closed service platforms and what regulatory or other policy initiatives do you propose to accelerate the emergence and take-up of open service platforms?`
 
-PERSONAL DATA MANAGEMENT SYSTEMS
+<div class="text">
+  <p>PERSONAL DATA MANAGEMENT SYSTEMS</p>
+</div>
+         
 
 
 
 
 
-The following questions address the issue whether technical innovations should be promoted and further developed in order to improve transparency and implement efficiently the requirements for lawful processing of personal data, in compliance with the current and future EU data protection legal framework. Such innovations can take the form of 'personal data cloud spaces' or trusted frameworks and are often referred to as 'personal data banks/stores/vaults'.
+<div class="text">&#13;
+<p>The following questions address the issue whether technical innovations should be promoted and further developed in order to improve transparency and implement efficiently the requirements for lawful processing of personal data, in compliance with the current and future EU data protection legal framework. Such innovations can take the form of 'personal data cloud spaces' or trusted frameworks and are often referred to as 'personal data banks/stores/vaults'.</p></div>
+         
+
 
 
 
@@ -1345,14 +1427,18 @@ The following questions address the issue whether technical innovations should b
 
 [View 6251981.](#user-content-6251981)
 
-EUROPEAN CLOUD INITIATIVE
+<div class="text">
+  <p>EUROPEAN CLOUD INITIATIVE</p>
+</div>
+         
+
 
 
 
 
 ## [CHECKBOX] 34. `What are the key elements for ensuring trust in the use of cloud computing services by European businesses and citizens`
 
-"Cloud computing" is a paradigm for enabling network access to a scalable and elastic pool of shareable physical or virtual resources with self-service provisioning and administration on-demand. Examples of such resources include: servers, operating systems, networks, software, applications, and storage equipment.
+  <p>"Cloud computing" is a paradigm for enabling network access to a scalable and elastic pool of shareable physical or virtual resources with self-service provisioning and administration on-demand. Examples of such resources include: servers, operating systems, networks, software, applications, and storage equipment.</p>         
 
  - <a id="6251989"></a> [6251989]  Reducing regulatory differences between Member States
 
@@ -1388,7 +1474,7 @@ EUROPEAN CLOUD INITIATIVE
 
  - <a id="6252004"></a> [6252004]  No
 
-## [TEXTAREA] 39. `Please explain`
+## [TEXTAREA] 39. `  <p>Please explain</p>`
 
 [View 6252004.](#user-content-6252004)
 
@@ -1516,67 +1602,91 @@ EUROPEAN CLOUD INITIATIVE
 
 # The collaborative economy
 
- The collaborative economy
-
-
-
-
-The following questions focus on certain issues raised by the collaborative economy and seek to improve the Commission's understanding by collecting the views of stakeholders on the regulatory environment, the effects of collaborative economy platforms on existing suppliers, innovation, and consumer choice. More broadly, they aim also at assessing the impact of the development of the collaborative economy on the rest of the economy and of the opportunities as well as the challenges it raises. They should help devising a European agenda for the collaborative economy to be considered in the context of the forthcoming Internal Market Strategy. The main question is whether EU law is fit to support this new phenomenon and whether existing policy is sufficient to let it develop and grow further, while addressing potential issues that may arise, including public policy objectives that may have already been identified.
-
+<div data-level="1" class="sectiontitle section1"> The collaborative economy</div>
+         
 
 
 
 
 
-Terms used for the purposes of this consultation:
+<div class="text">
+  <p>The following questions focus on certain issues raised by the collaborative economy and seek to improve the Commission's understanding by collecting the views of stakeholders on the regulatory environment, the effects of collaborative economy platforms on existing suppliers, innovation, and consumer choice. More broadly, they aim also at assessing the impact of the development of the collaborative economy on the rest of the economy and of the opportunities as well as the challenges it raises. They should help devising a European agenda for the collaborative economy to be considered in the context of the forthcoming Internal Market Strategy. The main question is whether EU law is fit to&#160;support this new phenomenon and whether existing policy is sufficient to let it develop and grow further, while addressing potential issues that may arise, including public policy objectives that may have already been identified.</p>
+</div>
+         
 
 
 
 
 
-"Collaborative economy"
+<div class="text">&#13;
+<br />&#13;
+<p><span style="text-decoration: underline;"><strong>Terms used for the purposes of this consultation:</strong></span></p></div>
+         
 
 
 
 
 
-For the purposes of this consultation the collaborative economy links individuals and/or legal persons through online platforms (collaborative economy platforms) allowing them to provide services and/or exchange assets, resources, time, skills, or capital, sometimes for a temporary period and without transferring ownership rights. Typical examples are transport services including the use of domestic vehicles for passenger transport and ride-sharing, accommodation or professional services.
+<div class="text">&#13;
+<p><strong>"Collaborative economy"</strong></p></div>
+         
 
 
 
 
 
-"Traditional provider"
+<div class="text">&#13;
+<p>For the purposes of this consultation the collaborative economy links individuals and/or legal persons through online platforms (collaborative economy platforms) allowing them to provide services and/or exchange assets, resources, time, skills, or capital, sometimes for a temporary period and without transferring ownership rights. Typical examples are transport services including the use of domestic vehicles for passenger transport and ride-sharing, accommodation or professional services.</p></div>
+         
 
 
 
 
 
-Individuals or legal persons who provide their services mainly through other channels, without an extensive involvement of online platforms.
+<div class="text">&#13;
+<p><strong>"Traditional provider"</strong></p></div>
+         
 
 
 
 
 
-"Provider in the collaborative economy"
+<div class="text">&#13;
+<p>Individuals or legal persons who provide their services mainly through other channels, without an extensive involvement of online platforms.</p></div>
+         
 
 
 
 
 
-Individuals or legal persons who provide the service by offering assets, resources, time, skills or capital through an online platform.
+<div class="text">&#13;
+<p><strong>"Provider in the collaborative economy"</strong></p></div>
+         
 
 
 
 
 
-"User in the collaborative economy"
+<div class="text">&#13;
+<p>Individuals or legal persons who provide the service by offering assets, resources, time, skills or capital through an online platform.</p></div>
+         
 
 
 
 
 
-Individuals or legal persons who access and use the transacted assets, resources, time, skills and capital.
+<div class="text">&#13;
+<p><strong>"User in the collaborative economy"</strong></p></div>
+         
+
+
+
+
+
+<div class="text">&#13;
+Individuals or legal persons who access and use the transacted assets, resources, time, skills and capital.</div>
+         
+
 
 
 
@@ -1593,7 +1703,7 @@ Individuals or legal persons who access and use the transacted assets, resources
 
  - <a id="6252051"></a> [6252051]  User or consumer association
 
-## [RADIO] 2. `Which are the main risks and challenges associated with the growth of the collaborative economy and what are the obstacles which could hamper its growth and accessibility? Please rate from 1 to 5 according to their importance (1 – not important; 5 – very important).- Not sufficiently adapted regulatory framework`
+## [RADIO] 2. `Which are the main risks and challenges associated with the growth of the collaborative economy and what are the obstacles which could hamper its growth and accessibility? Please rate from 1 to 5 according to their importance (1 &#8211; not important; 5 &#8211; very important).<br /><br />- Not sufficiently adapted regulatory framework`
 
  - <a id="6252053"></a> [6252053]  1
 
@@ -1833,7 +1943,7 @@ Individuals or legal persons who access and use the transacted assets, resources
 
 [View 6252159.](#user-content-6252159)
 
-## [RADIO] 27. `As a provider active in the collaborative economy, are you aware if the following requirements have to be fulfilled in order to offer/share your assets, resources, time, skills, and/or capital on a platform? - Specific authorisation or licence`
+## [RADIO] 27. `As a provider active in the collaborative economy, are you aware if the following requirements have to be fulfilled in order to offer/share your assets, resources, time, skills, and/or capital on a platform? <br /><br />- Specific authorisation or licence`
 
  - <a id="6252162"></a> [6252162]  Yes
 
@@ -1947,7 +2057,7 @@ Individuals or legal persons who access and use the transacted assets, resources
 
 [View 6252047.](#user-content-6252047)
 
-## [TEXTAREA] 39. `What should be the threshold of a provider’s activity in the collaborative economy for it to become subject to rules, such as authorisations, registrations, consumer protection (e.g. level of absolute revenue from collaborative economy, relative share of revenue from collaborative economy, in overall revenues, number of rented units/rental days etc)?`
+## [TEXTAREA] 39. `What should be the threshold of a provider&#8217;s activity in the collaborative economy for it to become subject to rules, such as authorisations, registrations, consumer protection (e.g. level of absolute revenue from collaborative economy, relative share of revenue from collaborative economy, in overall revenues, number of rented units/rental days etc)?`
 
 [View 6252204.](#user-content-6252204)
 
@@ -2001,7 +2111,7 @@ Individuals or legal persons who access and use the transacted assets, resources
 
 [View 6252048.](#user-content-6252048)
 
-## [RADIO] 47. `By what percentage?`
+## [RADIO] 47. `  <p>By what percentage?</p>`
 
  - <a id="6252226"></a> [6252226]  0-5%
 
@@ -2025,7 +2135,7 @@ Individuals or legal persons who access and use the transacted assets, resources
 
 [View 6252048.](#user-content-6252048)
 
-## [TEXTAREA] 49. `Please explain – If yes, what is/expected to be the impact on your revenues/profits?`
+## [TEXTAREA] 49. `Please explain &#8211; If yes, what is/expected to be the impact on your revenues/profits?`
 
 [View 6252233.](#user-content-6252233) [View 6252234.](#user-content-6252234)
 
@@ -2145,7 +2255,7 @@ Individuals or legal persons who access and use the transacted assets, resources
 
 [View 6252049.](#user-content-6252049)
 
-## [RADIO] 60. `Please indicate whether these are:- Specific authorisation or licence`
+## [RADIO] 60. `Please indicate whether these are:<br /><br />- Specific authorisation or licence`
 
  - <a id="6252307"></a> [6252307]  Yes
 
