@@ -56,6 +56,12 @@ def get_field_condition(field_id, row_list=None):
     return None
 
 
+CONDITION_REPLACEMENTS = {
+    "a6251561 == 'v1570' OR a6251573 == 'v1574' OR a6251573 == 'v1575'":
+    "a6251561 == 'v1570' OR a6251561 == 'v1567'",
+}
+
+
 def add_dependencies(row_list):
     get_condition = partial(get_field_condition, row_list=row_list)
     for i, row in enumerate(row_list):
@@ -66,8 +72,14 @@ def add_dependencies(row_list):
                 conditions = filter(None, conditions)
                 if conditions:
                     conditions = sorted(conditions)
+                    conditions_str = ' OR '.join(conditions)
+                    if conditions_str in CONDITION_REPLACEMENTS:
+                        new_str = CONDITION_REPLACEMENTS[conditions_str]
+                        logger.info('Replacing `%s` with `%s`',
+                                    conditions_str, new_str)
+                        conditions_str = new_str
                     common.update_row(row, (
-                        ('relevance', ' OR '.join(conditions)),
+                        ('relevance', conditions_str),
                     ))
     return row_list
 

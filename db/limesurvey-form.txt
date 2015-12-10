@@ -76,7 +76,7 @@ Q	T	a6251572	a6251561 == 'v1567'	Please briefly explain the nature of your activ
 Q	L	a6251573	a6251561 == 'v1567'	Are you a&#160;SME or micro enterprise?		en		Y																																																																																																				
 A	0	v1574		Yes		en																																																																																																						
 A	0	v1575		No		en																																																																																																						
-Q	T	a6251576	a6251561 == 'v1570' OR a6251573 == 'v1574' OR a6251573 == 'v1575'	Please specify		en		Y																																															100																																																					
+Q	T	a6251576	a6251561 == 'v1570' OR a6251561 == 'v1567'	Please specify		en		Y																																															100																																																					
 Q	!	a6251577	1	Please indicate your country of residence		en		Y																																																																																																				
 A	0	v1578		Austria		en																																																																																																						
 A	0	v1579		Belgium		en																																																																																																						
