@@ -61,6 +61,19 @@ def is_supplementary(section):
     return bool(section.xpath(pattern))
 
 
+def get_field_id(section):
+    """Extracts the id for the field:
+    Format:
+    <div class="survey-element 5" id="6251561" data-id="6251561">
+    """
+    pattern = './/div[contains(@class, "survey-element")]'
+    field = section.xpath(pattern)
+    if field:
+        field = get(field)
+        return field.attrib['id']
+    return None
+
+
 def get_help_text(section):
     pattern = './/div[@class="questionhelp"]'
     help_text = section.xpath(pattern)
