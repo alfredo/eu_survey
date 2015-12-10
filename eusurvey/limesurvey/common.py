@@ -45,3 +45,8 @@ def update_row(row, column_definition):
         position = get_column_position(name)
         row[position] = value
     return row
+
+
+def get_row_value(row, name):
+    position = get_column_position(name)
+    return row[position]
