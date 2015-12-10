@@ -26,6 +26,7 @@ def get_field_condition(field_id, row_list=None):
     Because the columns are not ordered the list must be iterated until found.
     """
     QUESTION_TYPES = ['Q']
+    MULTIPLE_ANSWER = ['M']
     question = None
     for i, row in enumerate(row_list):
         if row[0] in QUESTION_TYPES:
@@ -36,6 +37,8 @@ def get_field_condition(field_id, row_list=None):
             if field_id == metadata['field_id']:
                 question_name = common.get_row_value(question, 'name')
                 row_value = common.get_row_value(row, 'name')
+                if question[1] in MULTIPLE_ANSWER:
+                    return "%s_%s == 'Y'" % (question_name, row_value)
                 return "%s == '%s'" % (question_name, row_value)
     logger.error('Missing triggers for: `%s`', field_id)
     return None
