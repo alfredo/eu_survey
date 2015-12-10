@@ -1,5 +1,6 @@
 import logging
 
+from collections import defaultdict
 from eusurvey.limesurvey import common
 
 logger = logging.getLogger(__name__)
@@ -33,6 +34,7 @@ def get_question_row(formset, total):
         '',
     ]
     full_question = partial_question + common.get_missing(partial_question, total)
+    full_question.append(formset.get_dependencies())
     return full_question
 
 """
@@ -44,28 +46,35 @@ def get_answers(raw_question_list):
     question_list = []
     for question in raw_question_list:
         name = common.get_value(question['input']['value'])
-        question_list.append((name, question['label']))
+        question_list.append((name, question['label'], question['input']['id']))
     return question_list
 
 
 def get_answers_set(formset):
     answer_set = []
     total_answers = 0
+    answer_metadata = defaultdict(list)
     for name, question_list in formset.field_list:
         answers = get_answers(question_list)
         total_answers = len(answers)
         # Update the set only with new answers:
         # Note that the order of the questions is significant so
         # using a `set` is not an option:
-        [answer_set.append(a) for a in answers if a not in answer_set]
+        for name, label, field_id in answers:
+            bundle = (name, label)
+            # Record unique questions:
+            if bundle not in answer_set:
+                answer_set.append(bundle)
+            answer_metadata[bundle].append(field_id)
     assert len(answer_set) == total_answers, "Invalid answer count. `%s`" % formset
-    return answer_set
+    return answer_set, answer_metadata
 
 
 def get_answer_rows(formset, total):
-    answer_set = get_answers_set(formset)
+    answer_set, answer_metadata = get_answers_set(formset)
     answer_rows = []
-    for i, (name, label) in enumerate(answer_set, start=1):
+    for i, bundle in enumerate(answer_set, start=1):
+        name, label = bundle
         partial_row = [
             'A',
             0,
@@ -79,6 +88,10 @@ def get_answer_rows(formset, total):
             '',
         ]
         full_row = partial_row + common.get_missing(partial_row, total)
+        metadata = {
+            'field_id': answer_metadata[bundle],
+        }
+        full_row.append(metadata)
         answer_rows.append(full_row)
     return answer_rows
 

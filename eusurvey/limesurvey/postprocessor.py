@@ -26,14 +26,28 @@ def get_field_condition(field_id, row_list=None):
     Because the columns are not ordered the list must be iterated until found.
     """
     QUESTION_TYPES = ['Q']
+    SUBQUESTION_TYPES = ['SQ']
     MULTIPLE_ANSWER = ['M']
     question = None
+    subquestion = None
     for i, row in enumerate(row_list):
         if row[0] in QUESTION_TYPES:
             # Document last question
             question = row
+            # Reset subquestion
+            subquestion = None
+        if row[0] in SUBQUESTION_TYPES:
+            subquestion = row
         if has_metadata(row):
             metadata = row[-1]
+            if isinstance(metadata['field_id'], list):
+                question_name = common.get_row_value(question, 'name')
+                subquestion_name = common.get_row_value(subquestion, 'name')
+                row_value = common.get_row_value(row, 'name')
+                print "%s_%s == '%s'" % (
+                    question_name, subquestion_name,  row_value)
+                return "%s_%s == '%s'" % (
+                    question_name, subquestion_name,  row_value)
             if field_id == metadata['field_id']:
                 question_name = common.get_row_value(question, 'name')
                 row_value = common.get_row_value(row, 'name')
@@ -50,9 +64,10 @@ def add_dependencies(row_list):
         if has_metadata(row):
             metadata = row[-1]
             if 'triggers' in metadata and metadata['triggers']:
-                conditions = [get_condition(t) for t in metadata['triggers']]
+                conditions = set([get_condition(t) for t in metadata['triggers']])
                 conditions = filter(None, conditions)
                 if conditions:
+                    conditions = sorted(conditions)
                     common.update_row(row, (
                         ('relevance', ' OR '.join(conditions)),
                     ))
