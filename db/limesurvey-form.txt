@@ -71,12 +71,12 @@ A	0	v1567		A business, including suppliers using an online platform to provide s
 A	0	v1568		A public authority		en																																																																																																						
 A	0	v1569		A research institution or Think tank		en																																																																																																						
 A	0	v1570		Other		en																																																																																																						
-Q	T	a6251571	1	Please describe the type of online platforms that you represent, a brief description of the online platform and indicate its name and web address		en		Y																																															1500																																																					
-Q	T	a6251572	1	Please briefly explain the nature of your activities, the main services you provide and your relation to the online platform(s) which you use to provide services		en		Y																																															3000																																																					
-Q	L	a6251573	1	Are you a&#160;SME or micro enterprise?		en		Y																																																																																																				
+Q	T	a6251571	a6251561 == 'v1566'	Please describe the type of online platforms that you represent, a brief description of the online platform and indicate its name and web address		en		Y																																															1500																																																					
+Q	T	a6251572	a6251561 == 'v1567'	Please briefly explain the nature of your activities, the main services you provide and your relation to the online platform(s) which you use to provide services		en		Y																																															3000																																																					
+Q	L	a6251573	a6251561 == 'v1567'	Are you a&#160;SME or micro enterprise?		en		Y																																																																																																				
 A	0	v1574		Yes		en																																																																																																						
 A	0	v1575		No		en																																																																																																						
-Q	T	a6251576	1	Please specify		en		Y																																															100																																																					
+Q	T	a6251576	a6251561 == 'v1570' OR a6251573 == 'v1574' OR a6251573 == 'v1575'	Please specify		en		Y																																															100																																																					
 Q	!	a6251577	1	Please indicate your country of residence		en		Y																																																																																																				
 A	0	v1578		Austria		en																																																																																																						
 A	0	v1579		Belgium		en																																																																																																						
@@ -113,12 +113,12 @@ Q	L	a6251609	1	Is your organisation registered in the Transparency Register of t
 A	0	v1610		Yes		en																																																																																																						
 A	0	v1611		No		en																																																																																																						
 A	0	v1612		Non-applicable		en																																																																																																						
-Q	T	a6251613	1	Please indicate your organisation's registration number in the Transparency Register		en		Y																																																																																																				
+Q	T	a6251613	a6251609 == 'v1610'	Please indicate your organisation's registration number in the Transparency Register		en		Y																																																																																																				
 Q	T	a6251614	1	"  <p>If you are an economic operator, please enter the NACE code, which best describes the economic activity you conduct.&#160;<a href=""http://ec.europa.eu/eurostat/ramon/nomenclatures/index.cfm?TargetUrl=LST_NOM_DTL&amp;StrNom=NACE_REV2&amp;StrLanguageCode=EN"" target=""_blank"">You can find here the NACE classification.</a></p>"	The Statistical classification of economic activities in the European Community, abbreviated as NACE, is the classification of economic activities in the European Union (EU).         	en		N																																															5																																																					
 Q	L	a6251615	1	I object the publication of my personal data		en		Y																																																																																																				
 A	0	v1616		Yes		en																																																																																																						
 A	0	v1617		No		en																																																																																																						
-Q	T	a6251618	1	Please provide a brief justification.		en		N																																															1000																																																					
+Q	T	a6251618	a6251615 == 'v1616'	Please provide a brief justification.		en		N																																															1000																																																					
 G		Online Platforms	1			en																																																																																																						
 Q	!	a6251621	1	"Do you agree with the definition of ""<strong>Online platform</strong>"" as provided below?"	"<p>""Online platform"" refers to an undertaking operating in two (or multi)-sided markets, which uses the Internet to enable interactions between two or more distinct but interdependent groups of users so as to generate value for at least one of the groups. Certain platforms also qualify as Intermediary service providers.</p>&#13;<p>Typical examples include general internet search engines (e.g. Google, Bing), specialised search tools (e.g. Google Shopping, Kelkoo, Twenga, Google Local, TripAdvisor, Yelp,), location-based business directories or some maps (e.g. Google or Bing Maps), news aggregators (e.g. Google News), online market places (e.g. Amazon, eBay, Allegro, Booking.com), audio-visual and music platforms (e.g. Deezer, Spotify, Netflix, Canal play, Apple TV), video sharing platforms (e.g. YouTube, Dailymotion), payment systems (e.g. PayPal, Apple Pay), social networks (e.g. Facebook, Linkedin, Twitter, Tuenti), app stores (e.g. Apple App Store, Google Play) or collaborative economy platforms (e.g. AirBnB, Uber, Taskrabbit, Bla-bla car). Internet access providers fall outside the scope of this definition.</p>         "	en		N																																																																																																				
 A	0	v1622		Yes		en																																																																																																						
@@ -142,42 +142,42 @@ Q	L	a6251639	1	Have you encountered, or are you aware of problems faced by <stro
 A	0	v1640		Yes		en																																																																																																						
 A	0	v1641		No		en																																																																																																						
 A	0	v1642		I don't know		en																																																																																																						
-Q	T	a6251643	1	Please list the problems you encountered, or you are aware of, in the order of importance and provide additional explanation where possible.		en		N																																															3000																																																					
-Q	L	a6251644	1	How could these problems be best addressed?		en		N																																																																																																				
+Q	T	a6251643	a6251639 == 'v1640'	Please list the problems you encountered, or you are aware of, in the order of importance and provide additional explanation where possible.		en		N																																															3000																																																					
+Q	L	a6251644	a6251639 == 'v1640'	How could these problems be best addressed?		en		N																																																																																																				
 A	0	v1645		market dynamics		en																																																																																																						
 A	0	v1646		regulatory measures		en																																																																																																						
 A	0	v1647		self-regulatory measures		en																																																																																																						
 A	0	v1648		a combination of the above		en																																																																																																						
-Q	L	a6251650	1	Do you think that online platforms should ensure, as regards their own activities and those of the <strong>traders</strong> that use them, more transparency in relation to:<br /><br />a) information required by consumer law (e.g. the contact details of the supplier, the main characteristics of products, the total price including delivery charges, and consumers' rights, such as the right of withdrawal)?	"  <p>""Trader"" is any natural or legal person using an online platform for business or professional purposes. Traders are in particular subject to EU consumer law in their relations with consumers.</p>         "	en		N																																																																																																				
+Q	L	a6251650	a6251561 == 'v1562' OR a6251561 == 'v1563' OR a6251561 == 'v1564' OR a6251561 == 'v1565' OR a6251561 == 'v1567' OR a6251561 == 'v1568' OR a6251561 == 'v1569' OR a6251561 == 'v1570'	Do you think that online platforms should ensure, as regards their own activities and those of the <strong>traders</strong> that use them, more transparency in relation to:<br /><br />a) information required by consumer law (e.g. the contact details of the supplier, the main characteristics of products, the total price including delivery charges, and consumers' rights, such as the right of withdrawal)?	"  <p>""Trader"" is any natural or legal person using an online platform for business or professional purposes. Traders are in particular subject to EU consumer law in their relations with consumers.</p>         "	en		N																																																																																																				
 A	0	v1651		Yes		en																																																																																																						
 A	0	v1652		No		en																																																																																																						
 A	0	v1653		I don't know		en																																																																																																						
-Q	L	a6251654	1	b) information in response to a search query by the user, in particular if the displayed results are sponsored or not?		en		N																																																																																																				
+Q	L	a6251654	a6251561 == 'v1562' OR a6251561 == 'v1563' OR a6251561 == 'v1564' OR a6251561 == 'v1565' OR a6251561 == 'v1567' OR a6251561 == 'v1568' OR a6251561 == 'v1569' OR a6251561 == 'v1570'	b) information in response to a search query by the user, in particular if the displayed results are sponsored or not?		en		N																																																																																																				
 A	0	v1655		Yes		en																																																																																																						
 A	0	v1656		No		en																																																																																																						
 A	0	v1657		I don't know		en																																																																																																						
-Q	L	a6251658	1	c) information on who the actual supplier is, offering products or services on the platform		en		N																																																																																																				
+Q	L	a6251658	a6251561 == 'v1562' OR a6251561 == 'v1563' OR a6251561 == 'v1564' OR a6251561 == 'v1565' OR a6251561 == 'v1567' OR a6251561 == 'v1568' OR a6251561 == 'v1569' OR a6251561 == 'v1570'	c) information on who the actual supplier is, offering products or services on the platform		en		N																																																																																																				
 A	0	v1659		Yes		en																																																																																																						
 A	0	v1660		No		en																																																																																																						
 A	0	v1661		I don't know		en																																																																																																						
-Q	L	a6251662	1	d) information to discourage misleading marketing by professional suppliers (traders), including fake reviews?		en		N																																																																																																				
+Q	L	a6251662	a6251561 == 'v1562' OR a6251561 == 'v1563' OR a6251561 == 'v1564' OR a6251561 == 'v1565' OR a6251561 == 'v1567' OR a6251561 == 'v1568' OR a6251561 == 'v1569' OR a6251561 == 'v1570'	d) information to discourage misleading marketing by professional suppliers (traders), including fake reviews?		en		N																																																																																																				
 A	0	v1663		Yes		en																																																																																																						
 A	0	v1664		No		en																																																																																																						
 A	0	v1665		I don't know		en																																																																																																						
-Q	T	a6251666	1	e) is there any additional information that, in your opinion, online platforms should be obliged to display?		en		N																																															500																																																					
-Q	L	a6251667	1	Have you experienced that information displayed by the platform (e.g. advertising) has been adapted to the interest or recognisable characteristics of the user?		en		N																																																																																																				
+Q	T	a6251666	a6251561 == 'v1562' OR a6251561 == 'v1563' OR a6251561 == 'v1564' OR a6251561 == 'v1565' OR a6251561 == 'v1567' OR a6251561 == 'v1568' OR a6251561 == 'v1569' OR a6251561 == 'v1570'	e) is there any additional information that, in your opinion, online platforms should be obliged to display?		en		N																																															500																																																					
+Q	L	a6251667	a6251561 == 'v1562' OR a6251561 == 'v1563' OR a6251561 == 'v1564' OR a6251561 == 'v1565' OR a6251561 == 'v1567' OR a6251561 == 'v1568' OR a6251561 == 'v1569' OR a6251561 == 'v1570'	Have you experienced that information displayed by the platform (e.g. advertising) has been adapted to the interest or recognisable characteristics of the user?		en		N																																																																																																				
 A	0	v1668		Yes		en																																																																																																						
 A	0	v1669		No		en																																																																																																						
 A	0	v1670		I don't know		en																																																																																																						
-Q	L	a6251671	1	Do you find the information provided by online platforms on their terms of use sufficient and easy-to-understand?		en		N																																																																																																				
+Q	L	a6251671	a6251561 == 'v1562' OR a6251561 == 'v1563' OR a6251561 == 'v1564' OR a6251561 == 'v1565' OR a6251561 == 'v1567' OR a6251561 == 'v1568' OR a6251561 == 'v1569' OR a6251561 == 'v1570'	Do you find the information provided by online platforms on their terms of use sufficient and easy-to-understand?		en		N																																																																																																				
 A	0	v1672		Yes		en																																																																																																						
 A	0	v1673		No		en																																																																																																						
-Q	T	a6251674	1	What type of additional information and in what format would you find useful? Please briefly explain your response and share any best practice you are aware of.		en		Y																																															1500																																																					
+Q	T	a6251674	a6251671 == 'v1673'	What type of additional information and in what format would you find useful? Please briefly explain your response and share any best practice you are aware of.		en		Y																																															1500																																																					
 Q	L	a6251675	1	Do you find reputation systems (e.g. ratings, reviews, certifications, trustmarks) and other trust mechanisms operated by online platforms are generally reliable?		en		N																																																																																																				
 A	0	v1676		Yes		en																																																																																																						
 A	0	v1677		No		en																																																																																																						
 A	0	v1678		I don't know		en																																																																																																						
-Q	T	a6251679	1	Please explain how the transparency of reputation systems and other trust mechanisms could be improved?		en		Y																																															1500																																																					
+Q	T	a6251679	a6251675 == 'v1677'	Please explain how the transparency of reputation systems and other trust mechanisms could be improved?		en		Y																																															1500																																																					
 Q	T	a6251680	1	What are the main benefits and drawbacks of reputation systems and other trust mechanisms operated by online platforms? Please describe their main benefits and drawbacks.		en		N																																															1500																																																					
 Q	L	a6251682	1	In your view, do online platforms provide sufficient and accessible information with regard to:<br /><br />a) the personal and non-personal data they collect?		en		N																																																																																																				
 A	0	v1683		Yes		en																																																																																																						
@@ -191,7 +191,7 @@ Q	L	a6251690	1	c) adapting prices, for instance dynamic pricing and conditions i
 A	0	v1691		Yes		en																																																																																																						
 A	0	v1692		No		en																																																																																																						
 A	0	v1693		I don't know		en																																																																																																						
-Q	T	a6251694	1	Please explain your choice and share any best practices that you are aware of.		en		N																																															1500																																																					
+Q	T	a6251694	a6251682 == 'v1683' OR a6251682 == 'v1684' OR a6251686 == 'v1687' OR a6251686 == 'v1688' OR a6251690 == 'v1691' OR a6251690 == 'v1692'	Please explain your choice and share any best practices that you are aware of.		en		N																																															1500																																																					
 Q	T	a6251695	1	Please share your general comments or ideas regarding the use of information by online platforms		en		N																																															3000																																																					
 Q	;	m1697	1	Please provide the list of online platforms with which you are in regular business relations and indicate to what extent your business depends on them (on a scale of 0 to 3). Please describe the position of your business or the business you represent and provide recent examples from your business experience.	                    	en		N			1																																																																																																	
 SQ	0	sq1		1		en																																																																																																						
@@ -234,30 +234,30 @@ A	0	v1726	1	0 – no impact		en
 A	0	v1727	2	1 – minor impact		en																																																																																																						
 A	0	v1728	3	2 – considerable impact		en																																																																																																						
 A	0	v1729	4	3 – heavy impact		en																																																																																																						
-Q	T	a6251741	1	If you are aware of other contractual clauses or experience other potentially problematic practices, please mention them here		en		N																																															1000																																																					
+Q	T	a6251741	a6251561 == 'v1562' OR a6251561 == 'v1564' OR a6251561 == 'v1567' OR a6251561 == 'v1568' OR a6251561 == 'v1570'	If you are aware of other contractual clauses or experience other potentially problematic practices, please mention them here		en		N																																															1000																																																					
 Q	T	a6251742	1	Please briefly describe the situation		en		Y																																															3000																																																					
 Q	L	a6251743	1	Are you a holder of rights in digital content protected by copyright, which is used on an online platform?		en		N																																																																																																				
 A	0	v1744		Yes		en																																																																																																						
 A	0	v1745		No		en																																																																																																						
-Q	L	a6251746	1	As a holder of rights in digital content protected by copyright have you faced any of the following circumstances:<br /><br />An online platform such as a video sharing website or an online content aggregator uses my protected works online without having asked for my authorisation.		en		N																																																																																																				
+Q	L	a6251746	a6251743 == 'v1744'	As a holder of rights in digital content protected by copyright have you faced any of the following circumstances:<br /><br />An online platform such as a video sharing website or an online content aggregator uses my protected works online without having asked for my authorisation.		en		N																																																																																																				
 A	0	v1747		Yes		en																																																																																																						
 A	0	v1748		No		en																																																																																																						
-Q	L	a6251749	1	An online platform such as a video sharing website or a content aggregator refuses to enter into or negotiate licensing agreements with me.		en		N																																																																																																				
+Q	L	a6251749	a6251743 == 'v1744'	An online platform such as a video sharing website or a content aggregator refuses to enter into or negotiate licensing agreements with me.		en		N																																																																																																				
 A	0	v1750		Yes		en																																																																																																						
 A	0	v1751		No		en																																																																																																						
-Q	L	a6251752	1	An online platform such as a video sharing website or a content aggregator is willing to enter into a licensing agreement on terms that I consider unfair.		en		N																																																																																																				
+Q	L	a6251752	a6251743 == 'v1744'	An online platform such as a video sharing website or a content aggregator is willing to enter into a licensing agreement on terms that I consider unfair.		en		N																																																																																																				
 A	0	v1753		Yes		en																																																																																																						
 A	0	v1754		No		en																																																																																																						
-Q	L	a6251755	1	An online platform uses my protected works but claims it is a hosting provider under Article 14 of the E-Commerce Directive in order to refuse to negotiate a licence or to do so under their own terms.		en		N																																																																																																				
+Q	L	a6251755	a6251743 == 'v1744'	An online platform uses my protected works but claims it is a hosting provider under Article 14 of the E-Commerce Directive in order to refuse to negotiate a licence or to do so under their own terms.		en		N																																																																																																				
 A	0	v1756		Yes		en																																																																																																						
 A	0	v1757		No		en																																																																																																						
-Q	T	a6251758	1	As&#160;you answered YES to some&#160;of the above questions, please explain your situation in more detail.		en		N																																															3000																																																					
-Q	T	a6251759	1	If you own/develop an online platform, what are the main constrains that negatively affect the development of your online platform and prevent you from extending your activities to new markets in the EU?		en		N																																															3000																																																					
-Q	T	a6251760	1	How do you ensure that suppliers of your platform are treated fairly?		en		N																																															1500																																																					
-Q	L	a6251761	1	Can a supplier personalize its offer of products / services on the platform you represent?		en		N																																																																																																				
+Q	T	a6251758	a6251746 == 'v1747' OR a6251749 == 'v1750' OR a6251752 == 'v1753' OR a6251755 == 'v1756'	As&#160;you answered YES to some&#160;of the above questions, please explain your situation in more detail.		en		N																																															3000																																																					
+Q	T	a6251759	a6251561 == 'v1566'	If you own/develop an online platform, what are the main constrains that negatively affect the development of your online platform and prevent you from extending your activities to new markets in the EU?		en		N																																															3000																																																					
+Q	T	a6251760	a6251561 == 'v1566'	How do you ensure that suppliers of your platform are treated fairly?		en		N																																															1500																																																					
+Q	L	a6251761	a6251561 == 'v1566'	Can a supplier personalize its offer of products / services on the platform you represent?		en		N																																																																																																				
 A	0	v1762		Yes		en																																																																																																						
 A	0	v1763		No		en																																																																																																						
-Q	T	a6251764	1	How?		en		Y																																															1500																																																					
+Q	T	a6251764	a6251761 == 'v1762'	How?		en		Y																																															1500																																																					
 Q	L	a6251765	1	Is there a room for improvement in the relation between platforms and suppliers using the services of platforms?		en		N																																																																																																				
 A	0	v1766		No, the present situation is satisfactory.		en																																																																																																						
 A	0	v1767		Yes, through market dynamics.		en																																																																																																						
@@ -267,7 +267,7 @@ A	0	v1770		Yes, through the combination of the above.		en
 Q	L	a6251771	1	Are you aware of any dispute resolution mechanisms operated by online platforms, or independent third parties on the business-to-business level mediating between platforms and their suppliers?		en		N																																																																																																				
 A	0	v1772		Yes		en																																																																																																						
 A	0	v1773		No		en																																																																																																						
-Q	T	a6251774	1	Please share your experiences on the key elements of a well-functioning dispute resolution mechanism on platforms		en		N																																															1500																																																					
+Q	T	a6251774	a6251771 == 'v1772'	Please share your experiences on the key elements of a well-functioning dispute resolution mechanism on platforms		en		N																																															1500																																																					
 Q	L	a6251776	1	Do you see a need to strengthen the technical capacity of online platforms and address possible other constraints on switching freely and easily from one platform to another and move user data (e.g. emails, messages, search and order history, or customer reviews)?		en		N																																																																																																				
 A	0	v1777		Yes		en																																																																																																						
 A	0	v1778		No		en																																																																																																						
@@ -282,24 +282,24 @@ SQ	1	2	2	Description of the best practice (max. 1500 characters)		en
 Q	L	a6251788	1	Should there be a mandatory requirement allowing non-personal data to be easily extracted and moved between comparable online services?		en		N																																																																																																				
 A	0	v1789		Yes		en																																																																																																						
 A	0	v1790		No		en																																																																																																						
-Q	T	a6251791	1	  <p>Please explain your choice and share any best practices that you are aware of.</p>		en		N																																															1500																																																					
+Q	T	a6251791	a6251788 == 'v1789'	  <p>Please explain your choice and share any best practices that you are aware of.</p>		en		N																																															1500																																																					
 Q	T	a6251792	1	Please share your general comments or ideas regarding the ability of consumers and traders to move from one platform to another		en		N																																															3000																																																					
-Q	L	a6251794	1	As a trader or a consumer using the services of online platforms did you experience any of the following problems related to the access of data? <br /><br />a) unexpectedly changing conditions of accessing the services of the platforms		en		N																																																																																																				
+Q	L	a6251794	a6251561 == 'v1562' OR a6251561 == 'v1563' OR a6251561 == 'v1564' OR a6251561 == 'v1565' OR a6251561 == 'v1567' OR a6251561 == 'v1568'	As a trader or a consumer using the services of online platforms did you experience any of the following problems related to the access of data? <br /><br />a) unexpectedly changing conditions of accessing the services of the platforms		en		N																																																																																																				
 A	0	v1795		Yes		en																																																																																																						
 A	0	v1796		No		en																																																																																																						
-Q	L	a6251797	1	b) unexpectedly changing conditions of accessing the Application Programming Interface of the platform		en		N																																																																																																				
+Q	L	a6251797	a6251561 == 'v1562' OR a6251561 == 'v1563' OR a6251561 == 'v1564' OR a6251561 == 'v1565' OR a6251561 == 'v1567' OR a6251561 == 'v1568'	b) unexpectedly changing conditions of accessing the Application Programming Interface of the platform		en		N																																																																																																				
 A	0	v1798		Yes		en																																																																																																						
 A	0	v1799		No		en																																																																																																						
-Q	L	a6251800	1	c) unexpectedly changing conditions of accessing the data you shared with or stored on the platform		en		N																																																																																																				
+Q	L	a6251800	a6251561 == 'v1562' OR a6251561 == 'v1563' OR a6251561 == 'v1564' OR a6251561 == 'v1565' OR a6251561 == 'v1567' OR a6251561 == 'v1568'	c) unexpectedly changing conditions of accessing the data you shared with or stored on the platform		en		N																																																																																																				
 A	0	v1801		Yes		en																																																																																																						
 A	0	v1802		No		en																																																																																																						
-Q	L	a6251803	1	d) discriminatory treatment in accessing data on the platform		en		N																																																																																																				
+Q	L	a6251803	a6251561 == 'v1562' OR a6251561 == 'v1563' OR a6251561 == 'v1564' OR a6251561 == 'v1565' OR a6251561 == 'v1567' OR a6251561 == 'v1568'	d) discriminatory treatment in accessing data on the platform		en		N																																																																																																				
 A	0	v1804		Yes		en																																																																																																						
 A	0	v1805		No		en																																																																																																						
-Q	L	a6251806	1	Would a rating scheme, issued by an independent agency on certain aspects of the platforms' activities, improve the situation?		en		N																																																																																																				
+Q	L	a6251806	a6251561 == 'v1562' OR a6251561 == 'v1563' OR a6251561 == 'v1564' OR a6251561 == 'v1565' OR a6251561 == 'v1567' OR a6251561 == 'v1568' OR a6251794 == 'v1795' OR a6251797 == 'v1798' OR a6251800 == 'v1801' OR a6251803 == 'v1804'	Would a rating scheme, issued by an independent agency on certain aspects of the platforms' activities, improve the situation?		en		N																																																																																																				
 A	0	v1807		Yes		en																																																																																																						
 A	0	v1808		No		en																																																																																																						
-Q	T	a6251809	1	Please explain your answer		en		Y																																															1500																																																					
+Q	T	a6251809	a6251806 == 'v1807' OR a6251806 == 'v1808'	Please explain your answer		en		Y																																															1500																																																					
 Q	T	a6251810	1	Please share your general comments or ideas regarding access to data on online platforms		en		N																																															3000																																																					
 G		Tackling illegal content online and the liability of online intermediaries	1			en																																																																																																						
 Q	L	a6251812	1	  <p>Please indicate your role in the context of this set of questions</p>	"<p>Terms used for the purposes of this consultation:</p>&#13;<p>""Illegal content""</p>&#13;<p>Corresponds to the term ""illegal activity or information"" used in Article 14 of the E-commerce Directive. The directive does not further specify this term. It may be understood in a wide sense so as to include any infringement of applicable EU or national laws and regulations. This could for instance include defamation, terrorism related content, IPR infringements, child abuse content, consumer rights infringements, or incitement to hatred or violence on the basis of race, origin, religion, gender, sexual orientation, malware, illegal online gambling, selling illegal medicines, selling unsafe products.</p>&#13;<p>""Hosting""</p>&#13;<p>According to Article 14 of the E-commerce Directive, hosting is the &#8220;storage of (content) that has been provided by the user of an online service&#8221;. It may for instance be storage of websites on servers. It may also include the services offered by online market places, referencing services and social networks.</p>&#13;<p>""Notice""</p>&#13;<p>Any communication to a hosting service provider that gives the latter knowledge of a particular item of illegal content that it transmits or stores and therefore creates an obligation for it to act expeditiously by removing the illegal content or disabling/blocking access to it.. Such an obligation only arises if the notice provides the internet hosting service provider with actual awareness or knowledge of illegal content.</p>&#13;<p>""Notice provider""</p>&#13;<p>Anyone (a natural or legal person) that informs a hosting service provider about illegal content on the internet. It may for instance be an individual citizen, a hotline or a holder of intellectual property rights. In certain cases it may also include public authorities.</p>&#13;<p>""Provider of content""</p>&#13;<p>In the context of a hosting service the content is initially provided by the user of that service. A provider of content is for instance someone who posts a comment on a social network site or uploads a video on a video sharing site.</p>         "	en		N																																																																																																				
@@ -308,11 +308,11 @@ A	0	v1814		content provider		en
 A	0	v1815		notice provider		en																																																																																																						
 A	0	v1816		intermediary		en																																																																																																						
 A	0	v1817		none of the above		en																																																																																																						
-Q	T	a6251818	1	Please explain		en		Y																																																																																																				
+Q	T	a6251818	a6251812 == 'v1817'	Please explain		en		Y																																																																																																				
 Q	L	a6251819	1	Have you encountered situations suggesting that the liability regime introduced in Section IV of the E-commerce Directive (art. 12-15) has proven not fit for purpose or has negatively affected market level playing field?		en		N																																																																																																				
 A	0	v1820		Yes		en																																																																																																						
 A	0	v1821		No		en																																																																																																						
-Q	T	a6251822	1	Please describe the situation.		en		Y																																															3000																																																					
+Q	T	a6251822	a6251819 == 'v1820'	Please describe the situation.		en		Y																																															3000																																																					
 Q	L	a6251823	1	"Do you think that the concept of a ""mere technical, automatic and passive nature"" of information transmission by information society service providers provided under recital 42 of the ECD is sufficiently clear to be interpreted and applied in a homogeneous way, having in mind the growing involvement in content distribution by some online intermediaries, e.g.: video sharing websites?"		en		N																																																																																																				
 A	0	v1824		Yes		en																																																																																																						
 A	0	v1825		No		en																																																																																																						
@@ -321,7 +321,7 @@ Q	T	a6251827	1	Please explain your answer.		en		N																															
 Q	L	a6251828	1	Mere conduit/caching/hosting describe the activities that are undertaken by a service provider. However, new business models and services have appeared since the adopting of the E-commerce Directive. For instance, some cloud service providers might also be covered under hosting services e.g. pure data storage. Other cloud-based services, as processing, might fall under a different category or not fit correctly into any of the existing ones. The same can apply to linking services and search engines, where there has been some diverging case-law at national level. Do you think that further categories of intermediary services should be established, besides mere conduit/caching/hosting and/or should the existing categories be clarified?		en		N																																																																																																				
 A	0	v1829		Yes		en																																																																																																						
 A	0	v1830		No		en																																																																																																						
-Q	T	a6251831	1	Please provide examples		en		N																																															1500																																																					
+Q	T	a6251831	a6251828 == 'v1829'	Please provide examples		en		N																																															1500																																																					
 Q	L	a6251833	1	Do you consider that different categories of illegal content require different policy approaches as regards notice-and-action procedures, and in particular different requirements as regards the content of the notice?		en		N																																																																																																				
 A	0	v1834		Yes		en																																																																																																						
 A	0	v1835		No		en																																																																																																						
@@ -343,35 +343,35 @@ Q	T	a6251850	1	Please explain what approach you would see fit for the relevant c
 Q	L	a6251852	1	Should the content providers be given the opportunity to give their views to the hosting service provider on the alleged illegality of the content?		en		N																																																																																																				
 A	0	v1853		Yes		en																																																																																																						
 A	0	v1854		No		en																																																																																																						
-Q	T	a6251855	1	Please explain your answer		en		Y																																															1500																																																					
+Q	T	a6251855	a6251852 == 'v1853' OR a6251852 == 'v1854'	Please explain your answer		en		Y																																															1500																																																					
 Q	T	a6251856	1	If you consider that this should only apply for some kinds of illegal content, please indicate which one(s)		en		N																																															1500																																																					
 Q	L	a6251857	1	"Should action taken by hosting service providers remain effective over time (""take down and stay down"" principle)?"		en		N																																																																																																				
 A	0	v1858		Yes		en																																																																																																						
 A	0	v1859		No		en																																																																																																						
-Q	T	a6251860	1	Please explain		en		N																																																																																																				
+Q	T	a6251860	a6251857 == 'v1858' OR a6251857 == 'v1859'	Please explain		en		N																																																																																																				
 Q	L	a6251862	1	(For online intermediaries): Have you put in place voluntary or proactive measures to remove certain categories of illegal content from your system?		en		N																																																																																																				
 A	0	v1863		Yes		en																																																																																																						
 A	0	v1864		No		en																																																																																																						
-Q	T	a6251865	1	Please describe them.		en		Y																																															1500																																																					
-Q	T	a6251866	1	Could you estimate the financial costs to your undertaking of putting in place and running this system?		en		Y																																															1500																																																					
-Q	T	a6251867	1	Could you outline the considerations that have prevented you from putting in place voluntary measures?		en		N																																															1500																																																					
+Q	T	a6251865	a6251862 == 'v1863'	Please describe them.		en		Y																																															1500																																																					
+Q	T	a6251866	a6251862 == 'v1863'	Could you estimate the financial costs to your undertaking of putting in place and running this system?		en		Y																																															1500																																																					
+Q	T	a6251867	a6251862 == 'v1864'	Could you outline the considerations that have prevented you from putting in place voluntary measures?		en		N																																															1500																																																					
 Q	L	a6251868	1	Do you see a need to impose specific duties of care for certain categories of illegal content?		en		N																																																																																																				
 A	0	v1869		Yes		en																																																																																																						
 A	0	v1870		No		en																																																																																																						
 A	0	v1871		I don't know		en																																																																																																						
-Q	T	a6251872	1	Please specify for which categories of content you would establish such an obligation.		en		N																																															1500																																																					
-Q	T	a6251873	1	Please specify for which categories of intermediary you would establish such an obligation		en		N																																															1500																																																					
-Q	T	a6251874	1	Please specify what types of actions could be covered by such an obligation		en		N																																															1500																																																					
+Q	T	a6251872	a6251868 == 'v1869'	Please specify for which categories of content you would establish such an obligation.		en		N																																															1500																																																					
+Q	T	a6251873	a6251868 == 'v1869'	Please specify for which categories of intermediary you would establish such an obligation		en		N																																															1500																																																					
+Q	T	a6251874	a6251868 == 'v1869'	Please specify what types of actions could be covered by such an obligation		en		N																																															1500																																																					
 Q	L	a6251875	1	Do you see a need for more transparency on the intermediaries' content restriction policies and practices (including the number of notices received as well as their main content and the results of the actions taken following the notices)?		en		N																																																																																																				
 A	0	v1876		Yes		en																																																																																																						
 A	0	v1877		No		en																																																																																																						
-Q	L	a6251878	1	Should this obligation be limited to those hosting service providers, which receive a sizeable amount of notices per year&#160;(e.g. more than 1000)?		en		N																																																																																																				
+Q	L	a6251878	a6251875 == 'v1876'	Should this obligation be limited to those hosting service providers, which receive a sizeable amount of notices per year&#160;(e.g. more than 1000)?		en		N																																																																																																				
 A	0	v1879		Yes		en																																																																																																						
 A	0	v1880		No		en																																																																																																						
 Q	L	a6251881	1	Do you think that online intermediaries should have a specific service to facilitate contact with national authorities for the fastest possible notice and removal of illegal contents that constitute a threat for e.g. public security or fight against terrorism?		en		N																																																																																																				
 A	0	v1882		Yes		en																																																																																																						
 A	0	v1883		No		en																																																																																																						
-Q	L	a6251884	1	Do you think a minimum size threshold would be appropriate if there was such an obligation?		en		N																																																																																																				
+Q	L	a6251884	a6251881 == 'v1882'	Do you think a minimum size threshold would be appropriate if there was such an obligation?		en		N																																																																																																				
 A	0	v1885		Yes		en																																																																																																						
 A	0	v1886		No		en																																																																																																						
 Q	T	a6251887	1	Please share your general comments or ideas regarding the liability of online intermediaries and the topics addressed in this section of the questionnaire.		en		N																																															5000																																																					
@@ -380,7 +380,7 @@ Q	L	a6251891	1	In the context of the free flow of data in the Union, do you in p
 A	0	v1892		Yes		en																																																																																																						
 A	0	v1893		No		en																																																																																																						
 A	0	v1894		Not applicable		en																																																																																																						
-Q	T	a6251895	1	Please explain why not		en		Y																																																																																																				
+Q	T	a6251895	a6251891 == 'v1893'	Please explain why not		en		Y																																																																																																				
 Q	L	a6251896	1	Have restrictions on the location of data affected your strategy in doing business (e.g. limiting your choice regarding the use of certain digital technologies and services?)		en		N																																																																																																				
 A	0	v1897		Yes		en																																																																																																						
 A	0	v1898		No		en																																																																																																						
@@ -395,7 +395,7 @@ Q	T	a6251906	1	Please explain		en		Y
 Q	L	a6251908	1	Do you think that the existing contract law framework and current contractual practices are fit for purpose to facilitate a free flow of data including sufficient and fair access to and use of data in the EU, while safeguarding fundamental interests of parties involved?		en		N																																																																																																				
 A	0	v1909		Yes		en																																																																																																						
 A	0	v1910		No		en																																																																																																						
-Q	T	a6251911	1	Please explain your position		en		Y																																															3000																																																					
+Q	T	a6251911	a6251908 == 'v1909' OR a6251908 == 'v1910'	Please explain your position		en		Y																																															3000																																																					
 Q	L	a6251912	1	In order to ensure the free flow of data within the European Union, in your opinion, regulating access to, transfer and the use of non-personal data at European level is:		en		N																																																																																																				
 A	0	v1913		Necessary		en																																																																																																						
 A	0	v1914		Not necessary		en																																																																																																						
@@ -430,11 +430,11 @@ Q	T	a6251944	1	Please explain		en		Y																																												
 Q	L	a6251946	1	Do you think that data generated by research is sufficiently, findable, accessible identifiable, and re-usable enough?		en		N																																																																																																				
 A	0	v1947		Yes		en																																																																																																						
 A	0	v1948		No		en																																																																																																						
-Q	T	a6251949	1	Why not? What do you think could be done to make data generated by research more effectively re-usable?		en		Y																																															3000																																																					
+Q	T	a6251949	a6251946 == 'v1948'	Why not? What do you think could be done to make data generated by research more effectively re-usable?		en		Y																																															3000																																																					
 Q	L	a6251950	1	Do you agree with a default policy which would make data generated by publicly funded research available through open access?		en		N																																																																																																				
 A	0	v1951		Yes		en																																																																																																						
 A	0	v1952		No		en																																																																																																						
-Q	T	a6251953	1	Why not?		en		Y																																															3000																																																					
+Q	T	a6251953	a6251950 == 'v1952'	Why not?		en		Y																																															3000																																																					
 Q	L	a6251955	1	As a provider/user of Internet of Things (IoT) and/or data driven services and connected tangible devices, have you ever encountered or do you anticipate problems stemming from either an unclear liability regime/non &#8211;existence of a clear-cut liability regime?	"  <p>The ""Internet of Things"" is an ecosystem of physical objects that contain embedded technology to sense their internal statuses and communicate or interact with the external environment. Basically, Internet of things is the rapidly growing network of everyday objects&#8212;eyeglasses, cars, thermostats&#8212;made smart with sensors and internet addresses that create a network of everyday objects that communicate with one another, with the eventual capability to take actions on behalf of users.</p>         "	en		N																																																																																																				
 A	0	v1956		Yes		en																																																																																																						
 A	0	v1957		No		en																																																																																																						
@@ -447,8 +447,8 @@ Q	L	a6251963	1	Do you think that the existing legal framework (laws, or guidelin
 A	0	v1964		Yes		en																																																																																																						
 A	0	v1965		No		en																																																																																																						
 A	0	v1966		I don't know		en																																																																																																						
-Q	T	a6251967	1	Is the legal framework future proof? Please explain, using examples.		en		N																																															3000																																																					
-Q	T	a6251968	1	Please explain what, in your view, should be the liability regime for these services and connected tangible goods to increase your trust and confidence in them?		en		N																																															3000																																																					
+Q	T	a6251967	a6251963 == 'v1964'	Is the legal framework future proof? Please explain, using examples.		en		N																																															3000																																																					
+Q	T	a6251968	a6251963 == 'v1964' OR a6251963 == 'v1965'	Please explain what, in your view, should be the liability regime for these services and connected tangible goods to increase your trust and confidence in them?		en		N																																															3000																																																					
 Q	L	a6251969	1	As a user of IoT and/or data driven services and connected tangible devices, does the present legal framework for liability of providers impact your confidence and trust in those services and connected tangible goods?		en		N																																																																																																				
 A	0	v1970		Yes		en																																																																																																						
 A	0	v1971		No		en																																																																																																						
@@ -462,7 +462,7 @@ Q	L	a6251980	1	Do you think that technical innovations, such as personal data sp
 A	0	v1981		Yes		en																																																																																																						
 A	0	v1982		No		en																																																																																																						
 A	0	v1983		I don't know		en																																																																																																						
-Q	L	a6251984	1	Would you be in favour of supporting an initiative considering and promoting the development of personal data management systems at EU Level?		en		N																																																																																																				
+Q	L	a6251984	a6251980 == 'v1981'	Would you be in favour of supporting an initiative considering and promoting the development of personal data management systems at EU Level?		en		N																																																																																																				
 A	0	v1985		Yes		en																																																																																																						
 A	0	v1986		No		en																																																																																																						
 Q	M	a6251988	1	What are the key elements for ensuring trust in the use of cloud computing services by European businesses and citizens	"  <p>""Cloud computing"" is a paradigm for enabling network access to a scalable and elastic pool of shareable physical or virtual resources with self-service provisioning and administration on-demand. Examples of such resources include: servers, operating systems, networks, software, applications, and storage equipment.</p>         "	en		N																																																																																																				
@@ -474,7 +474,7 @@ Q	L	a6251993	1	As a (potential) user of cloud computing services, do you think c
 A	0	v1994		Yes		en																																																																																																						
 A	0	v1995		No		en																																																																																																						
 A	0	v1996		Not applicable		en																																																																																																						
-Q	T	a6251997	1	What information relevant to the security and protection of users' data do you think cloud service providers should provide?		en		Y																																																																																																				
+Q	T	a6251997	a6251993 == 'v1995'	What information relevant to the security and protection of users' data do you think cloud service providers should provide?		en		Y																																																																																																				
 Q	L	a6251998	1	As a (potential) user of cloud computing services, do you think cloud service providers are sufficiently transparent on the security and protection of users' data regarding the services they provide?		en		N																																																																																																				
 A	0	v1999		Yes		en																																																																																																						
 A	0	v2000		No		en																																																																																																						
@@ -482,7 +482,7 @@ A	0	v2001		Not applicable		en
 Q	L	a6252002	1	As a (potential) user of cloud computing services, do you agree that existing contractual practices ensure a fair and balanced allocation of legal and technical risks between cloud users and cloud service providers?		en		N																																																																																																				
 A	0	v2003		Yes		en																																																																																																						
 A	0	v2004		No		en																																																																																																						
-Q	T	a6252005	1	  <p>Please explain</p>		en		Y																																																																																																				
+Q	T	a6252005	a6252002 == 'v2004'	  <p>Please explain</p>		en		Y																																																																																																				
 Q	M	a6252006	1	What would be the benefit of cloud computing services interacting with each other (ensuring interoperability)		en		N																																																																																																				
 SQ	0	v2007		Economic benefits		en																																																																																																						
 SQ	0	v2008		Improved trust		en																																																																																																						
@@ -518,7 +518,7 @@ A	0	v2038		No		en
 Q	L	a6252039	1	Would your answer differ for consumer and commercial (i.e. business to business) cloud contracts?		en		N																																																																																																				
 A	0	v2040		Yes		en																																																																																																						
 A	0	v2041		No		en																																																																																																						
-Q	T	a6252042	1	What approach would you prefer?		en		Y																																																																																																				
+Q	T	a6252042	a6252039 == 'v2041'	What approach would you prefer?		en		Y																																																																																																				
 Q	T	a6252043	1	Please share your general comments or ideas regarding data, cloud computing and the topics addressed in this section of the questionnaire		en		N																																															5000																																																					
 G		The collaborative economy	1			en																																																																																																						
 Q	M	a6252046	1	Please indicate your role in the collaborative economy		en		N																																																																																																				
@@ -589,22 +589,22 @@ A	0	v2110		Varies depending on each case		en
 A	0	v2111		Varies according to the national employment laws		en																																																																																																						
 A	0	v2112		Negatively across sectors		en																																																																																																						
 A	0	v2113		Other		en																																																																																																						
-Q	T	a6252114	1	Please explain		en		N																																																																																																				
+Q	T	a6252114	a6252107 == 'v2113'	Please explain		en		N																																																																																																				
 Q	L	a6252115	1	Do you see any obstacle to the development and scaling-up of collaborative economy across borders in Europe and/or to the emergence of European market leaders?		en		N																																																																																																				
 A	0	v2116		Yes		en																																																																																																						
 A	0	v2117		No		en																																																																																																						
-Q	T	a6252118	1	Please explain		en		N																																																																																																				
+Q	T	a6252118	a6252115 == 'v2116'	Please explain		en		N																																																																																																				
 Q	L	a6252119	1	Do you see a need for action at European Union level specifically to promote the collaborative economy, and to foster innovation and entrepreneurship in its context?		en		N																																																																																																				
 A	0	v2120		Yes		en																																																																																																						
 A	0	v2121		No		en																																																																																																						
-Q	T	a6252122	1	Please indicate the sector/action		en		N																																																																																																				
+Q	T	a6252122	a6252119 == 'v2120'	Please indicate the sector/action		en		N																																																																																																				
 Q	L	a6252123	1	What action is necessary regarding the current regulatory environment at the level of the EU, including the Services Directive, the E-commerce Directive and the EU legislation on consumer protection law?		en		N																																																																																																				
 A	0	v2124		No change is required		en																																																																																																						
 A	0	v2125		New rules for the collaborative economy are required		en																																																																																																						
 A	0	v2126		More guidance and better information on the application of the existing rules is required		en																																																																																																						
 A	0	v2127		I don't know what is the current regulatory environment		en																																																																																																						
-Q	T	a6252128	1	Please indicate the sectors and the rules concerned		en		N																																																																																																				
-Q	T	a6252129	1	Please indicate the sectors and the rules concerned		en		N																																																																																																				
+Q	T	a6252128	a6252123 == 'v2125'	Please indicate the sectors and the rules concerned		en		N																																																																																																				
+Q	T	a6252129	a6252123 == 'v2126'	Please indicate the sectors and the rules concerned		en		N																																																																																																				
 Q	L	a6252130	1	How many people work for you?		en		N																																																																																																				
 A	0	v2131		I am an individual provider		en																																																																																																						
 A	0	v2132		1		en																																																																																																						
@@ -614,7 +614,7 @@ A	0	v2135		51-100		en
 A	0	v2136		101-250		en																																																																																																						
 A	0	v2137		More		en																																																																																																						
 A	0	v2138		I do not wish to reveal this information		en																																																																																																						
-Q	T	a6252139	1	Please specify		en		N																																																																																																				
+Q	T	a6252139	a6252130 == 'v2137'	Please specify		en		N																																																																																																				
 Q	L	a6252140	1	What percentage of your revenues/turnover is earned via collaborative platforms in the last twelve months?		en		N																																																																																																				
 A	0	v2141		0-20%		en																																																																																																						
 A	0	v2142		21-40%		en																																																																																																						
@@ -635,7 +635,7 @@ A	0	v2156		Tourism		en
 A	0	v2157		Accommodation		en																																																																																																						
 A	0	v2158		Professional services		en																																																																																																						
 A	0	v2159		Other		en																																																																																																						
-Q	T	a6252160	1	Please specify		en		N																																																																																																				
+Q	T	a6252160	a6252154 == 'v2159'	Please specify		en		N																																																																																																				
 Q	L	a6252161	1	As a provider active in the collaborative economy, are you aware if the following requirements have to be fulfilled in order to offer/share your assets, resources, time, skills, and/or capital on a platform? <br /><br />- Specific authorisation or licence		en		N																																																																																																				
 A	0	v2162		Yes		en																																																																																																						
 A	0	v2163		No		en																																																																																																						
@@ -681,26 +681,26 @@ A	0	v2202		N/A (no requirements apply to my activities)		en
 Q	L	a6252203	1	Do you think that lighter rules should be applied to smaller providers?		en		N																																																																																																				
 A	0	v2204		Yes		en																																																																																																						
 A	0	v2205		No		en																																																																																																						
-Q	T	a6252206	1	What should be the threshold of a provider&#8217;s activity in the collaborative economy for it to become subject to rules, such as authorisations, registrations, consumer protection (e.g. level of absolute revenue from collaborative economy, relative share of revenue from collaborative economy, in overall revenues, number of rented units/rental days etc)?		en		N																																																																																																				
+Q	T	a6252206	a6252203 == 'v2204'	What should be the threshold of a provider&#8217;s activity in the collaborative economy for it to become subject to rules, such as authorisations, registrations, consumer protection (e.g. level of absolute revenue from collaborative economy, relative share of revenue from collaborative economy, in overall revenues, number of rented units/rental days etc)?		en		N																																																																																																				
 Q	L	a6252207	1	Is the online platform imposing specific requirements on providers?		en		N																																																																																																				
 A	0	v2208		Yes		en																																																																																																						
 A	0	v2209		No		en																																																																																																						
-Q	T	a6252210	1	What are the requirements and did the online platform verify their fulfilment and if so how? Please explain briefly.		en		N																																																																																																				
+Q	T	a6252210	a6252207 == 'v2208'	What are the requirements and did the online platform verify their fulfilment and if so how? Please explain briefly.		en		N																																																																																																				
 Q	L	a6252211	1	Are providers using platforms able to find the right insurance to protect themselves against risks when providing services and assets in the collaborative economy?		en		N																																																																																																				
 A	0	v2212		Yes		en																																																																																																						
 A	0	v2213		No		en																																																																																																						
-Q	T	a6252214	1	Please explain why not		en		N																																																																																																				
+Q	T	a6252214	a6252211 == 'v2213'	Please explain why not		en		N																																																																																																				
 Q	L	a6252215	1	What sector of the economy do you operate in?		en		N																																																																																																				
 A	0	v2216		Transport		en																																																																																																						
 A	0	v2217		Tourism		en																																																																																																						
 A	0	v2218		Accommodation		en																																																																																																						
 A	0	v2219		Professional services		en																																																																																																						
 A	0	v2220		Other		en																																																																																																						
-Q	T	a6252221	1	Please specify		en		N																																																																																																				
+Q	T	a6252221	a6252215 == 'v2220'	Please specify		en		N																																																																																																				
 Q	L	a6252222	1	Have your revenues/turnover been reduced as a result of competition from collaborative platforms?		en		N																																																																																																				
 A	0	v2223		Yes		en																																																																																																						
 A	0	v2224		No		en																																																																																																						
-Q	L	a6252225	1	  <p>By what percentage?</p>		en		N																																																																																																				
+Q	L	a6252225	a6252222 == 'v2223'	  <p>By what percentage?</p>		en		N																																																																																																				
 A	0	v2226		0-5%		en																																																																																																						
 A	0	v2227		6-15%		en																																																																																																						
 A	0	v2228		16-35%		en																																																																																																						
@@ -710,21 +710,21 @@ A	0	v2231		I do not wish to reveal this information		en
 Q	L	a6252232	1	Do you use or intend to use collaborative platforms to offer your existing services and assets?		en		N																																																																																																				
 A	0	v2233		Yes		en																																																																																																						
 A	0	v2234		No		en																																																																																																						
-Q	T	a6252235	1	Please explain &#8211; If yes, what is/expected to be the impact on your revenues/profits?		en		N																																																																																																				
+Q	T	a6252235	a6252232 == 'v2233' OR a6252232 == 'v2234'	Please explain &#8211; If yes, what is/expected to be the impact on your revenues/profits?		en		N																																																																																																				
 Q	L	a6252236	1	If applicable, how can we ensure a level playing field between providers in the collaborative economy and traditional providers?		en		N																																																																																																				
 A	0	v2237		Better enforcement of existing legislation for platforms and providers in the collaborative economy		en																																																																																																						
 A	0	v2238		Developing specific legislation for providers in the collaborative economy		en																																																																																																						
 A	0	v2239		Improving the existing rules for providers in the collaborative economy		en																																																																																																						
 A	0	v2240		Improving the rules for traditional providers		en																																																																																																						
 A	0	v2241		Other		en																																																																																																						
-Q	T	a6252242	1	Please specify		en		N																																																																																																				
+Q	T	a6252242	a6252236 == 'v2241'	Please specify		en		N																																																																																																				
 Q	L	a6252243	1	What sector of the economy do you operate in?		en		N																																																																																																				
 A	0	v2244		Transport		en																																																																																																						
 A	0	v2245		Tourism		en																																																																																																						
 A	0	v2246		Accommodation		en																																																																																																						
 A	0	v2247		Professional services		en																																																																																																						
 A	0	v2248		Other		en																																																																																																						
-Q	T	a6252249	1	Please specify		en		N																																																																																																				
+Q	T	a6252249	a6252243 == 'v2248'	Please specify		en		N																																																																																																				
 Q	L	a6252250	1	How many people work for your company?		en		N																																																																																																				
 A	0	v2251		1		en																																																																																																						
 A	0	v2252		2-10		en																																																																																																						
@@ -744,7 +744,7 @@ A	0	v2269		I do not wish to reveal this information		en
 Q	L	a6252271	1	Do you offer services and products in countries other than your own?		en		N																																																																																																				
 A	0	v2273		Yes		en																																																																																																						
 A	0	v2275		No		en																																																																																																						
-Q	L	a6252276	1	What percentage of your revenue is due to cross-border activities?		en		N																																																																																																				
+Q	L	a6252276	a6252271 == 'v2273'	What percentage of your revenue is due to cross-border activities?		en		N																																																																																																				
 A	0	v2278		0-20%		en																																																																																																						
 A	0	v2280		21-40%		en																																																																																																						
 A	0	v2282		41-60%		en																																																																																																						
@@ -759,87 +759,87 @@ Q	L	a6252298	1	Are there any specific prior authorisation requirements in place 
 A	0	v2300		Yes		en																																																																																																						
 A	0	v2302		No		en																																																																																																						
 A	0	v2304		I don't know		en																																																																																																						
-Q	L	a6252305	1	Please indicate whether these are:<br /><br />- Specific authorisation or licence		en		N																																																																																																				
+Q	L	a6252305	a6252298 == 'v2300'	Please indicate whether these are:<br /><br />- Specific authorisation or licence		en		N																																																																																																				
 A	0	v2307		Yes		en																																																																																																						
 A	0	v2309		No		en																																																																																																						
 A	0	v2312		I don't know		en																																																																																																						
-Q	L	a6252313	1	- Registration in a business registry		en		N																																																																																																				
+Q	L	a6252313	a6252298 == 'v2300'	- Registration in a business registry		en		N																																																																																																				
 A	0	v2316		Yes		en																																																																																																						
 A	0	v2318		No		en																																																																																																						
 A	0	v2320		I don't know		en																																																																																																						
-Q	L	a6252321	1	- Insurance coverage		en		N																																																																																																				
+Q	L	a6252321	a6252298 == 'v2300'	- Insurance coverage		en		N																																																																																																				
 A	0	v2323		Yes		en																																																																																																						
 A	0	v2325		No		en																																																																																																						
 A	0	v2328		I don't know		en																																																																																																						
-Q	L	a6252329	1	- Membership in a professional chamber		en		N																																																																																																				
+Q	L	a6252329	a6252298 == 'v2300'	- Membership in a professional chamber		en		N																																																																																																				
 A	0	v2331		Yes		en																																																																																																						
 A	0	v2333		No		en																																																																																																						
 A	0	v2335		I don't know		en																																																																																																						
-Q	L	a6252337	1	- Specific qualifications		en		N																																																																																																				
+Q	L	a6252337	a6252298 == 'v2300'	- Specific qualifications		en		N																																																																																																				
 A	0	v2339		Yes		en																																																																																																						
 A	0	v2341		No		en																																																																																																						
 A	0	v2343		I don't know		en																																																																																																						
-Q	L	a6252344	1	- Compliance with health and safety requirements		en		N																																																																																																				
+Q	L	a6252344	a6252298 == 'v2300'	- Compliance with health and safety requirements		en		N																																																																																																				
 A	0	v2346		Yes		en																																																																																																						
 A	0	v2348		No		en																																																																																																						
 A	0	v2350		I don't know		en																																																																																																						
-Q	L	a6252352	1	- Compliance with planning permission or fire safety requirements		en		N																																																																																																				
+Q	L	a6252352	a6252298 == 'v2300'	- Compliance with planning permission or fire safety requirements		en		N																																																																																																				
 A	0	v2354		Yes		en																																																																																																						
 A	0	v2357		No		en																																																																																																						
 A	0	v2359		I don't know		en																																																																																																						
-Q	L	a6252360	1	- Compliance with fixed-tariffs		en		N																																																																																																				
+Q	L	a6252360	a6252298 == 'v2300'	- Compliance with fixed-tariffs		en		N																																																																																																				
 A	0	v2362		Yes		en																																																																																																						
 A	0	v2364		No		en																																																																																																						
 A	0	v2366		I don't know		en																																																																																																						
-Q	L	a6252367	1	- Requirements applicable to providers I can host on the platform		en		N																																																																																																				
+Q	L	a6252367	a6252298 == 'v2300'	- Requirements applicable to providers I can host on the platform		en		N																																																																																																				
 A	0	v2370		Yes		en																																																																																																						
 A	0	v2372		No		en																																																																																																						
 A	0	v2374		I don't know		en																																																																																																						
-Q	T	a6252375	1	- Other, please specify		en		N																																																																																																				
+Q	T	a6252375	a6252298 == 'v2300'	- Other, please specify		en		N																																																																																																				
 Q	L	a6252377	1	Do you face any specific authorisation requirements in those EU countries where you provide cross border services temporarily without being established?		en		N																																																																																																				
 A	0	v2379		Yes		en																																																																																																						
 A	0	v2380		No		en																																																																																																						
 A	0	v2382		Not applicable		en																																																																																																						
-Q	T	a6252384	1	Please explain briefly		en		N																																																																																																				
+Q	T	a6252384	a6252377 == 'v2379'	Please explain briefly		en		N																																																																																																				
 Q	L	a6252386	1	As a platform, are you involved in tax collection from the providers in the collaborative economy?		en		N																																																																																																				
 A	0	v2389		Yes		en																																																																																																						
 A	0	v2391		No		en																																																																																																						
-Q	T	a6252393	1	Please explain briefly		en		N																																																																																																				
+Q	T	a6252393	a6252386 == 'v2389'	Please explain briefly		en		N																																																																																																				
 Q	L	a6252394	1	Are you providing insurance or other types of guarantees for consumers and providers active on your platform?		en		N																																																																																																				
 A	0	v2396		Yes		en																																																																																																						
 A	0	v2398		No		en																																																																																																						
-Q	T	a6252400	1	Please explain briefly		en		N																																																																																																				
+Q	T	a6252400	a6252394 == 'v2396'	Please explain briefly		en		N																																																																																																				
 Q	L	a6252401	1	Do you inform providers regarding their legal obligations and do you ensure compliance of providers with specific legislation applying to them (for example, possession of authorisations, licences, consumer information requirements etc.)?		en		N																																																																																																				
 A	0	v2403		Yes		en																																																																																																						
 A	0	v2405		No		en																																																																																																						
-Q	T	a6252407	1	Please explain briefly		en		N																																																																																																				
+Q	T	a6252407	a6252401 == 'v2403'	Please explain briefly		en		N																																																																																																				
 Q	L	a6252408	1	Is collaborative economy raising specific regulatory and enforcement issues?		en		N																																																																																																				
 A	0	v2410		Yes		en																																																																																																						
 A	0	v2412		No		en																																																																																																						
-Q	T	a6252414	1	Please explain briefly, indicating also what steps, if any, have been undertaken to solve such issues.		en		N																																																																																																				
+Q	T	a6252414	a6252408 == 'v2410'	Please explain briefly, indicating also what steps, if any, have been undertaken to solve such issues.		en		N																																																																																																				
 Q	L	a6252415	1	Is self-regulation, including voluntary standards, sufficient in the context of collaborative economy?		en		N																																																																																																				
 A	0	v2417		Yes		en																																																																																																						
 A	0	v2419		No		en																																																																																																						
-Q	T	a6252420	1	Please explain briefly		en		N																																																																																																				
+Q	T	a6252420	a6252415 == 'v2419'	Please explain briefly		en		N																																																																																																				
 Q	T	a6252422	1	How do you ensure that social protection is applied regardless of the business model (collaborative economy model or traditional business models)? Please explain briefly		en		N																																																																																																				
 Q	L	a6252424	1	How do you distinguish between commercial activity within the collaborative economy and the occasional intervention of private individuals in this context?		en		N																																																																																																				
 A	0	v2430		VAT threshold		en																																																																																																						
 A	0	v2433		Frequency of the activity concerned		en																																																																																																						
 A	0	v2436		On the basis of the safety risk		en																																																																																																						
 A	0	v2439		Other		en																																																																																																						
-Q	T	a6252441	1	Please explain		en		N																																																																																																				
+Q	T	a6252441	a6252424 == 'v2439'	Please explain		en		N																																																																																																				
 Q	L	a6252443	1	Do you see problems related to taxation of collaborative economy activities?		en		N																																																																																																				
 A	0	v2445		Yes		en																																																																																																						
 A	0	v2448		No		en																																																																																																						
-Q	T	a6252450	1	Please explain briefly		en		N																																																																																																				
+Q	T	a6252450	a6252443 == 'v2445' OR a6252443 == 'v2448'	Please explain briefly		en		N																																																																																																				
 Q	L	a6252452	1	Do you think there is a need for a special tax regime for collaborative economy providers?		en		N																																																																																																				
 A	0	v2455		Yes		en																																																																																																						
 A	0	v2458		No		en																																																																																																						
-Q	T	a6252460	1	Please explain briefly		en		N																																																																																																				
+Q	T	a6252460	a6252452 == 'v2455' OR a6252452 == 'v2458'	Please explain briefly		en		N																																																																																																				
 Q	L	a6252462	1	Have you used a service or asset via a collaborative platform?		en		N																																																																																																				
 A	0	v2465		Yes		en																																																																																																						
 A	0	v2468		No		en																																																																																																						
-Q	L	a6252470	1	Please specify in which period		en		N																																																																																																				
+Q	L	a6252470	a6252462 == 'v2465'	Please specify in which period		en		N																																																																																																				
 A	0	v2473		During the last month		en																																																																																																						
 A	0	v2475		During the last three months		en																																																																																																						
 A	0	v2477		During the last six months		en																																																																																																						
@@ -853,11 +853,11 @@ A	0	v2492		Tourism		en
 A	0	v2495		Accommodation		en																																																																																																						
 A	0	v2497		Professional services		en																																																																																																						
 A	0	v2500		Other		en																																																																																																						
-Q	T	a6252502	1	Please specify		en		N																																																																																																				
+Q	T	a6252502	a6252486 == 'v2500'	Please specify		en		N																																																																																																				
 Q	L	a6252504	1	Do you receive, on the collaborative economy platform, sufficient information on the provider in the collaborative economy (including whether the provider is an individual or a legal person), your consumer rights, the characteristics and modalities of the offer and your statutory rights (such as withdrawal/cancellation right when applicable)?		en		N																																																																																																				
 A	0	v2520		Yes		en																																																																																																						
 A	0	v2522		No		en																																																																																																						
-Q	T	a6252524	1	Please explain		en		N																																																																																																				
+Q	T	a6252524	a6252504 == 'v2522'	Please explain		en		N																																																																																																				
 Q	L	a6252526	1	How important are reputation/rating systems in facilitating transactions on collaborative economy platforms?		en		N																																																																																																				
 A	0	v2528		Very important		en																																																																																																						
 A	0	v2530		Important		en																																																																																																						
@@ -867,4 +867,4 @@ A	0	v2535		Vetting of the provider		en
 A	0	v2537		Existence of a complaint process		en																																																																																																						
 A	0	v2540		Reputation of the platform		en																																																																																																						
 A	0	v2542		Other		en																																																																																																						
-Q	T	a6252544	1	Please specify		en		N																																																																																																				
+Q	T	a6252544	a6252533 == 'v2542'	Please specify		en		N																																																																																																				
