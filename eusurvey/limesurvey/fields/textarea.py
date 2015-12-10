@@ -26,4 +26,6 @@ def prepare_textarea_row(formset, total):
     else:
         column_definition = ()
     full_row = common.update_row(full_row, column_definition)
+    # Add row metadata:
+    full_row.append(formset.get_dependencies())
     return [full_row]

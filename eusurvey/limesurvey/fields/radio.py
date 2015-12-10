@@ -15,7 +15,10 @@ def get_question_row(formset, total):
         common.get_mandatory(formset),
         '',
     ]
-    return partial_question + common.get_missing(partial_question, total)
+    full_row = partial_question + common.get_missing(partial_question, total)
+    # Add metadata:
+    full_row.append(formset.get_dependencies())
+    return full_row
 
 
 def get_answer_row(field, total):
@@ -32,7 +35,13 @@ def get_answer_row(field, total):
         '',
         '',
     ]
-    return partial_row + common.get_missing(partial_row, total)
+    full_row = partial_row + common.get_missing(partial_row, total)
+    # Add row metadata:
+    metadata = {
+        'field_id': field['input'].get('id'),
+    }
+    full_row.append(metadata)
+    return full_row
 
 
 def prepare_radio_row(formset, total):
