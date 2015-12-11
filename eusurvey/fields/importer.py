@@ -77,7 +77,7 @@ def get_page_fields(tree, page):
 
 def get_survey_dict(url):
     """Extracts the survey information."""
-    form_tree = reader.get_form_tree(url, use_cache=True)
+    form_tree = reader.get_form_tree(url)
     name = slugify(url, only_ascii=True)
     title = get_form_title(form_tree.tree)
     return {
@@ -91,17 +91,19 @@ def get_survey_dict(url):
 
 def process(url):
     survey_dict = get_survey_dict(url)
-    created = database.init_db(survey_dict)
-    if not created:
+    db_dict = database.init_db(survey_dict)
+    if not db_dict:
         # Survey couldn't be created return an error.
         raise ValueError('Survey could not be created.')
+    survey_dict.update(db_dict)
     form_tree = survey_dict['form_tree']
     page_list = get_form_pages(form_tree.tree)
     survey_list = []
     for page in page_list:
         fields = get_page_fields(form_tree.tree, page)
         survey_list.append((page, fields))
-    lime_importer.make_limesurvey_file(survey_list)
     # TODO: Activate this with a flag:
     #  renderer.render(survey_list)
+    row_list = lime_importer.make_limesurvey_file(survey_list)
+    database.complete_db(survey_dict, row_list)
     return True
