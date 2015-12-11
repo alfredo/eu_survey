@@ -1,6 +1,6 @@
 import logging
 
-from eusurvey import content, database, reader
+from eusurvey import content, database, query
 from eusurvey.fields import renderer
 from eusurvey.fields.common import to_str, get
 from eusurvey.fields.extractors import (
@@ -12,8 +12,6 @@ from eusurvey.fields.extractors import (
     matrixtable,
 )
 from eusurvey.limesurvey import importer as lime_importer
-from slugify import slugify
-
 
 logger = logging.getLogger(__name__)
 
@@ -39,11 +37,6 @@ def extract_element(section):
         return content_element
     logger.error('Extractor for section not found:\n %s', to_str(section))
     assert False, to_str(section)
-
-
-def get_form_title(tree):
-    """Gets the title of the form."""
-    return tree.xpath('//div[@class="surveytitle"]/text()')[0]
 
 
 def get_form_pages(tree):
@@ -75,22 +68,8 @@ def get_page_fields(tree, page):
     return field_list
 
 
-def get_survey_dict(url):
-    """Extracts the survey information."""
-    form_tree = reader.get_form_tree(url)
-    name = slugify(url, only_ascii=True)
-    title = get_form_title(form_tree.tree)
-    return {
-        'url': url,
-        'name': name,
-        'title': title,
-        'form_tree': form_tree,
-        'id': None, # TODO: get form ID
-    }
-
-
 def process(url):
-    survey_dict = get_survey_dict(url)
+    survey_dict = query.get_survey_dict(url)
     db_dict = database.init_db(survey_dict)
     if not db_dict:
         # Survey couldn't be created return an error.
