@@ -1,13 +1,11 @@
 from eusurvey.fields import importer
-
 from eusurvey.poster import submission
 
 
 URL = 'https://ec.europa.eu/eusurvey/runner/Platforms/'
 
 
-def import_fields(url=URL):
-    """Imports the given form fields"""
+def import_survey(url):
     importer.process(url)
     return True
 
