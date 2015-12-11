@@ -1,7 +1,10 @@
 from collections import namedtuple
 
 
-FormTree = namedtuple('FormResponse', ['tree', 'response'])
+FormTree = namedtuple(
+    'FormResponse',
+    ['tree', 'response', 'stream']
+)
 
 PreSubmission = namedtuple('PreSubmission', ['cookies', 'payload'])
 
