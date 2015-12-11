@@ -25,7 +25,6 @@ setup(
     },
     scripts=[
         'eusurvey/bin/survey.py',
-        'eusurvey/bin/submit_surveys.py',
     ],
     classifiers=[
         'Development Status :: 1 - Alpha',
