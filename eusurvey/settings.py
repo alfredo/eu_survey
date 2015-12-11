@@ -6,7 +6,7 @@ here = lambda *x: os.path.join(BASE_DIR, *x)
 DB_ROOT = here('db')
 MASTER_FORM_NAME = 'master_form.html'
 
-VERBOSE_FORMAT = '%(levelname)s %(asctime)s %(module)s %(process)d %(message)s'
+VERBOSE_FORMAT = '%(levelname)-5s %(asctime)s %(module)-9s %(message)s'
 
 LOGGING = {
     'version': 1,
