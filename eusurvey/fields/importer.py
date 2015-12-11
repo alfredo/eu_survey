@@ -1,6 +1,6 @@
 import logging
 
-from eusurvey import content, reader
+from eusurvey import content, database, reader
 from eusurvey.fields import renderer
 from eusurvey.fields.common import to_str, get
 from eusurvey.fields.extractors import (
@@ -12,6 +12,8 @@ from eusurvey.fields.extractors import (
     matrixtable,
 )
 from eusurvey.limesurvey import importer as lime_importer
+from slugify import slugify
+
 
 logger = logging.getLogger(__name__)
 
@@ -73,14 +75,33 @@ def get_page_fields(tree, page):
     return field_list
 
 
-def process(url):
+def get_survey_dict(url):
+    """Extracts the survey information."""
     form_tree = reader.get_form_tree(url, use_cache=True)
+    name = slugify(url, only_ascii=True)
     title = get_form_title(form_tree.tree)
+    return {
+        'url': url,
+        'name': name,
+        'title': title,
+        'form_tree': form_tree,
+        'id': None, # TODO: get form ID
+    }
+
+
+def process(url):
+    survey_dict = get_survey_dict(url)
+    created = database.init_db(survey_dict)
+    if not created:
+        # Survey couldn't be created return an error.
+        raise ValueError('Survey could not be created.')
+    form_tree = survey_dict['form_tree']
     page_list = get_form_pages(form_tree.tree)
     survey_list = []
     for page in page_list:
         fields = get_page_fields(form_tree.tree, page)
         survey_list.append((page, fields))
     lime_importer.make_limesurvey_file(survey_list)
-    renderer.render(survey_list)
+    # TODO: Activate this with a flag:
+    #  renderer.render(survey_list)
     return True
