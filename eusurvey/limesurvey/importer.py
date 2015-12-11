@@ -6,7 +6,6 @@ from eusurvey.limesurvey import (
     constants,
     common,
     postprocessor,
-    writer,
 )
 from eusurvey.limesurvey.fields import (
     content,
@@ -97,11 +96,11 @@ def prepare_survey_list(survey_list, total):
 
 
 def make_limesurvey_file(survey_list):
+    """Transform the survey elements into a list of LimeSurvey rows."""
     total = len(constants.COLUMNS)
     row_list = [constants.COLUMNS]
     row_list += get_settings_rows(total)
     row_list += get_local_settings_rows(total)
     row_list += prepare_survey_list(survey_list, total)
     updated_row_list = postprocessor.update_row_list(row_list)
-    path = writer.save(updated_row_list)
-    return path
+    return updated_row_list
