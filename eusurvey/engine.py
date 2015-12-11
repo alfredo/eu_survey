@@ -6,9 +6,6 @@ from eusurvey.poster import submission
 logger = logging.getLogger(__name__)
 
 
-URL = 'https://ec.europa.eu/eusurvey/runner/Platforms/'
-
-
 def import_survey(url):
     try:
         importer.process(url)
@@ -17,6 +14,9 @@ def import_survey(url):
     return True
 
 
-def submit_surveys(name='results-survey.csv', url=URL):
-    submission.process(name, url)
+def submit_surveys(url):
+    try:
+        submission.process(url, name='export.csv')
+    except ValueError, e:
+        logger.error(e)
     return True
