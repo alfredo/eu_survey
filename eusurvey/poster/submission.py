@@ -1,9 +1,8 @@
-import logging
 import os
+import logging
 import requests
 
-from eusurvey import database, settings, reader
-from eusurvey.libs import csv_unicode as csv
+from eusurvey import database, query, settings, reader
 from eusurvey.models import PreSubmission, SuccessResponse
 from eusurvey.poster import constants, translator, validator
 from lxml import html
@@ -31,13 +30,6 @@ def post(url, data=None, cookies=None):
     return response
 
 
-def read_csv(name):
-    stream_path = os.path.join(settings.DB_ROOT, name)
-    with open(stream_path, 'r') as stream:
-        for row in csv.UnicodeReader(stream):
-            yield row
-
-
 def get_success_response(tree):
     uid = tree.xpath('//div[@id="divThanksInner"]/@name')[0]
     url = tree.xpath('//a[@id="printButtonThanksInner"]/@href')[0]
@@ -53,18 +45,25 @@ def send_submission(url, payload, pre_submission):
     return success_response
 
 
-def process(name, url):
-    submission_list = list(read_csv(name))
+def process(url, name):
+    survey_dict = query.get_survey_dict(url)
+    export_path = os.path.join(survey_dict['survey_path'], name)
+    if not os.path.exists(export_path):
+        logger.error('Missing exported survey answers: `%s`', export_path)
+        raise ValueError('Cannot submit survey.')
+    submission_list = list(database.read_csv_file(export_path))
     row_map = translator.update_key_map(submission_list[0])
     for i, row in enumerate(submission_list[1:]):
         payload = translator.prepare_payload(row, row_map)
-        if validator.is_valid_payload(payload):
+        if validator.is_valid_payload(payload, survey_dict):
             # Each submission requires a cookie and a token.
             # this step is done by preparing the submision:
             tree = reader.get_form_tree(url)
             pre_submission = prepare_submission(tree)
             payload.update(pre_submission.payload)
             # Stop here to avoid sending the submission:
+            assert False, "Submission stopped."
+            # TODO: flags to stop the submission.
             success_response = send_submission(url, payload, pre_submission)
             logger.info(success_response)
             # Short circuit
