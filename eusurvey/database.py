@@ -26,6 +26,22 @@ def read_file(name):
     raise ValueError('Something went wrong with: `%s`' % file_path)
 
 
+def save_csv_file(file_path, row_list):
+    with open(file_path, 'w') as stream:
+        writer = csv.UnicodeWriter(stream)
+        for row in row_list:
+            writer.writerow(row)
+    logging.debug('Saving CSV file: `%s`', file_path)
+    return file_path
+
+
+def read_csv_file(file_path):
+    with open(file_path, 'r') as stream:
+        for row in csv.UnicodeReader(stream):
+            yield row
+
+
+
 def create_config(config_list, survey_path):
     SECTION = 'GENERAL'
     config = ConfigParser.RawConfigParser()
@@ -41,7 +57,7 @@ def create_config(config_list, survey_path):
 
 def init_db(survey):
     """Prepares the storage for the given survey."""
-    survey_path = os.path.join(settings.DB_ROOT, survey['name'])
+    survey_path = survey['survey_path']
     if os.path.exists(survey_path):
         logger.error(
             'Survey has already been imported: See: `%s`', survey_path)
@@ -64,15 +80,6 @@ def init_db(survey):
         'config_path': config_path,
         'form_path': form_path,
     }
-
-
-def save_csv_file(file_path, row_list):
-    with open(file_path, 'w') as stream:
-        writer = csv.UnicodeWriter(stream)
-        for row in row_list:
-            writer.writerow(row)
-    logging.debug('Saving CSV file: `%s`', file_path)
-    return file_path
 
 
 def complete_db(survey_dict, row_list):
