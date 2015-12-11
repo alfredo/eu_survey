@@ -25,7 +25,6 @@ setup(
     },
     scripts=[
         'eusurvey/bin/survey.py',
-        'eusurvey/bin/import_survey.py',
         'eusurvey/bin/submit_surveys.py',
     ],
     classifiers=[
