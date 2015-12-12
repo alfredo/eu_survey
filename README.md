@@ -28,6 +28,13 @@ Where `URL` is a EUSurvey URL. e.g.
     survey.py --ingest https://ec.europa.eu/eusurvey/runner/Platforms/
 
 
+An `--update` flag is available in case the form has been re-configured for import.
+
+**IMPORTANT:** This command will overwrite without confirmation any existing file that it requires. e.g.
+
+    survey.py --ingest https://ec.europa.eu/eusurvey/runner/Platforms/ --update
+
+
 # Submit exported answers to a survey
 
 Once the survey answers are ready to be sent back to the EUSurvey service they must be exported with:
