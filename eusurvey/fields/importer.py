@@ -1,6 +1,6 @@
 import logging
 
-from eusurvey import content, database, query
+from eusurvey import database, query
 from eusurvey.fields import renderer
 from eusurvey.fields.common import to_str, get
 from eusurvey.fields.extractors import (
@@ -10,6 +10,7 @@ from eusurvey.fields.extractors import (
     checkbox,
     tabletable,
     matrixtable,
+    content,
 )
 from eusurvey.limesurvey import importer as lime_importer
 
