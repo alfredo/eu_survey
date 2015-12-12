@@ -8,7 +8,6 @@ logger = logging.getLogger(__name__)
 
 def import_survey(url, update=False):
     try:
-        update = True
         importer.process(url, is_update=update)
     except ValueError, e:
         logger.error(e)
