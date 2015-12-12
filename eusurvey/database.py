@@ -87,7 +87,16 @@ def init_db(survey):
     form_path = os.path.join(survey_path, 'source.html')
     save_file(survey['form_tree'].stream, form_path)
     return {
-        'survey_path': survey_path,
+        'config_path': config_path,
+        'form_path': form_path,
+    }
+
+
+def read_db(survey):
+    survey_path = survey['survey_path']
+    config_path = os.path.join(survey_path, 'config.cfg')
+    form_path = os.path.join(survey_path, 'source.html')
+    return {
         'config_path': config_path,
         'form_path': form_path,
     }
