@@ -20,38 +20,57 @@ def has_metadata(row):
     return len(row) > SIZE
 
 
-def get_field_condition(field_id, row_list=None):
-    """Returns the index of the row with the field_id searched.
+QUESTION_TYPES = ['Q']
+SUBQUESTION_TYPES = ['SQ']
+MULTIPLE_ANSWER = ['M']
 
-    Because the columns are not ordered the list must be iterated until found.
-    """
-    QUESTION_TYPES = ['Q']
-    SUBQUESTION_TYPES = ['SQ']
-    MULTIPLE_ANSWER = ['M']
+
+def get_field_condition(field_id, row_list=None):
+    """Condition for the field_id searched.
+
+    Because previous rows can affect the outcome it needs to be
+    iterated sequentially until found."""
     question = None
-    subquestion = None
+    subquestion_list = []
     for i, row in enumerate(row_list):
-        if row[0] in QUESTION_TYPES:
+        # Reset relevant fields:
+        question_name = None
+        row_value = None
+        row_type = row[0].strip()
+        if row_type in QUESTION_TYPES:
             # Document last question
             question = row
-            # Reset subquestion
-            subquestion = None
-        if row[0] in SUBQUESTION_TYPES:
-            subquestion = row
-        if has_metadata(row):
-            metadata = row[-1]
-            if isinstance(metadata['field_id'], list):
-                question_name = common.get_row_value(question, 'name')
-                subquestion_name = common.get_row_value(subquestion, 'name')
-                row_value = common.get_row_value(row, 'name')
-                return "%s_%s == '%s'" % (
-                    question_name, subquestion_name,  row_value)
-            if field_id == metadata['field_id']:
-                question_name = common.get_row_value(question, 'name')
-                row_value = common.get_row_value(row, 'name')
-                if question[1] in MULTIPLE_ANSWER:
-                    return "%s_%s == 'Y'" % (question_name, row_value)
+            # Next subquestions are part of this question:
+            subquestion_list = []
+        if row_type in SUBQUESTION_TYPES:
+            subquestion_list.append(common.get_row_value(row, 'name'))
+        # Before skipping needs to record any question/subquestion:
+        if not has_metadata(row):
+            # Ignore fields without metadata:
+            continue
+        metadata = row[-1]
+        # Handle direct fields:
+        if field_id == metadata['field_id']:
+            question_name = common.get_row_value(question, 'name')
+            row_value = common.get_row_value(row, 'name')
+            if question[1] in MULTIPLE_ANSWER:
+                return "%s_%s == 'Y'" % (question_name, row_value)
+            else:
                 return "%s == '%s'" % (question_name, row_value)
+        # Matrix fields. They are compressed into a row per subquestion/answer
+        # For this reason they have multiple ids:
+        q_subtype = question[1].strip()
+        if isinstance(metadata['field_id'], list) and q_subtype in ['F']:
+            logger.debug(metadata['field_id'])
+            question_name = common.get_row_value(question, 'name')
+            row_value = common.get_row_value(row, 'name')
+            condition_list = []
+            for subquestion in subquestion_list:
+                condition_list.append(
+                    "%s_%s == '%s'" % (question_name, subquestion,  row_value))
+            conditions = ' OR '.join(set(condition_list))
+            logger.warning(conditions)
+            return conditions
     logger.error('Missing triggers for: `%s`', field_id)
     return None
 
@@ -67,22 +86,23 @@ CONDITION_REPLACEMENTS = {
 def add_dependencies(row_list):
     get_condition = partial(get_field_condition, row_list=row_list)
     for i, row in enumerate(row_list):
-        if has_metadata(row):
-            metadata = row[-1]
-            if 'triggers' in metadata and metadata['triggers']:
-                conditions = set([get_condition(t) for t in metadata['triggers']])
-                conditions = filter(None, conditions)
-                if conditions:
-                    conditions = sorted(conditions)
-                    conditions_str = ' OR '.join(conditions)
-                    if conditions_str in CONDITION_REPLACEMENTS:
-                        new_str = CONDITION_REPLACEMENTS[conditions_str]
-                        logger.info('Replacing `%s` with `%s`',
-                                    conditions_str, new_str)
-                        conditions_str = new_str
-                    common.update_row(row, (
-                        ('relevance', conditions_str),
-                    ))
+        if not has_metadata(row):
+            # Row has no metadata, ignore:
+            continue
+        metadata = row[-1]
+        if 'triggers' in metadata and metadata['triggers']:
+            conditions = set([get_condition(t) for t in metadata['triggers']])
+            conditions = filter(None, conditions)
+            if conditions:
+                conditions = sorted(conditions)
+                conditions_str = ' OR '.join(conditions)
+                if conditions_str in CONDITION_REPLACEMENTS:
+                    new_str = CONDITION_REPLACEMENTS[conditions_str]
+                    logger.info('Replacing `%s` with `%s`', conditions_str, new_str)
+                    conditions_str = new_str
+                common.update_row(row, (
+                    ('relevance', conditions_str),
+                ))
     return row_list
 
 
