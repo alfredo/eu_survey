@@ -7,7 +7,7 @@ class TabExcelDialect(csv.excel):
     delimiter = '\t'
 
 
-class UTF8Recoder:
+class UTF8Recoder(object):
     """Iterator that reads an encoded stream and reencodes the input to UTF-8"""
     def __init__(self, f, encoding):
         self.reader = codecs.getreader(encoding)(f)
@@ -19,7 +19,7 @@ class UTF8Recoder:
         return self.reader.next().encode("utf-8")
 
 
-class UnicodeReader:
+class UnicodeReader(object):
     """A CSV reader which will iterate over lines in the CSV file "f",
     which is encoded in the given encoding."""
 
@@ -35,7 +35,7 @@ class UnicodeReader:
         return self
 
 
-class UnicodeWriter:
+class UnicodeWriter(object):
     """A CSV writer which will write rows to CSV file "f",
     which is encoded in the given encoding."""
 
@@ -66,3 +66,10 @@ class UnicodeWriter:
     def writerows(self, rows):
         for row in rows:
             self.writerow(row)
+
+
+class UnicodeTabWriter(UnicodeWriter):
+
+    def __init__(self, *args, **kwargs):
+        kwargs['dialect'] = TabExcelDialect
+        super(UnicodeTabWriter, self).__init__(*args, **kwargs)

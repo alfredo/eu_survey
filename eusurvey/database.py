@@ -28,7 +28,7 @@ def read_file(name):
 
 def save_csv_file(file_path, row_list):
     with open(file_path, 'w') as stream:
-        writer = csv.UnicodeWriter(stream)
+        writer = csv.UnicodeTabWriter(stream)
         for row in row_list:
             writer.writerow(row)
     logging.debug('Saving CSV file: `%s`', file_path)
@@ -39,7 +39,6 @@ def read_csv_file(file_path):
     with open(file_path, 'r') as stream:
         for row in csv.UnicodeReader(stream):
             yield row
-
 
 
 def create_config(config_list, survey_path):
