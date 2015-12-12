@@ -7,4 +7,4 @@ pip-log.txt
 .#*
 *.egg-info
 notes.org
-db/results-survey.csv
+db/*
