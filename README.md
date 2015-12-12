@@ -66,6 +66,7 @@ Structure:
     ├── answers-export.csv
     ├── config.cfg
     ├── limesurvey.txt
+    ├── limesurvey_map.csv
     ├── source.html
     ├── submissions/
     └── submissions.csv
@@ -75,6 +76,7 @@ Where:
 - `SURVEY_NAME`: Name of the survey.
 - `config.cfg`: Configuration file of the survey.
 - `limesurvey.txt`: CSV tab separated representation of the survey ready to be consumed by LimeSurvey.
+- `limesurvey_map.csv`: A CSV file that can be used to map other limesurvey answers exports to the current ingested survey.
 - `source.html`: Cached original form used to generate the survey export.
 - `submisions/`: Directory with an HTML file with the response for each submission sent.
 - `submissions.csv`: CSV file listing all the survey submissions sent to the EUSurvey service.
