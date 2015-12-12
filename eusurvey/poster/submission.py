@@ -2,7 +2,7 @@ import os
 import logging
 import requests
 
-from eusurvey import database, query, settings, reader
+from eusurvey import database, query, settings
 from eusurvey.models import PreSubmission, SuccessResponse
 from eusurvey.poster import constants, translator, validator
 from lxml import html
@@ -75,7 +75,7 @@ def get_submission_row(row, success_response):
 def complete_payload(url, payload):
     # Each submission requires a cookie and a token.
     # this step is done by preparing the submision:
-    tree = reader.get_form_tree(url)
+    tree = query.get_form_tree(url)
     pre_submission = prepare_submission(tree)
     payload.update(pre_submission.payload)
     return payload, pre_submission
