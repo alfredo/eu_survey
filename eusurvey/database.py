@@ -10,7 +10,7 @@ from eusurvey.libs import csv_unicode as csv
 logger = logging.getLogger(__name__)
 
 
-def save_stream(stream, name):
+def save_file(stream, name):
     file_path = os.path.join(settings.DB_ROOT, name)
     logger.debug('Saving stream: `%s`', file_path)
     with codecs.open(file_path, 'w', 'utf-8') as f:
@@ -26,7 +26,7 @@ def read_file(name):
     raise ValueError('Something went wrong with: `%s`' % file_path)
 
 
-def save_csv_file(file_path, row_list):
+def save_csv_tab_file(file_path, row_list):
     with open(file_path, 'w') as stream:
         writer = csv.UnicodeTabWriter(stream)
         for row in row_list:
@@ -73,7 +73,7 @@ def init_db(survey):
     ]
     config_path = create_config(config_list, survey_path)
     form_path = os.path.join(survey_path, 'source.html')
-    save_stream(survey['form_tree'].stream, form_path)
+    save_file(survey['form_tree'].stream, form_path)
     return {
         'survey_path': survey_path,
         'config_path': config_path,
@@ -85,7 +85,7 @@ def complete_db(survey_dict, row_list):
     """Complates the missing details in the DB."""
     survey_path = survey_dict['survey_path']
     limesurvey_path = os.path.join(survey_path, 'limesurvey.txt')
-    save_csv_file(limesurvey_path, row_list)
+    save_csv_tab_file(limesurvey_path, row_list)
     # TODO: Create master csv MAP.
     return {
         'limesurvey_path': limesurvey_path,

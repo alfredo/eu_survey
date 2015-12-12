@@ -90,6 +90,6 @@ def render(survey_list):
         output += render_field_list(formset_list)
     result = u'\n\n'.join(output)
     result = result.encode('utf8')
-    output_file = database.save_stream(result, 'form-preview.md')
+    output_file = database.save_file(result, 'form-preview.md')
     logger.info('Output saved: `%s`', output_file)
     return result

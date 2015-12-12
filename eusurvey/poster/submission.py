@@ -40,7 +40,7 @@ def send_submission(url, payload, pre_submission):
     response = post(url, data=payload, cookies=pre_submission.cookies)
     tree = html.fromstring(response.content)
     filename = 'submissions/id-%s.html' % payload[0]['id']
-    database.save_stream(response.content, name=filename)
+    database.save_file(response.content, name=filename)
     success_response = get_success_response(tree)
     return success_response
 
