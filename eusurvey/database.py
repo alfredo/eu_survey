@@ -102,12 +102,12 @@ def read_db(survey):
     }
 
 
-def complete_db(survey_dict, row_list):
+def complete_db(survey_dict):
     """Complates the missing details in the DB."""
     survey_path = survey_dict['survey_path']
     limesurvey_path = os.path.join(survey_path, 'limesurvey.txt')
-    save_csv_tab_file(limesurvey_path, row_list)
-    # TODO: Create master csv MAP.
+    save_csv_tab_file(limesurvey_path, survey_dict['limesurvey'])
+    # TODO: Save `limesurvey_map` CSV file.
     return {
         'limesurvey_path': limesurvey_path,
     }
