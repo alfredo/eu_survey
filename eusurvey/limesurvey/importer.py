@@ -5,6 +5,7 @@ logger = logging.getLogger(__name__)
 from eusurvey.limesurvey import (
     constants,
     common,
+    mapper,
     postprocessor,
 )
 from eusurvey.limesurvey.fields import (
@@ -86,7 +87,7 @@ def prepare_survey_list(survey_list, total):
     prepared_survey_list = []
     for i, (page, formset_list) in enumerate(survey_list):
         prepared_survey_list.append(get_page_row(page, total, formset_list))
-        # Add any hard rows:
+        # Add any HARD_ROWS specified in the constants:
         if i == 0:
             prepared_survey_list += constants.HARD_ROWS
         partial_list = prepare_formset_list(formset_list, total)
@@ -95,12 +96,16 @@ def prepare_survey_list(survey_list, total):
     return prepared_survey_list
 
 
-def make_limesurvey_file(survey_list):
+def convert_survey_list(survey_list):
     """Transform the survey elements into a list of LimeSurvey rows."""
     total = len(constants.COLUMNS)
     row_list = [constants.COLUMNS]
     row_list += get_settings_rows(total)
     row_list += get_local_settings_rows(total)
-    row_list += prepare_survey_list(survey_list, total)
+    survey_list = prepare_survey_list(survey_list, total)
+    row_list += survey_list
     updated_row_list = postprocessor.update_row_list(row_list)
-    return updated_row_list
+    return {
+        'full_list': updated_row_list,
+        'questions': survey_list,
+    }

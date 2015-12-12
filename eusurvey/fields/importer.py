@@ -12,7 +12,7 @@ from eusurvey.fields.extractors import (
     matrixtable,
     content,
 )
-from eusurvey.limesurvey import importer as lime_importer
+from eusurvey.limesurvey import importer as lime_importer, mapper
 
 logger = logging.getLogger(__name__)
 
@@ -89,6 +89,8 @@ def process(url, is_update=False):
         survey_list.append((page, fields))
     # TODO: Activate this with a flag:
     #  renderer.render(survey_list)
-    row_list = lime_importer.make_limesurvey_file(survey_list)
-    database.complete_db(survey_dict, row_list)
+    lime_dict = lime_importer.convert_survey_list(survey_list)
+    survey_dict['limesurvey'] = lime_dict['full_list']
+    survey_dict['limesurvey_map'] = mapper.create_mapper(lime_dict['questions'])
+    database.complete_db(survey_dict)
     return True
