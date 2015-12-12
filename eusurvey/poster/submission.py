@@ -41,9 +41,9 @@ def get_success_response(tree):
 def send_submission(url, payload, pre_submission):
     """Sends the submission payload to the survey URL."""
     response = post(url, data=payload, cookies=pre_submission.cookies)
-    tree = html.fromstring(response.content)
-    filename = 'submissions/id-%s.html' % payload[0]['id']
+    filename = 'submissions/answer-%s.html' % payload[0]['id']
     database.save_file(response.content, name=filename)
+    tree = html.fromstring(response.content)
     success_response = get_success_response(tree)
     return success_response
 
@@ -93,6 +93,13 @@ def get_submission_queue(submission_list, existing_list):
     return submission_queue
 
 
+def save_sent_submissions(sent_submissions, survey_dict):
+    logger.info('Saving sent submissions: `%s`', len(sent_submissions))
+    file_path = os.path.join(survey_dict['survey_path'], 'submissions.csv')
+    database.save_csv_file(file_path, sent_submissions.values())
+    return sent_submissions
+
+
 def process(url, name, dry=True):
     survey_dict = query.get_survey_dict(url)
     export_path = os.path.join(survey_dict['survey_path'], name)
@@ -112,6 +119,7 @@ def process(url, name, dry=True):
             payload, pre_submission = complete_payload(url, partial_payload)
             if dry:
                 logger.info('Dry run. Valid row: `%s`.', submission_id)
+                continue
             else:
                 # Send submissions
                 success_response = send_submission(
@@ -119,6 +127,5 @@ def process(url, name, dry=True):
                 submission_row = get_submission_row(row, success_response)
                 sent_submissions[submission_id] = submission_row
                 logger.info('Submission sent: `%s`' % success_response)
-    logger.info(
-        'Submissions processed so far: `%s`', len(sent_submissions))
-    return sent_submissions
+    # Update with database with processed submissions:
+    return save_sent_submissions(sent_submissions, survey_dict)
