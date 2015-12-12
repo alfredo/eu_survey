@@ -49,3 +49,30 @@ Where `URL` is a EUSurvey URL. e.g.
 This command will send back the survey exports one by one. Please note that the tool will stop if a row is not ready to be sent.
 
 
+# DB structure
+
+When a survey is imported a file structure is created to record the survey and any submissions, and its current state.
+
+Structure:
+
+    db/{ SURVEY_NAME }/
+    ├── answers-export.csv
+    ├── config.cfg
+    ├── limesurvey.txt
+    ├── source.html
+    ├── submissions/
+    └── submissions.csv
+
+Where:
+
+- `SURVEY_NAME`: Name of the survey.
+- `config.cfg`: Configuration file of the survey.
+- `limesurvey.txt`: CSV tab separated representation of the survey ready to be consumed by LimeSurvey.
+- `source.html`: Cached original form used to generate the survey export.
+- `submisions/`: Directory with an HTML file with the response for each submission sent.
+- `submissions.csv`: CSV file listing all the survey submissions sent to the EUSurvey service.
+
+
+
+
+
