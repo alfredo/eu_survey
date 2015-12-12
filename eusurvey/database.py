@@ -46,7 +46,7 @@ def read_csv_file(file_path):
 def save_csv_file(file_path, row_list):
     """Saves a comma separated CSV file."""
     with open(file_path, 'w') as stream:
-        writer = csv.UnicodeTabWriter(stream)
+        writer = csv.UnicodeWriter(stream)
         for row in row_list:
             writer.writerow(row)
     logger.debug('Saving CSV file: `%s`', file_path)
