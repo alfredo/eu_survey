@@ -93,20 +93,3 @@ def render(survey_list):
     output_file = database.save_stream(result, 'form-preview.md')
     logger.info('Output saved: `%s`', output_file)
     return result
-
-
-# def foo():
-#     for i, formset in enumerate(formset_list, start=1):
-#         output.append('%s. `%s`' % (i, formset.question))
-#         if formset.field_list:
-#             for field in formset.field_list:
-#                 output.append('    - [%s] %s' % (field['input']['id'], field['label']))
-#         if formset.option_list:
-#             for option in formset.option_list:
-#                 output.append('    - %s' % option['text'])
-#         msg = '      ^^ (Supplementary)" %s' %  formset.data_triggers if formset.is_supplementary else ''
-#         if msg:
-#             output.append(msg)
-#     result = '\n'.join(output)
-#     logger.info(result)
-#     return result
