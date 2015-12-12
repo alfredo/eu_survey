@@ -5,7 +5,6 @@ logger = logging.getLogger(__name__)
 from eusurvey.limesurvey import (
     constants,
     common,
-    mapper,
     postprocessor,
 )
 from eusurvey.limesurvey.fields import (
