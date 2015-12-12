@@ -27,18 +27,30 @@ def read_file(name):
 
 
 def save_csv_tab_file(file_path, row_list):
+    """Saves a tab-separated CSV file."""
     with open(file_path, 'w') as stream:
         writer = csv.UnicodeTabWriter(stream)
         for row in row_list:
             writer.writerow(row)
-    logging.debug('Saving CSV file: `%s`', file_path)
+    logger.debug('Saving tab-separated CSV file: `%s`', file_path)
     return file_path
 
 
 def read_csv_file(file_path):
+    """Reads a comma separated CSV file."""
     with open(file_path, 'r') as stream:
         for row in csv.UnicodeReader(stream):
             yield row
+
+
+def save_csv_file(file_path, row_list):
+    """Saves a comma separated CSV file."""
+    with open(file_path, 'w') as stream:
+        writer = csv.UnicodeTabWriter(stream)
+        for row in row_list:
+            writer.writerow(row)
+    logger.debug('Saving CSV file: `%s`', file_path)
+    return file_path
 
 
 def create_config(config_list, survey_path):
