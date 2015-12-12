@@ -59,6 +59,8 @@ def get_field_condition(field_id, row_list=None):
 CONDITION_REPLACEMENTS = {
     "a6251561 == 'v1570' OR a6251573 == 'v1574' OR a6251573 == 'v1575'":
     "a6251561 == 'v1570' OR a6251561 == 'v1567'",
+    "a6497498 == 'v7507' OR a6497510 == 'v7511' OR a6497510 == 'v7512'":
+    "a6497498 == 'v7507' OR a6497498 == 'v7504'",
 }
 
 
