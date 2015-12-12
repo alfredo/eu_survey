@@ -6,9 +6,10 @@ from eusurvey.poster import submission
 logger = logging.getLogger(__name__)
 
 
-def import_survey(url):
+def import_survey(url, update=False):
     try:
-        importer.process(url)
+        update = True
+        importer.process(url, is_update=update)
     except ValueError, e:
         logger.error(e)
     return True

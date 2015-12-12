@@ -69,12 +69,17 @@ def get_page_fields(tree, page):
     return field_list
 
 
-def process(url):
+def process(url, is_update=False):
     survey_dict = query.get_survey_dict(url)
-    db_dict = database.init_db(survey_dict)
-    if not db_dict:
-        # Survey couldn't be created return an error.
-        raise ValueError('Survey could not be created.')
+    if is_update:
+        logger.info(
+            'Updating existing imported survey: `%s`', survey_dict['name'])
+        db_dict = database.read_db(survey_dict)
+    else:
+        db_dict = database.init_db(survey_dict)
+        if not db_dict:
+            # Survey couldn't be created return an error.
+            raise ValueError('Survey could not be created.')
     survey_dict.update(db_dict)
     form_tree = survey_dict['form_tree']
     page_list = get_form_pages(form_tree.tree)
