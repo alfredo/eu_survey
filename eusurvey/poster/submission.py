@@ -26,7 +26,9 @@ def prepare_submission(form_tree):
 
 
 def post(url, data=None, cookies=None):
-    response = requests.post(url, data, cookies=cookies, headers=settings.HEADERS)
+    """Wraper around to `POST` the form passing on the headers and cookies."""
+    response = requests.post(
+        url, data, cookies=cookies, headers=settings.HEADERS)
     return response
 
 
@@ -37,6 +39,7 @@ def get_success_response(tree):
 
 
 def send_submission(url, payload, pre_submission):
+    """Sends the submission payload to the survey URL."""
     response = post(url, data=payload, cookies=pre_submission.cookies)
     tree = html.fromstring(response.content)
     filename = 'submissions/id-%s.html' % payload[0]['id']
@@ -45,7 +48,52 @@ def send_submission(url, payload, pre_submission):
     return success_response
 
 
-def process(url, name):
+def get_submissions_dict(row_list):
+    """Look up table using the first cell as the ID."""
+    return {r[0]: r for r in row_list}
+
+
+def get_sent_submissions(survey_dict):
+    """Reads the database of processed submissions if anys."""
+    file_path = os.path.join(survey_dict['survey_path'], 'submissions.csv')
+    if os.path.exists(file_path):
+        # Exausting it in case we need to re-iterate it:
+        submission_list = list(database.read_csv_file(file_path))
+        logger.info(
+            'Found submission file with: `%s` rows', len(submission_list))
+        submissions = get_submissions_dict(submission_list)
+    else:
+        submissions = {}
+    return submissions
+
+
+def get_submission_row(row, success_response):
+    """Generates a submission row to be recorded in the DB."""
+    assert False, row
+
+
+def complete_payload(url, payload):
+    # Each submission requires a cookie and a token.
+    # this step is done by preparing the submision:
+    tree = reader.get_form_tree(url)
+    pre_submission = prepare_submission(tree)
+    payload.update(pre_submission.payload)
+    return payload, pre_submission
+
+
+def get_submission_queue(submission_list, existing_list):
+    """Filters any non-procesable submission"""
+    submission_queue = []
+    for submission in submission_list[1:]:
+        if submission and (submission not in existing_list):
+            submission_queue.append(submission)
+        else:
+            logger.debug('Ignoring procesed submission: `%s`', submission)
+    logger.debug('Found submissions: `%s`', len(submission_queue))
+    return submission_queue
+
+
+def process(url, name, dry=True):
     survey_dict = query.get_survey_dict(url)
     export_path = os.path.join(survey_dict['survey_path'], name)
     if not os.path.exists(export_path):
@@ -53,19 +101,24 @@ def process(url, name):
         raise ValueError('Cannot submit survey.')
     submission_list = list(database.read_csv_file(export_path))
     row_map = translator.update_key_map(submission_list[0])
-    for i, row in enumerate(submission_list[1:]):
-        payload = translator.prepare_payload(row, row_map)
-        if validator.is_valid_payload(payload, survey_dict):
-            # Each submission requires a cookie and a token.
-            # this step is done by preparing the submision:
-            tree = reader.get_form_tree(url)
-            pre_submission = prepare_submission(tree)
-            payload.update(pre_submission.payload)
-            # Stop here to avoid sending the submission:
-            assert False, "Submission stopped."
-            # TODO: flags to stop the submission.
-            success_response = send_submission(url, payload, pre_submission)
-            logger.info(success_response)
-            # Short circuit
-            return True
-        assert False, "NOT VALID"
+    sent_submissions = get_sent_submissions(survey_dict)
+    submission_queue = get_submission_queue(
+        submission_list, sent_submissions.keys())
+    for i, row in enumerate(submission_queue):
+        submission_id = row[0]
+        logger.debug('Processing submission: `%s`', submission_id)
+        partial_payload = translator.prepare_payload(row, row_map)
+        if validator.is_valid_payload(partial_payload, survey_dict):
+            payload, pre_submission = complete_payload(url, partial_payload)
+            if dry:
+                logger.info('Dry run. Valid row: `%s`.', submission_id)
+            else:
+                # Send submissions
+                success_response = send_submission(
+                    url, payload, pre_submission)
+                submission_row = get_submission_row(row, success_response)
+                sent_submissions[submission_id] = submission_row
+                logger.info('Submission sent: `%s`' % success_response)
+    logger.info(
+        'Submissions processed so far: `%s`', len(sent_submissions))
+    return sent_submissions
