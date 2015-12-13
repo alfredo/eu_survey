@@ -21,11 +21,10 @@ def get_expected_keys(tree):
 
 def is_valid_payload(payload, survey_dict):
     EXPECTED_KEYS = get_expected_keys(survey_dict['form_tree'].tree)
-    logger.debug('Submission payload keys: `%s`', len(payload.keys()))
-    logger.debug('Survey expected keys: `%s`', len(EXPECTED_KEYS))
     missing = set(EXPECTED_KEYS) - set(payload.keys())
     missing = missing - set(constants.SPECIAL_FIELDS)
     if missing:
         logging.error('Missing `%s` keys:\n`%s`', len(missing), missing)
         return False
+    logging.info('Valid payload found. `%s` keys' % len(payload.keys()))
     return True

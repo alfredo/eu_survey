@@ -38,10 +38,11 @@ def get_success_response(tree):
     return SuccessResponse(uid=uid, url=url)
 
 
-def send_submission(url, payload, pre_submission):
+def send_submission(url, payload, pre_submission, row_id, survey_dict):
     """Sends the submission payload to the survey URL."""
     response = post(url, data=payload, cookies=pre_submission.cookies)
-    filename = 'submissions/answer-%s.html' % payload[0]['id']
+    filename = '%s/submissions/%s--%s.html' % (
+        survey_dict['name'], survey_dict['filename_prefix'], row_id)
     database.save_file(response.content, name=filename)
     tree = html.fromstring(response.content)
     success_response = get_success_response(tree)
@@ -67,9 +68,9 @@ def get_sent_submissions(survey_dict):
     return submissions
 
 
-def get_submission_row(row, success_response):
+def get_submission_row(submission_id, response):
     """Generates a submission row to be recorded in the DB."""
-    assert False, row
+    return [submission_id, response.uid, response.url]
 
 
 def complete_payload(url, payload):
@@ -119,6 +120,8 @@ def process(url, name, dry=False):
     if (not export_path) or (not os.path.exists(export_path)):
         logger.error('Missing exported survey answers: `%s`', export_path)
         raise ValueError('Cannot submit survey.')
+    survey_dict['filename_prefix'] = (
+        export_path.rsplit('/', 1)[-1].replace('.csv', ''))
     submission_list = list(database.read_csv_file(export_path))
     row_map = translator.update_key_map(submission_list[0])
     sent_submissions = get_sent_submissions(survey_dict)
@@ -136,9 +139,10 @@ def process(url, name, dry=False):
             else:
                 # Send submissions
                 success_response = send_submission(
-                    url, payload, pre_submission)
-                submission_row = get_submission_row(row, success_response)
+                    url, payload, pre_submission, submission_id, survey_dict)
+                submission_row = get_submission_row(
+                    submission_id, success_response)
                 sent_submissions[submission_id] = submission_row
-                logger.info('Submission sent: `%s`' % success_response)
+                logger.info('Submission sent: `%s`', success_response)
     # Update with database with processed submissions:
     return save_sent_submissions(sent_submissions, survey_dict)
