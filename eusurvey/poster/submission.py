@@ -83,14 +83,15 @@ def complete_payload(url, payload):
     return payload, pre_submission
 
 
-def get_submission_queue(submission_list, existing_list):
+def get_submission_queue(submission_list, existing_list, prefix):
     """Filters any non-procesable submission"""
     submission_queue = []
-    for submission in submission_list[1:]:
-        if submission and (submission not in existing_list):
+    for submission in filter(None, submission_list[1:]):
+        submission_id = '%s--%s' % (prefix, submission[0])
+        if submission and (submission_id not in existing_list):
             submission_queue.append(submission)
         else:
-            logger.debug('Ignoring procesed submission: `%s`', submission)
+            logger.debug('Ignoring procesed submission: `%s`', submission_id)
     logger.debug('Found submissions: `%s`', len(submission_queue))
     return submission_queue
 
@@ -126,7 +127,7 @@ def process(url, name, dry=False):
     row_map = translator.update_key_map(submission_list[0])
     sent_submissions = get_sent_submissions(survey_dict)
     submission_queue = get_submission_queue(
-        submission_list, sent_submissions.keys())
+        submission_list, sent_submissions.keys(), survey_dict['filename_prefix'])
     for i, row in enumerate(submission_queue):
         submission_id = row[0]
         logger.debug('Processing submission: `%s`', submission_id)
