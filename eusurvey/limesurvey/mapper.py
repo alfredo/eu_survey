@@ -20,7 +20,7 @@ def create_mapper(survey_list):
         # Placeholder for the value translation:
         row.insert(3, '')
         mapper_list.append(row)
-    logger.info('Mapped rows: %s', len(mapper_list))
+    logger.debug('Mapped rows: %s', len(mapper_list))
     return mapper_list
 
 

@@ -96,16 +96,15 @@ def add_dependencies(row_list):
         metadata = row[-1]
         # `triggers` are the fields that activate this field:
         if 'triggers' in metadata and metadata['triggers']:
-            logger.info('%s - %s', i, metadata['triggers'])
             conditions = set([get_condition(t) for t in metadata['triggers']])
             conditions = filter(None, conditions)
             if conditions:
                 conditions = sorted(conditions)
                 conditions_str = ' OR '.join(conditions)
-                logger.debug(conditions_str)
                 if conditions_str in CONDITION_REPLACEMENTS:
                     new_str = CONDITION_REPLACEMENTS[conditions_str]
-                    logger.info('Replacing `%s` with `%s`', conditions_str, new_str)
+                    logger.debug(
+                        'Replacing `%s` with `%s`', conditions_str, new_str)
                     conditions_str = new_str
                 common.update_row(row, (
                     ('relevance', conditions_str),
