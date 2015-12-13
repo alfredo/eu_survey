@@ -127,12 +127,38 @@ def get_tabletable_translation(question):
     return translation_list
 
 
+def get_tablematrix_translation(question):
+    # m1707[a6251713] = v1712
+    question_tool_key, question_data_key = question[0][2:4]
+    answer_list = []
+    for answer in filter(lambda sq: sq[0] == 'A', question[1:]):
+        # Only consider translated values:
+        if answer[3]:
+            answer_list.append((answer[3], answer[2]))
+    translation_list = []
+    PATTERN = '%s[%s]'
+    for subquestion in filter(lambda sq: sq[0] == 'SQ', question[1:]):
+        sq_tool_key, sq_data_key = subquestion[2:4]
+        tool_key = PATTERN % (question_tool_key, sq_tool_key)
+        if question_data_key and sq_data_key:
+            data_key = PATTERN % (question_data_key, sq_data_key)
+        else:
+            data_key = ''
+        translation_list.append(Translation(**{
+            'tool_key': tool_key,
+            'data_key': data_key,
+            'values': dict(answer_list),
+        }))
+    return translation_list
+
+
 TRANSLATION_MAP = {
     'T': get_text_translation,
     'L': get_radio_translation,
     '!': get_select_translation,
     'M': get_multiple_translation,
     ';': get_tabletable_translation,
+    'F': get_tablematrix_translation,
 }
 
 
@@ -174,7 +200,6 @@ def translate_row(row, translated_map):
     for index, translation in translated_map:
         value = row[index] if index else ''
         if value and (translation.values is not None):
-            logger.info('%s', (index, translation, value))
             # Value has a translation, replace:
             if value in translation.values:
                 value = translation.values[value]
