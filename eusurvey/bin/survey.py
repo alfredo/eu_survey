@@ -8,6 +8,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--ingest', help='Imports the given URL.')
 parser.add_argument('--update', action='store_true')
 parser.add_argument('--forward', help='Submits the given URL.')
+parser.add_argument('--name', help='Name of the file to Forward.')
+parser.add_argument('--dry', action='store_true')
 parser.add_argument('--map', help='Maps given survey URL.')
 
 
@@ -16,7 +18,7 @@ if __name__ == "__main__":
     if args.ingest:
         engine.import_survey(args.ingest, args.update)
     elif args.forward:
-        engine.submit_surveys(args.forward)
+        engine.submit_surveys(args.forward, name=args.name, dry=args.dry)
     elif args.map:
         engine.map_survey(args.map)
     sys.exit(0)

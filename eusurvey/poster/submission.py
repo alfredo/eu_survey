@@ -113,8 +113,7 @@ def get_export_csv_path(survey_path, name):
     return None
 
 
-
-def process(url, name, dry=True):
+def process(url, name, dry=False):
     survey_dict = query.get_survey_dict(url)
     export_path = get_export_csv_path(survey_dict['survey_path'], name)
     if (not export_path) or (not os.path.exists(export_path)):

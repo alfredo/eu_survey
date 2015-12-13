@@ -15,9 +15,9 @@ def import_survey(url, update=False):
     return True
 
 
-def submit_surveys(url):
+def submit_surveys(url, name=None, dry=False):
     try:
-        submission.process(url, name=None)
+        submission.process(url, name=name, dry=dry)
     except ValueError, e:
         logger.error(e)
     return True
