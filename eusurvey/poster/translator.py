@@ -46,7 +46,9 @@ def get_answer_prefix(key_map):
     for key in key_map:
         if is_short_answer(key):
             return key[:4].replace('a', 'answer')
-    raise ValueError('Could not find the answer prefix.')
+    raise ValueError(
+        'Could not find the answer prefix. Check export answers CSV file is '
+        'in the right format.')
 
 
 def update_key_map(key_map):
