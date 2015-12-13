@@ -29,7 +29,8 @@ def split_map_questions(survey_map_list):
     """Splits the survey in questions."""
     survey_questions = []
     question_list = []
-    for row in survey_map_list:
+    total_rows = len(survey_map_list)
+    for i, row in enumerate(survey_map_list):
         row_class, row_type, row_name, row_translation, text = row
         # Sections are not relevant:
         if row_class in ['G']:
@@ -41,6 +42,9 @@ def split_map_questions(survey_map_list):
             question_list = [row]
         else:
             question_list.append(row)
+        # Last row, record:
+        if i == (total_rows - 1):
+            survey_questions.append(question_list)
     return survey_questions
 
 
