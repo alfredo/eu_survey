@@ -85,11 +85,12 @@ def get_multiple_translation(question):
     # a6251625[v1626]
     question_tool_key, question_data_key = question[0][2:4]
     translation_list = []
+    PATTERN = '%s[%s]'
     for answer in question[1:]:
-        tool_key, data_key = answer[2:4]
-        tool_key = '%s[%s]' % (question_tool_key, tool_key)
-        if question_data_key and data_key:
-            data_key = '%s[%s]' % (question_data_key, data_key)
+        answer_tool_key, answer_data_key = answer[2:4]
+        tool_key = PATTERN % (question_tool_key, answer_tool_key)
+        if question_data_key and answer_data_key:
+            data_key = PATTERN % (question_data_key, answer_data_key)
         else:
             data_key = ''
         translation_list.append(Translation(**{
@@ -99,11 +100,39 @@ def get_multiple_translation(question):
         }))
     return translation_list
 
+
+def get_tabletable_translation(question):
+    # m2016[sq2_5]
+    question_tool_key, question_data_key = question[0][2:4]
+    subquestion_list = []
+    for subquestion in filter(lambda sq: sq[1] == '0', question[1:]):
+        subquestion_list.append(subquestion[2:4])
+    translation_list = []
+    PATTERN = '%s[%s_%s]'
+    for answer in filter(lambda sq: sq[1] == '1', question[1:]):
+        answer_tool_key, answer_data_key = answer[2:4]
+        for subquestion_tool_key, subquestion_data_key in subquestion_list:
+            tool_key = PATTERN % (
+                question_tool_key, subquestion_tool_key, answer_tool_key)
+            if all([question_data_key, subquestion_data_key, answer_data_key]):
+                data_key = PATTERN % (
+                    question_data_key, subquestion_data_key, answer_data_key)
+            else:
+                data_key = ''
+            translation_list.append(Translation(**{
+                'tool_key': tool_key,
+                'data_key': data_key,
+                'values': None,
+            }))
+    return translation_list
+
+
 TRANSLATION_MAP = {
     'T': get_text_translation,
     'L': get_radio_translation,
     '!': get_select_translation,
     'M': get_multiple_translation,
+    ';': get_tabletable_translation,
 }
 
 
