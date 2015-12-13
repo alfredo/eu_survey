@@ -102,7 +102,7 @@ In this file the `translation` column must be updated with the `name` equivalent
 
 **3. Run the importer command**
 
-This command will generate a translated survey result.
+This command will generate a translated survey result in the DB folder `translated.csv`. This file will have the required columns for the submissions to be sent to the EUSurvey service.
 
 Usage:
 
