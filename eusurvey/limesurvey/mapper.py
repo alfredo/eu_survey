@@ -233,6 +233,5 @@ def process(url, name):
         get_translated_header(untranslated_header, translated_map)]
     for row in filter(None, untranslated_list[1:]):
         translated_row = translate_row(row, translated_map)
-        logger.info(translated_row)
         translation_list.append(translated_row)
     logger.info('Translated: %s', len(translation_list) - 1)
