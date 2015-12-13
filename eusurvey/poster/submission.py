@@ -33,9 +33,13 @@ def post(url, data=None, cookies=None):
 
 
 def get_success_response(tree):
-    uid = tree.xpath('//div[@id="divThanksInner"]/@name')[0]
-    url = tree.xpath('//a[@id="printButtonThanksInner"]/@href')[0]
-    return SuccessResponse(uid=uid, url=url)
+    try:
+        uid = tree.xpath('//div[@id="divThanksInner"]/@name')[0]
+        url = tree.xpath('//a[@id="printButtonThanksInner"]/@href')[0]
+        return SuccessResponse(uid=uid, url=url)
+    except IndexError:
+        logger.error('Submission failed see cached HTML for more details.')
+        return None
 
 
 def send_submission(url, payload, pre_submission, row_id, survey_dict):
@@ -141,6 +145,10 @@ def process(url, name, dry=False):
                 # Send submissions
                 success_response = send_submission(
                     url, payload, pre_submission, submission_id, survey_dict)
+                if not success_response:
+                    # Failed submission:
+                    logger.error('Failed to send: `%s`', submission_id)
+                    continue
                 submission_row = get_submission_row(
                     submission_id, survey_dict['filename_prefix'],
                     success_response)
