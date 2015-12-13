@@ -50,7 +50,7 @@ Translation = namedtuple('Translation', ['tool_key', 'data_key', 'values'])
 def get_header_translation(question, values=None):
     """Translates the header with optional values."""
     row_class, row_type, tool_key, data_key, text = question
-    values = values if values else []
+    values = values if values else None
     return Translation(**{
         'tool_key': tool_key,
         'data_key': data_key,
@@ -81,10 +81,29 @@ def get_select_translation(question):
     return get_choice_translation(question)
 
 
+def get_multiple_translation(question):
+    # a6251625[v1626]
+    question_tool_key, question_data_key = question[0][2:4]
+    translation_list = []
+    for answer in question[1:]:
+        tool_key, data_key = answer[2:4]
+        tool_key = '%s[%s]' % (question_tool_key, tool_key)
+        if question_data_key and data_key:
+            data_key = '%s[%s]' % (question_data_key, data_key)
+        else:
+            data_key = ''
+        translation_list.append(Translation(**{
+            'tool_key': tool_key,
+            'data_key': data_key,
+            'values': None,
+        }))
+    return translation_list
+
 TRANSLATION_MAP = {
     'T': get_text_translation,
     'L': get_radio_translation,
     '!': get_select_translation,
+    'M': get_multiple_translation,
 }
 
 
@@ -126,7 +145,8 @@ def translate_row(row, translated_map):
     for index, translation in translated_map:
         value = row[index] if index else ''
         if value and (translation.values is not None):
-            # Translation found for the value. Replace:
+            logger.info('%s', (index, translation, value))
+            # Value has a translation, replace:
             if value in translation.values:
                 value = translation.values[value]
             else:
