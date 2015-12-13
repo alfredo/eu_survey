@@ -68,9 +68,10 @@ def get_sent_submissions(survey_dict):
     return submissions
 
 
-def get_submission_row(submission_id, response):
+def get_submission_row(submission_id, prefix, response):
     """Generates a submission row to be recorded in the DB."""
-    return [submission_id, response.uid, response.url]
+    pk = '%s--%s' % (prefix, submission_id)
+    return [pk, response.uid, response.url]
 
 
 def complete_payload(url, payload):
@@ -106,7 +107,6 @@ def get_export_csv_path(survey_path, name):
     if name:
         return os.path.join(survey_path, name)
     # Try to findout a file that look like a survey:
-    item_list = []
     for item in os.listdir(survey_path):
         if item.startswith('results-survey') and item.endswith('.csv'):
             # Format of the exported surveys:
@@ -141,7 +141,8 @@ def process(url, name, dry=False):
                 success_response = send_submission(
                     url, payload, pre_submission, submission_id, survey_dict)
                 submission_row = get_submission_row(
-                    submission_id, success_response)
+                    submission_id, survey_dict['filename_prefix'],
+                    success_response)
                 sent_submissions[submission_id] = submission_row
                 logger.info('Submission sent: `%s`', success_response)
     # Update with database with processed submissions:
