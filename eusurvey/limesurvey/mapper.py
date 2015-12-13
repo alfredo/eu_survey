@@ -235,3 +235,6 @@ def process(url, name):
         translated_row = translate_row(row, translated_map)
         translation_list.append(translated_row)
     logger.info('Translated: %s', len(translation_list) - 1)
+    translated_path = os.path.join(survey_dict['survey_path'], 'translated.csv')
+    database.save_csv_file(translated_path, translation_list)
+    return True
