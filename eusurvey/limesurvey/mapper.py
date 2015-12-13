@@ -58,13 +58,8 @@ def get_header_translation(question, values=None):
     })
 
 
-def get_text_translation(question):
-    """Translates a text question."""
-    return [get_header_translation(question[0])]
-
-
-def get_radio_translation(question):
-    """Translates a radio question."""
+def get_choice_translation(question):
+    """Translates a question where the values are a single choice."""
     values = {}
     for answer in question[1:]:
         if answer[0].strip() in ['A']:
@@ -73,9 +68,23 @@ def get_radio_translation(question):
     return [get_header_translation(question[0], values)]
 
 
+def get_text_translation(question):
+    """Translates a text question."""
+    return [get_header_translation(question[0])]
+
+
+def get_radio_translation(question):
+    return get_choice_translation(question)
+
+
+def get_select_translation(question):
+    return get_choice_translation(question)
+
+
 TRANSLATION_MAP = {
     'T': get_text_translation,
     'L': get_radio_translation,
+    '!': get_select_translation,
 }
 
 
@@ -116,13 +125,11 @@ def translate_row(row, translated_map):
     translated_row = []
     for index, translation in translated_map:
         value = row[index] if index else ''
-        if translation.values:
+        if value and (translation.values is not None):
             # Translation found for the value. Replace:
             if value in translation.values:
                 value = translation.values[value]
             else:
-                # TODO: Improve logging
-                # Non translated values can't be accepted. Dropping:
                 logger.error('Dropping non-translated value: `%s`', value)
                 value = ''
         translated_row.append(value)
