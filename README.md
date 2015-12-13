@@ -43,7 +43,7 @@ Once the survey answers are ready to be sent back to the EUSurvey service they m
 - Headings using the "question code".
 - Using "answer codes" without converting the `Y` and `N` values.
 
-After this data has been exported it must be placed inside the `db` directory of the survey, and must be named `answers-export.csv`.
+After this data has been exported it must be placed inside the `db` directory of the survey. The tool will detect the file if using the LimeSurvey default export filename.
 
 After this is completed the form is ready to be sent to the service with the following command:
 

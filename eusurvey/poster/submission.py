@@ -100,10 +100,24 @@ def save_sent_submissions(sent_submissions, survey_dict):
     return sent_submissions
 
 
+def get_export_csv_path(survey_path, name):
+    """Returns the most likely file."""
+    if name:
+        return os.path.join(survey_path, name)
+    # Try to findout a file that look like a survey:
+    item_list = []
+    for item in os.listdir(survey_path):
+        if item.startswith('results-survey') and item.endswith('.csv'):
+            # Format of the exported surveys:
+            return os.path.join(survey_path, item)
+    return None
+
+
+
 def process(url, name, dry=True):
     survey_dict = query.get_survey_dict(url)
-    export_path = os.path.join(survey_dict['survey_path'], name)
-    if not os.path.exists(export_path):
+    export_path = get_export_csv_path(survey_dict['survey_path'], name)
+    if (not export_path) or (not os.path.exists(export_path)):
         logger.error('Missing exported survey answers: `%s`', export_path)
         raise ValueError('Cannot submit survey.')
     submission_list = list(database.read_csv_file(export_path))

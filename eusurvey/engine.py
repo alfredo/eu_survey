@@ -17,7 +17,7 @@ def import_survey(url, update=False):
 
 def submit_surveys(url):
     try:
-        submission.process(url, name='answers-export.csv')
+        submission.process(url, name=None)
     except ValueError, e:
         logger.error(e)
     return True
