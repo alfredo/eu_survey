@@ -15,6 +15,7 @@ from eusurvey.limesurvey.fields import (
     checkbox,
     tabletable,
     matrixtable,
+    inputtext,
 )
 
 
@@ -67,6 +68,7 @@ ROW_FILTERS = {
     'checkbox': checkbox.prepare_checkbox_row,
     'tabletable': tabletable.prepare_tabletable_row,
     'matrixtable': matrixtable.prepare_matrixtable_row,
+    'inputtext': inputtext.prepare_inputtext_row,
 }
 
 
