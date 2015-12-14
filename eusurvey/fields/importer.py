@@ -37,7 +37,9 @@ def extract_element(section):
     if content_element:
         return content_element
     logger.error('Extractor for section not found:\n %s', to_str(section))
-    assert False, to_str(section)
+    logger.error('Please add the extractor in `eusurvey.fields.importer` '
+                 'before continue.')
+    exit(2)
 
 
 def get_form_pages(tree):
