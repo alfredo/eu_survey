@@ -4,10 +4,12 @@ from eusurvey.fields.common import to_str, get, get_inner_html
 PATTERN_LIST = [
     u'.//div[contains(@class, "sectiontitle")]',
     u'.//div[@class="text"]',
+    u'.//div[@class="alignment-div"]',
+    u'.//a[@class="visiblelink"]',
 ]
 
 
-class Content:
+class Content(object):
     text = ''
     field_type = 'content'
     is_supplementary = False
