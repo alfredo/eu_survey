@@ -13,6 +13,8 @@ def to_str(element):
 def get(element_list):
     """Validates there is a single element in the list."""
     if not len(element_list) == 1:
+        for element in element_list:
+            logger.error(to_str(element))
         raise ValueError(
             'Different number of elements than expected: `%s`' % element_list)
     return element_list[0]
