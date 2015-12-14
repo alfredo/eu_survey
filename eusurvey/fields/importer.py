@@ -11,6 +11,7 @@ from eusurvey.fields.extractors import (
     tabletable,
     matrixtable,
     content,
+    inputtext,
 )
 from eusurvey.limesurvey import importer as lime_importer, mapper
 
@@ -24,6 +25,7 @@ EXTRACTOR_LIST = (
     checkbox.CheckboxFieldExtractor,
     tabletable.TableTableFieldExtractor,
     matrixtable.MatrixRadioFieldExtractor,
+    inputtext.InputtextFieldExtractor,
 )
 
 
