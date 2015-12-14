@@ -3,6 +3,7 @@ import requests
 import logging
 
 from eusurvey import settings
+from eusurvey.fields.common import get, get_inner_html
 from eusurvey.models import FormTree
 from slugify import slugify
 from lxml import html
@@ -19,7 +20,13 @@ def get_form_tree(url):
 
 def get_form_title(tree):
     """Gets the title of the form."""
-    return tree.xpath('//div[@class="surveytitle"]/text()')[0]
+    title = get(tree.xpath('//div[@class="surveytitle"]'))
+    remove_elements = (
+        '<div class="surveytitle">',
+        '</div>',
+    )
+    title_text = get_inner_html(title, remove_elements)
+    return title_text
 
 
 def get_survey_dict(url):

@@ -28,7 +28,13 @@ def is_mandatory(question):
 def get_label(field_element):
     """Determines the label for the field_element."""
     label_field = get(field_element.xpath('.//td/label'))
-    return get(label_field.xpath('.//span[@class="answertext"]/text()'))
+    label = get(label_field.xpath('.//span[@class="answertext"]'))
+    remove_elements = (
+        '<span class="answertext">',
+        '</span>',
+    )
+    label_text = get_inner_html(label, remove_elements)
+    return label_text
 
 
 def get_inner_html(element, remove_elements):
