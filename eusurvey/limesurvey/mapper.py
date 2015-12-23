@@ -215,15 +215,41 @@ def translate_row(row, translated_map):
     return full_row
 
 
+def get_data_index(untranslated_header):
+    """Determines the index for the data that should be translated.
+
+    Assumes limesurvey fields are in this order."""
+    # Ordered list of fields of limesurvey export.
+    FIELDS = [
+        'id',
+        'submitdate',
+        'lastpage',
+        'startlanguage',
+        'startdate',
+        'datestamp',
+    ]
+    index = 0
+    for key in FIELDS:
+        try:
+            index = untranslated_header.index(key)
+        except ValueError:
+            break
+    return index + 1
+
+
 def get_translated_header(untranslated_header, translated_map):
+    """Determines the headers for the index."""
     header = []
     for index, translation in translated_map:
         header.append(translation.tool_key)
-    full_header = untranslated_header[:6] + header
+    # Determine index when the submission data starts:
+    index = get_data_index(untranslated_header)
+    full_header = untranslated_header[:index] + header
     return full_header
 
 
 def process(url, name):
+    """Main process to translate the given URL."""
     survey_dict = query.get_survey_dict(url)
     map_path = os.path.join(survey_dict['survey_path'], 'limesurvey_map.csv')
     survey_map = database.read_csv_file(map_path)
