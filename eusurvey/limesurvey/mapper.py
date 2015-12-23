@@ -199,7 +199,7 @@ def get_translated_map(survey_map_list, untranslated_headers):
     return translated_map
 
 
-def translate_row(row, translated_map):
+def translate_row(row, translated_map, data_index):
     translated_row = []
     for index, translation in translated_map:
         value = row[index] if index else ''
@@ -211,7 +211,7 @@ def translate_row(row, translated_map):
                 logger.error('Dropping non-translated value: `%s`', value)
                 value = ''
         translated_row.append(value)
-    full_row = row[:6] + translated_row
+    full_row = row[:data_index] + translated_row
     return full_row
 
 
@@ -237,14 +237,12 @@ def get_data_index(untranslated_header):
     return index + 1
 
 
-def get_translated_header(untranslated_header, translated_map):
+def get_translated_header(untranslated_header, translated_map, data_index):
     """Determines the headers for the index."""
     header = []
     for index, translation in translated_map:
         header.append(translation.tool_key)
-    # Determine index when the submission data starts:
-    index = get_data_index(untranslated_header)
-    full_header = untranslated_header[:index] + header
+    full_header = untranslated_header[:data_index] + header
     return full_header
 
 
@@ -257,12 +255,16 @@ def process(url, name):
     untranslated_rows = database.read_csv_file(untranslated_path)
     untranslated_list = list(untranslated_rows)
     untranslated_header = untranslated_list[0]
+    # Determine index when the submission data starts:
+    data_index = get_data_index(untranslated_header)
     translated_map = get_translated_map(survey_map, untranslated_header)
     # Prepare the translated output
-    translation_list = [
-        get_translated_header(untranslated_header, translated_map)]
+    translated_header = get_translated_header(
+        untranslated_header, translated_map, data_index)
+    translation_list = [translated_header]
     for row in filter(None, untranslated_list[1:]):
-        translated_row = translate_row(row, translated_map)
+        translated_row = translate_row(row, translated_map, data_index)
+        assert len(translated_header) == len(translated_row), 'Missmatch row count'
         translation_list.append(translated_row)
     logger.info('Translated: %s', len(translation_list) - 1)
     translated_path = os.path.join(survey_dict['survey_path'], 'translated.csv')
