@@ -113,9 +113,12 @@ def get_tabletable_translation(question):
         subquestion_list.append(subquestion[2:4])
     translation_list = []
     PATTERN = '%s[%s_%s]'
-    for answer in filter(lambda sq: sq[1] == '1', question[1:]):
-        answer_tool_key, answer_data_key = answer[2:4]
-        for subquestion_tool_key, subquestion_data_key in subquestion_list:
+    # Loop in this order (subquestion then answer) because that's how
+    # LimeSurvey does its exports and we want our answer files to be in the
+    # same column order
+    for subquestion_tool_key, subquestion_data_key in subquestion_list:
+        for answer in filter(lambda sq: sq[1] == '1', question[1:]):
+            answer_tool_key, answer_data_key = answer[2:4]
             tool_key = PATTERN % (
                 question_tool_key, subquestion_tool_key, answer_tool_key)
             if all([question_data_key, subquestion_data_key, answer_data_key]):
