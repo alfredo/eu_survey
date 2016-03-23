@@ -1,6 +1,6 @@
 # EUSurvey bridge
 
-This tool gathers and maps EUSurvey fields into a LimeSurvey format.
+This tool gathers and maps EUSurvey fields into a LimeSurvey importable format.
 
 
 ## Installation
@@ -16,6 +16,7 @@ And install the python package with:
 
     python setup develop
 
+This will install and configure the application package in the current python environment.
 
 ## Import a survey
 
@@ -106,4 +107,4 @@ This command will generate a translated survey result in the DB folder `translat
 
 Usage:
 
-   survey.py --map https://ec.europa.eu/eusurvey/runner/Platforms/
+    survey.py --map https://ec.europa.eu/eusurvey/runner/Platforms/
