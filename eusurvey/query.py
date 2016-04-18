@@ -7,13 +7,25 @@ from eusurvey.fields.common import get, get_inner_html
 from eusurvey.models import FormTree
 from slugify import slugify
 from lxml import html
+from urlparse import urlparse, parse_qs, urlunparse
+from urllib import urlencode
 
 logger = logging.getLogger(__name__)
 
 
+def clean_url(url, params):
+    url_parts = list(urlparse(url))
+    querystring = parse_qs(url_parts[4])
+    if params:
+        querystring.update(params)
+        url_parts[4] = urlencode(querystring)
+    return urlunparse(url_parts)
+
+
 def get_form_tree(url, params=None):
     """Reads the form URL."""
-    response = requests.get(url, params, headers=settings.HEADERS)
+    cleaned_url = clean_url(url, params)
+    response = requests.get(cleaned_url, headers=settings.HEADERS)
     tree = html.fromstring(response.content)
     return FormTree(tree=tree, response=response, stream=response.content,
                     language=tree.attrib.get('lang'))
