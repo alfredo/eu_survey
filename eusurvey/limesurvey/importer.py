@@ -1,7 +1,5 @@
 import logging
 
-logger = logging.getLogger(__name__)
-
 from eusurvey.limesurvey import (
     constants,
     common,
@@ -17,6 +15,8 @@ from eusurvey.limesurvey.fields import (
     matrixtable,
     inputtext,
 )
+
+logger = logging.getLogger(__name__)
 
 
 def get_settings_rows(total):
