@@ -1,7 +1,6 @@
 import logging
 
 from eusurvey import database, query
-from eusurvey.fields import renderer
 from eusurvey.fields.common import to_str, get
 from eusurvey.fields.extractors import (
     radio,
@@ -73,8 +72,20 @@ def get_page_fields(tree, page):
     return field_list
 
 
+def process_language(form_tree):
+    language = form_tree.language
+    survey_list = []
+    page_list = get_form_pages(form_tree.tree)
+    for page in page_list:
+        # TODO add language to page fields. Stop hardcoding it.
+        fields = get_page_fields(form_tree.tree, page)
+        survey_list.append((page, fields))
+    return survey_list
+
+
 def process(url, is_update=False):
     survey_dict = query.get_survey_dict(url)
+    # Prepare file structure:
     if is_update:
         logger.info(
             'Updating existing imported survey: `%s`', survey_dict['name'])
@@ -85,14 +96,9 @@ def process(url, is_update=False):
             # Survey couldn't be created return an error.
             raise ValueError('Survey could not be created.')
     survey_dict.update(db_dict)
-    form_tree = survey_dict['form_tree']
-    page_list = get_form_pages(form_tree.tree)
-    survey_list = []
-    for page in page_list:
-        fields = get_page_fields(form_tree.tree, page)
-        survey_list.append((page, fields))
-    # TODO: Activate this with a flag:
-    #  renderer.render(survey_list)
+    # Extract fields for the original language:
+    survey_list = process_language(survey_dict['form_tree'])
+    # TODO: Process each translated survey and add ordered fields to the list:
     lime_dict = lime_importer.convert_survey_list(survey_list)
     survey_dict['limesurvey'] = lime_dict['full_list']
     survey_dict['limesurvey_map'] = mapper.create_mapper(lime_dict['questions'])
