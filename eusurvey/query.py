@@ -30,11 +30,16 @@ def get_form_title(tree):
     return title_text
 
 
+def get_survey_name(url):
+    """Determines the survey name."""
+    return slugify(url, only_ascii=True)
+
+
 def get_survey_dict(url):
     """Extracts the survey information."""
     form_tree = get_form_tree(url)
-    name = slugify(url, only_ascii=True)
     title = get_form_title(form_tree.tree)
+    name = get_survey_name(url)
     return {
         'url': url,
         'name': name,
