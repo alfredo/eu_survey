@@ -1,3 +1,4 @@
+import re
 import logging
 import traceback
 
@@ -34,16 +35,21 @@ def get_label(field_element):
     """Determines the label for the field_element."""
     label_field = get(field_element.xpath('.//td/label'))
     label = get(label_field.xpath('.//div[@class="answertext"]'))
-    remove_elements = (
-        '<span class="answertext">',
-        '</span>',
-    )
-    label_text = get_inner_html(label, remove_elements)
+    label_text = get_inner_html(label)
     return label_text
 
 
-def get_inner_html(element, remove_elements):
+def get_inner_html(element):
     element_str = to_str(element)
+    element_str = ''.join(element_str.splitlines()).strip()
+    # Remove start tag:
+    element_str = re.sub(r'^<(.*?)>', '', element_str)
+    # Remove end tag:
+    element_str = re.sub(r'</[\w ]+>$', '', element_str)
+    return element_str
+
+
+def replace_elements(element, remove_elements):
     for item in remove_elements:
         element_str = element_str.replace(item, '')
     return ''.join(element_str.splitlines())
@@ -52,11 +58,7 @@ def get_inner_html(element, remove_elements):
 def get_question_title(section):
     pattern = './/div[@class="questiontitle"]/table/tr/td'
     element = section.xpath(pattern)[1]
-    remove_elements = (
-        '<td style="width: 100%">',
-        '</td>'
-    )
-    return get_inner_html(element, remove_elements)
+    return get_inner_html(element)
 
 
 def get_data_triggers(section):
@@ -90,11 +92,7 @@ def get_help_text(section):
     help_text = section.xpath(pattern)
     if help_text:
         element = get(help_text)
-        remove_elements = (
-            '<div class="questionhelp">',
-            '</div>',
-        )
-        result = get_inner_html(element, remove_elements)
+        result = get_inner_html(element)
         return result if result else None
     return None
 
@@ -119,7 +117,7 @@ def get_limits(section):
             'and',
             'choices',
         )
-        limits = get_inner_html(element, remove_elements)
+        limits = replace_elements(element, remove_elements)
         try:
             limit_list = [int(l) for l in limits.split()]
         except ValueError:

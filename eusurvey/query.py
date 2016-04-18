@@ -34,11 +34,7 @@ def get_form_tree(url, params=None):
 def get_form_title(tree):
     """Gets the title of the form."""
     title = get(tree.xpath('//div[@class="surveytitle"]'))
-    remove_elements = (
-        '<div class="surveytitle">',
-        '</div>',
-    )
-    title_text = get_inner_html(title, remove_elements)
+    title_text = get_inner_html(title)
     return title_text
 
 
