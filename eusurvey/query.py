@@ -11,11 +11,12 @@ from lxml import html
 logger = logging.getLogger(__name__)
 
 
-def get_form_tree(url):
+def get_form_tree(url, params=None):
     """Reads the form URL."""
-    response = requests.get(url, headers=settings.HEADERS)
+    response = requests.get(url, params, headers=settings.HEADERS)
     tree = html.fromstring(response.content)
-    return FormTree(tree=tree, response=response, stream=response.content)
+    return FormTree(tree=tree, response=response, stream=response.content,
+                    language=tree.attrib.get('lang'))
 
 
 def get_form_title(tree):
