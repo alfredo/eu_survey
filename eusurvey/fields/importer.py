@@ -66,7 +66,7 @@ def get_page_fields(tree, page):
     page_id = 'page%s' % page['id'].replace('tab', '')
     page_element = get(tree.xpath('.//div[@id="%s"]' % page_id))
     field_list = []
-    for element in page_element.xpath('.//div[@class="elem_basic"]'):
+    for element in page_element.xpath('.//div[@class="elementwrapper"]'):
         item = extract_element(element)
         field_list.append(item)
     return field_list
