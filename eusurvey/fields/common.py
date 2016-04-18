@@ -1,4 +1,5 @@
 import logging
+import traceback
 
 from lxml import etree
 
@@ -15,8 +16,10 @@ def get(element_list):
     if not len(element_list) == 1:
         for element in element_list:
             logger.error(to_str(element))
-        raise ValueError(
-            'Different number of elements than expected: `%s`' % element_list)
+        # Determine where the error happened:
+        traceback.print_stack()
+        raise ValueError('Expected to extract a single element. Received: `%s`'
+                         % element_list)
     return element_list[0]
 
 
