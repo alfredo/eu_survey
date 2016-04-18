@@ -86,9 +86,17 @@ def init_db(survey):
     config_path = create_config(config_list, survey_path)
     form_path = os.path.join(survey_path, 'source.html')
     save_file(survey['form_tree'].stream, form_path)
+    # Save translations:
+    trans_list = []
+    for translation in survey['translations']:
+        trans_name = 'source__%s.html' % translation.language
+        trans_path = os.path.join(survey_path, trans_name)
+        save_file(translation.stream, trans_path)
+        trans_list.append(trans_path)
     return {
         'config_path': config_path,
         'form_path': form_path,
+        'translations_path': trans_list,
     }
 
 
