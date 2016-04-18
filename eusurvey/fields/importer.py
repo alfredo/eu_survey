@@ -43,7 +43,7 @@ def extract_element(section):
     exit(2)
 
 
-def get_form_pages(tree):
+def get_form_pages(tree, language):
     """Extracts the forms sections from the given tree."""
     IGNORED_PAGES = ['Submission']
     section_list = []
@@ -57,7 +57,8 @@ def get_form_pages(tree):
         section_list.append({
             'title': title,
             'id': html_id,
-            'data_id': data_id
+            'data_id': data_id,
+            'language': language,
         })
     return section_list
 
@@ -75,7 +76,7 @@ def get_page_fields(tree, page):
 def process_language(form_tree):
     language = form_tree.language
     survey_list = []
-    page_list = get_form_pages(form_tree.tree)
+    page_list = get_form_pages(form_tree.tree, language)
     for page in page_list:
         # TODO add language to page fields. Stop hardcoding it.
         fields = get_page_fields(form_tree.tree, page)
