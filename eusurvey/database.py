@@ -104,9 +104,15 @@ def read_db(survey):
     survey_path = survey['survey_path']
     config_path = os.path.join(survey_path, 'config.cfg')
     form_path = os.path.join(survey_path, 'source.html')
+    # Get translations:
+    trans_list = []
+    for filename in os.listdir(survey_path):
+        if filename.startswith('source__'):
+            trans_list.append(os.path.join(survey_path, filename))
     return {
         'config_path': config_path,
         'form_path': form_path,
+        'translation_paths': trans_list,
     }
 
 
