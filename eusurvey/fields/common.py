@@ -43,7 +43,7 @@ def get_label(field_element):
 
 
 def get_inner_html(element, remove_elements):
-    element_str =  to_str(element)
+    element_str = to_str(element)
     for item in remove_elements:
         element_str = element_str.replace(item, '')
     return ''.join(element_str.splitlines())
