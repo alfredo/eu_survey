@@ -108,3 +108,15 @@ This command will generate a translated survey result in the DB folder `translat
 Usage:
 
     survey.py --map https://ec.europa.eu/eusurvey/runner/Platforms/
+
+
+# Maintenance
+
+These are some maintenance notes that might be helpful as the EUsurvey is updated.
+
+
+## EUSurvey markup update
+
+Since the tool is based entirely in the EUSurvey HTML any changes in upcoming releases would need to be amended. This will be noticed because when the `ingest` command is run it will raise an exception.
+
+See [example of xpath updates](https://github.com/alfredo/eu_survey/commit/be5e62ef61bd83062035d07434895cba8cb774c7). For this EUSurvey release the elements containing the fieldsets in the survey changed CSS class name and the tag wrapping the field labels mark up changed as well, so the xpath of these selectors was updated accordingly.
