@@ -120,6 +120,7 @@ GLOBAL_SETTINGS = [
     ('S', '', 'savetimings', '', 'N'),
     ('S', '', 'template', '', 'default'),
     ('S', '', 'language', '', 'en'),
+    ('S', '', 'additional_languages', '', ''),
     ('S', '', 'datestamp', '', 'Y'),
     ('S', '', 'usecookie', '', 'N'),
     ('S', '', 'allowregister', '', 'N'),
