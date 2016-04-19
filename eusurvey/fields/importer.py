@@ -103,8 +103,13 @@ def process(url, is_update=False):
     survey_dict.update(db_dict)
     # Extract fields for the original language:
     lime_dict = process_language(survey_dict['form_tree'])
-    # TODO: Process each translated survey and add ordered fields to the list:
-    survey_dict['limesurvey'] = lime_dict['full_list']
+    # Prepare limesurvey output:
+    limesurvey_tuples = lime_dict['full_list']
+    for form_tree in survey_dict['translations']:
+        logger.debug('Processing survey in `%s`.', form_tree.language)
+        translated_lime_dict = process_language(form_tree)
+        limesurvey_tuples += translated_lime_dict['full_list']
+    survey_dict['limesurvey'] = limesurvey_tuples
     survey_dict['limesurvey_map'] = mapper.create_mapper(lime_dict['questions'])
     database.complete_db(survey_dict)
     return True
