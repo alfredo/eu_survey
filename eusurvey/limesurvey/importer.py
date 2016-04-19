@@ -1,5 +1,6 @@
 import logging
 
+from eusurvey import query
 from eusurvey.limesurvey import (
     constants,
     common,
@@ -19,11 +20,28 @@ from eusurvey.limesurvey.fields import (
 logger = logging.getLogger(__name__)
 
 
-def get_settings_rows(total):
+def get_custom_settings(form_tree):
+    """Extracts custom settings from the given form_tree"""
+    language_list = query.get_language_list(
+        form_tree.tree, ignore_list=[form_tree.language])
+    additional_languages = ' '.join([l.lower() for l in language_list])
+    return {
+        'language': form_tree.language.lower(),
+        'additional_languages': additional_languages,
+    }
+
+
+def get_settings_rows(form_tree, total):
+    """Creates LimeSurvey settings rows."""
+    custom_settings = get_custom_settings(form_tree)
     settings_rows = []
     for row in constants.GLOBAL_SETTINGS:
         missing = common.get_missing(row, total)
         full_row = list(row) + missing
+        # Update any custom setting value:
+        row_id = full_row[2]
+        if row_id in custom_settings:
+            full_row[4] = custom_settings[row_id]
         settings_rows.append(full_row)
     return settings_rows
 
@@ -111,6 +129,14 @@ def prepare_survey_list(survey_list, total, language='en'):
     return prepared_survey_list
 
 
+def get_survey_configuration(form_tree):
+    """Returns the main configuration for this survey"""
+    total = len(constants.COLUMNS)
+    row_list = [constants.COLUMNS]
+    row_list += get_settings_rows(form_tree, total)
+    return row_list
+
+
 def convert_survey_list(survey_list, language):
     """Transform the survey elements into a list of LimeSurvey rows.
 
@@ -121,9 +147,7 @@ def convert_survey_list(survey_list, language):
     """
     # TODO: Determine dynamically name and details of the imported survey.
     total = len(constants.COLUMNS)
-    row_list = [constants.COLUMNS]
-    row_list += get_settings_rows(total)
-    row_list += get_local_settings_rows(total, language)
+    row_list = get_local_settings_rows(total, language)
     survey_list = prepare_survey_list(survey_list, total, language)
     row_list += survey_list
     updated_row_list = postprocessor.update_row_list(row_list)
