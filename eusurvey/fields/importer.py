@@ -84,7 +84,8 @@ def process_language(form_tree):
         # TODO add language to page fields. Stop hardcoding it.
         fields = get_page_fields(form_tree.tree, page)
         survey_list.append((page, fields))
-    return survey_list
+    result = lime_importer.convert_survey_list(survey_list, language)
+    return result
 
 
 def process(url, is_update=False):
@@ -101,9 +102,8 @@ def process(url, is_update=False):
             raise ValueError('Survey could not be created.')
     survey_dict.update(db_dict)
     # Extract fields for the original language:
-    survey_list = process_language(survey_dict['form_tree'])
+    lime_dict = process_language(survey_dict['form_tree'])
     # TODO: Process each translated survey and add ordered fields to the list:
-    lime_dict = lime_importer.convert_survey_list(survey_list)
     survey_dict['limesurvey'] = lime_dict['full_list']
     survey_dict['limesurvey_map'] = mapper.create_mapper(lime_dict['questions'])
     database.complete_db(survey_dict)
