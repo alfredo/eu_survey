@@ -176,6 +176,3 @@ EN_SETTINGS= [
     ('SL', '', 'email_admin_responses', '', 'Hello,<br /> <br /> A new response was submitted for your survey "{SURVEYNAME}".<br /> <br /> Click the following link to reload the survey:<br /> {RELOADURL}<br /> <br /> Click the following link to see the individual response:<br /> {VIEWRESPONSEURL}<br /> <br /> Click the following link to edit the individual response:<br /> {EDITRESPONSEURL}<br /> <br /> View statistics by clicking here:<br /> {STATISTICSURL}<br /> <br /> <br /> The following answers were given by the participant:<br /> {ANSWERTABLE}', '', 'en'),
     ('SL', '', 'surveyls_numberformat', '', '0', '', 'en'),
 ]
-
-
-HARD_ROWS = []
