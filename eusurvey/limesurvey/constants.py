@@ -111,7 +111,6 @@ COLUMNS = [
 ]
 
 GLOBAL_SETTINGS = [
-    ('S', '', 'sid', '', '561617'),
     ('S', '', 'owner_id', '', '1'),
     ('S', '', 'admin', '', 'LimeSurvey Development Team'),
     ('S', '', 'active', '', 'N'),
