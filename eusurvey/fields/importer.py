@@ -88,6 +88,7 @@ def process_language(form_tree):
 
 
 def process(url, is_update=False):
+    """Main function to ingest the EUsurvey into a limesurvey format."""
     survey_dict = query.get_survey_dict(url)
     # Prepare file structure:
     if is_update:
@@ -103,12 +104,17 @@ def process(url, is_update=False):
     # Extract fields for the original language:
     lime_dict = process_language(survey_dict['form_tree'])
     # Prepare limesurvey output:
-    limesurvey_tuples = lime_dict['full_list']
+    # Use main form_tree to determine configuration:
+    limesurvey_tuples = lime_importer.get_survey_configuration(
+        survey_dict['form_tree'])
+    # Add all the configuration fields:
+    limesurvey_tuples += lime_dict['full_list']
     for form_tree in survey_dict['translations']:
         logger.debug('Processing survey in `%s`.', form_tree.language)
         translated_lime_dict = process_language(form_tree)
         limesurvey_tuples += translated_lime_dict['full_list']
     survey_dict['limesurvey'] = limesurvey_tuples
+    # Create a manual map to the default questions:
     survey_dict['limesurvey_map'] = mapper.create_mapper(lime_dict['questions'])
     database.complete_db(survey_dict)
     return True
