@@ -81,7 +81,6 @@ def process_language(form_tree):
     survey_list = []
     page_list = get_form_pages(form_tree.tree, language)
     for page in page_list:
-        # TODO add language to page fields. Stop hardcoding it.
         fields = get_page_fields(form_tree.tree, page)
         survey_list.append((page, fields))
     result = lime_importer.convert_survey_list(survey_list, language)
