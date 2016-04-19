@@ -74,7 +74,10 @@ def get_page_fields(tree, page):
 
 
 def process_language(form_tree):
-    language = form_tree.language
+    """Extracts the limesurvey fields from the given form_tree.
+
+    The form_tree contains description of the language it is in."""
+    language = form_tree.language.lower()
     survey_list = []
     page_list = get_form_pages(form_tree.tree, language)
     for page in page_list:
