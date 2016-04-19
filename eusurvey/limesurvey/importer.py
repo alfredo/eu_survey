@@ -1,7 +1,7 @@
 import logging
 
 from eusurvey import query
-from eusurvey.fields.common import get, get_inner_html
+from eusurvey.fields.common import get, get_inner_html, strip_tags
 from eusurvey.limesurvey import (
     constants,
     common,
@@ -56,6 +56,7 @@ def extract_locale_settings(tree):
     for key, selector in value_list:
         value = get(tree.xpath(selector))
         value = get_inner_html(value)
+        value = strip_tags(value)
         results.append((key, value.strip()))
     return dict(results)
 
