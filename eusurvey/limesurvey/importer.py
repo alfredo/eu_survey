@@ -98,10 +98,14 @@ def update_language(survey_list, language):
 def prepare_survey_list(survey_list, total, language='en'):
     prepared_survey_list = []
     for i, (page, formset_list) in enumerate(survey_list):
-        prepared_survey_list.append(get_page_row(page, total, formset_list))
+        page_row = get_page_row(page, total, formset_list)
         partial_list = prepare_formset_list(formset_list, total)
         if partial_list:
+            prepared_survey_list.append(page_row)
             prepared_survey_list += partial_list
+        else:
+            logger.warning('Ignoring section because of missing fields: `%s`',
+                           page)
     # Update language for the survey_list
     prepared_survey_list = update_language(prepared_survey_list, language)
     return prepared_survey_list
