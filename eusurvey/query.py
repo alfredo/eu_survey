@@ -51,14 +51,17 @@ def get_survey_name(url):
     return slugify(url, only_ascii=True)
 
 
-def get_survey_dict(url):
+def get_survey_dict(url, with_translations=True):
     """Extracts the survey information."""
     form_tree = get_form_tree(url)
     name = get_survey_name(url)
-    language_list = get_language_list(
-        form_tree.tree, ignore_list=[form_tree.language])
-    _lang_form = lambda l: get_form_tree(url, params={'surveylanguage': l})
-    translations = [_lang_form(l) for l in language_list]
+    if with_translations:
+        language_list = get_language_list(
+            form_tree.tree, ignore_list=[form_tree.language])
+        _lang_form = lambda l: get_form_tree(url, params={'surveylanguage': l})
+        translations = [_lang_form(l) for l in language_list]
+    else:
+        translations = []
     return {
         'id': None,
         'url': url,
