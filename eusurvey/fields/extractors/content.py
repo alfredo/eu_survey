@@ -40,6 +40,8 @@ class Content(object):
     field = None
     field_type = 'content'
     is_supplementary = False
+    field_id = None
+    data_triggers = None
 
     def __init__(self, section):
         self.section = section
