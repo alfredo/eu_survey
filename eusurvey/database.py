@@ -123,7 +123,6 @@ def complete_db(survey_dict):
     save_csv_tab_file(limesurvey_path, survey_dict['limesurvey'])
     limesurvey_map_path = os.path.join(survey_path, 'limesurvey_map.csv')
     save_csv_file(limesurvey_map_path, survey_dict['limesurvey_map'])
-    # TODO: Save `limesurvey_map` CSV file.
     return {
         'limesurvey_path': limesurvey_path,
         'limesurvey_map_path': limesurvey_map_path,
