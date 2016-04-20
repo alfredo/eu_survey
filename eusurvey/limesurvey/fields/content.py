@@ -31,7 +31,7 @@ def get_text_row(formset, total):
         ('time_limit_action', '1'),
     ))
     # Add row metadata:
-    # full_row.append(formset.get_dependencies())
+    full_row.append(formset.get_dependencies())
     return [full_row]
 
 
