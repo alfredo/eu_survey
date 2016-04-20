@@ -91,13 +91,8 @@ def get_local_settings_rows(total, form_tree):
 
 
 def get_page_text(formset_list):
-    text_list = []
-    for element in formset_list:
-        if not element.field_type == 'content':
-            break
-        text_partial = ''.join(element.text.splitlines())
-        text_list.append(text_partial)
-    return ''.join(text_list)
+    """Determines if there is any text as part of the page title."""
+    return ''
 
 
 def get_page_row(page, total, formset_list):
