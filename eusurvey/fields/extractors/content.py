@@ -18,7 +18,6 @@ PATTERN_LIST = [
 
 
 def get_text_attributes(section):
-    print to_str(section)
     _a = lambda x: section.attrib.get(x)
     attrs = ['id', 'data-id']
     field = dict([(k, _a(k)) for k in attrs])
