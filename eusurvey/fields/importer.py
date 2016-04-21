@@ -1,7 +1,7 @@
 import logging
 
 from eusurvey import database, query
-from eusurvey.fields.common import to_str, get
+from eusurvey.fields.common import to_str, get, strip_tags, get_inner_html
 from eusurvey.fields.extractors import (
     radio,
     select,
@@ -43,13 +43,19 @@ def extract_element(section):
     exit(2)
 
 
+def get_page_title(section):
+    title = get(section)
+    title = get_inner_html(title)
+    return strip_tags(title)
+
+
 def get_form_pages(tree, language):
     """Extracts the forms sections from the given tree."""
     IGNORED_PAGES = ['Submission']
     section_list = []
     for section in tree.xpath('//div[contains(@class, "pagebutton")]'):
         data_id = section.attrib['data-id']
-        title = section.xpath('a/div/text()')[0].strip()
+        title = get_page_title(section)
         html_id = section.xpath('a/@id')[0].strip()
         if title in IGNORED_PAGES:
             logger.debug('Ignoring page: `%s`', title)
