@@ -120,7 +120,7 @@ def get_export_csv_path(survey_path, name):
 
 
 def process(url, name, dry=False):
-    survey_dict = query.get_survey_dict(url)
+    survey_dict = query.get_survey_dict(url, with_translations=False)
     export_path = get_export_csv_path(survey_dict['survey_path'], name)
     if (not export_path) or (not os.path.exists(export_path)):
         logger.error('Missing exported survey answers: `%s`', export_path)
@@ -134,17 +134,19 @@ def process(url, name, dry=False):
         submission_list, sent_submissions.keys(), survey_dict['filename_prefix'])
     for i, row in enumerate(submission_queue):
         submission_id = row[0]
+        language = row[3].upper()
+        locale_url = query.clean_url(url, {'surveylanguage': language})
         logger.debug('Processing submission: `%s`', submission_id)
         partial_payload = translator.prepare_payload(row, row_map)
         if validator.is_valid_payload(partial_payload, survey_dict):
-            payload, pre_submission = complete_payload(url, partial_payload)
+            payload, pre_submission = complete_payload(locale_url, partial_payload)
             if dry:
                 logger.info('Dry run. Valid row: `%s`.', submission_id)
                 continue
             else:
                 # Send submissions
                 success_response = send_submission(
-                    url, payload, pre_submission, submission_id, survey_dict)
+                    locale_url, payload, pre_submission, submission_id, survey_dict)
                 if not success_response:
                     # Failed submission:
                     logger.error('Failed to send: `%s`', submission_id)

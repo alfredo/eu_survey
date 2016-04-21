@@ -13,7 +13,7 @@ with codecs.open(here('README.md'), encoding='utf-8') as f:
 
 setup(
     name='eusurvey',
-    version='0.1.1',
+    version='0.1.2',
     description='EU Survey bridge.',
     long_description=long_description,
     author='Mozilla',

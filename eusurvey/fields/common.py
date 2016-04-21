@@ -1,8 +1,10 @@
+import bleach
 import re
 import logging
 import traceback
 
 from lxml import etree
+
 
 logger = logging.getLogger(__name__)
 
@@ -133,3 +135,9 @@ def get_matrix_id(section):
     pattern = './/div[contains(@class, "survey-element")]'
     matrix = get(section.xpath(pattern))
     return matrix.attrib['id']
+
+
+def strip_tags(stream):
+    """Removes HTML tags."""
+    return bleach.clean(
+        stream, tags=[], attributes={}, styles={}, strip=True).strip()

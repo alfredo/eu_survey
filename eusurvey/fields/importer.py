@@ -1,7 +1,7 @@
 import logging
 
 from eusurvey import database, query
-from eusurvey.fields.common import to_str, get
+from eusurvey.fields.common import to_str, get, strip_tags, get_inner_html
 from eusurvey.fields.extractors import (
     radio,
     select,
@@ -43,13 +43,19 @@ def extract_element(section):
     exit(2)
 
 
+def get_page_title(section):
+    title = get(section)
+    title = get_inner_html(title)
+    return strip_tags(title)
+
+
 def get_form_pages(tree, language):
     """Extracts the forms sections from the given tree."""
     IGNORED_PAGES = ['Submission']
     section_list = []
     for section in tree.xpath('//div[contains(@class, "pagebutton")]'):
         data_id = section.attrib['data-id']
-        title = section.xpath('a/div/text()')[0].strip()
+        title = get_page_title(section)
         html_id = section.xpath('a/@id')[0].strip()
         if title in IGNORED_PAGES:
             logger.debug('Ignoring page: `%s`', title)
@@ -74,17 +80,21 @@ def get_page_fields(tree, page):
 
 
 def process_language(form_tree):
-    language = form_tree.language
+    """Extracts the limesurvey fields from the given form_tree.
+
+    The form_tree contains description of the language it is in."""
+    language = form_tree.language.lower()
     survey_list = []
     page_list = get_form_pages(form_tree.tree, language)
     for page in page_list:
-        # TODO add language to page fields. Stop hardcoding it.
         fields = get_page_fields(form_tree.tree, page)
         survey_list.append((page, fields))
-    return survey_list
+    result = lime_importer.convert_survey_list(survey_list, form_tree)
+    return result
 
 
 def process(url, is_update=False):
+    """Main function to ingest the EUsurvey into a limesurvey format."""
     survey_dict = query.get_survey_dict(url)
     # Prepare file structure:
     if is_update:
@@ -98,10 +108,19 @@ def process(url, is_update=False):
             raise ValueError('Survey could not be created.')
     survey_dict.update(db_dict)
     # Extract fields for the original language:
-    survey_list = process_language(survey_dict['form_tree'])
-    # TODO: Process each translated survey and add ordered fields to the list:
-    lime_dict = lime_importer.convert_survey_list(survey_list)
-    survey_dict['limesurvey'] = lime_dict['full_list']
+    lime_dict = process_language(survey_dict['form_tree'])
+    # Prepare limesurvey output:
+    # Use main form_tree to determine configuration:
+    limesurvey_tuples = lime_importer.get_survey_configuration(
+        survey_dict['form_tree'])
+    # Add all the configuration fields:
+    limesurvey_tuples += lime_dict['full_list']
+    for form_tree in survey_dict['translations']:
+        logger.debug('Processing survey in `%s`.', form_tree.language)
+        translated_lime_dict = process_language(form_tree)
+        limesurvey_tuples += translated_lime_dict['full_list']
+    survey_dict['limesurvey'] = limesurvey_tuples
+    # Create a manual map to the default questions:
     survey_dict['limesurvey_map'] = mapper.create_mapper(lime_dict['questions'])
     database.complete_db(survey_dict)
     return True
