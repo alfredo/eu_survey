@@ -140,4 +140,4 @@ def get_matrix_id(section):
 def strip_tags(stream):
     """Removes HTML tags."""
     return bleach.clean(
-        stream, tags=[], attributes={}, styles={}, strip=True)
+        stream, tags=[], attributes={}, styles={}, strip=True).strip()
