@@ -56,6 +56,10 @@ Where `URL` is a EUSurvey URL. e.g.
 
 This command will send back the survey exports one by one. Please note that the tool will stop if a row is not ready to be sent.
 
+There is a `dry` mode that can pre-validate the forms before sending the form. This validates that the fields in the survey are the same fields that will be forwarded.
+
+    survey.py --forward https://ec.europa.eu/eusurvey/runner/Platforms/ --dry
+
 
 # DB structure
 
