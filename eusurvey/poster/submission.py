@@ -145,7 +145,7 @@ def process(url, name, dry=False):
         submission_list, sent_submissions.keys(), survey_dict['filename_prefix'])
     for i, row in enumerate(submission_queue):
         submission_id = row[0]
-        language = get_row_languages(row, available_languages)
+        language = get_row_language(row, available_languages)
         locale_url = query.clean_url(url, {'surveylanguage': language})
         logger.debug('Processing submission: `%s`', submission_id)
         partial_payload = translator.prepare_payload(row, row_map)
