@@ -134,7 +134,8 @@ def process(url, name, dry=False):
         survey_dict['form_tree'].tree)
     export_path = get_export_csv_path(survey_dict['survey_path'], name)
     if (not export_path) or (not os.path.exists(export_path)):
-        logger.error('Missing exported survey answers: `%s`', export_path)
+        answers_name = export_path if export_path else survey_dict['survey_path']
+        logger.error('Missing exported survey answers: `%s`', answers_name)
         raise ValueError('Cannot submit survey.')
     survey_dict['filename_prefix'] = (
         export_path.rsplit('/', 1)[-1].replace('.csv', ''))
